@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_item_rl"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal|top"
+    android:layout_marginTop="@dimen/item_double_divider">
+
+    <TextView
+        android:id="@+id/search_item_tips_tv"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/dw_search_item_btn"
+        android:gravity="center"
+        android:text="请输入鞋子的品牌或产品" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_search_magnifying_glass" />
+
+</RelativeLayout>

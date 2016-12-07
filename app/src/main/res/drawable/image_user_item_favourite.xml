@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="25dp"
+    android:height="25dp"
+    android:viewportHeight="274"
+    android:viewportWidth="268">
+    <path
+        android:name="椭圆 54"
+        android:fillColor="#3F51B5"
+        android:pathData="m131 -0c72.35 0 131 58.65 131 131c0 72.35 -58.65 131 -131 131c-72.35 0 -131 -58.65 -131 -131c0 -72.35 58.65 -131 131 -131z" />
+    <path
+        android:name="形状 38"
+        android:fillColor="#213f59"
+        android:pathData="m153 56 -94 141 66 64.87c1.99 0.09 3.99 0.13 6 0.13c64.6 0 118.27 -46.76 129.04 -108.27l-107.04 -97.73z" />
+    <path
+        android:name="矩形 54"
+        android:fillColor="#ffd7b4"
+        android:pathData="m97 118h15v74h-15v-74z" />
+    <path
+        android:name="圆角矩形 14"
+        android:fillColor="#ffd7b4"
+        android:pathData="m115.04 168h65.92c4.99 0 14.04 6.99 14.04 15c0 8.01 -9.05 14 -14.04 14h-65.92c-4.99 0 -9.04 -6.49 -9.04 -14.5c0 -8.01 4.05 -14.5 9.04 -14.5z" />
+    <path
+        android:name="圆角矩形 15"
+        android:fillColor="#ffd7b4"
+        android:pathData="m112.24 148h78.28c5.65 0 12.48 6.1 12.48 13c0 6.9 -6.83 12 -12.48 12h-78.28c-5.65 0 -10.24 -5.6 -10.24 -12.5c0 -6.9 4.58 -12.5 10.24 -12.5z" />
+    <path
+        android:name="圆角矩形 16"
+        android:fillColor="#ffd7b4"
+        android:pathData="m118.02 124h71.95c6.09 0 11.02 5.82 11.02 13c0 7.18 -4.94 13 -11.02 13h-71.95c-6.09 0 -11.02 -5.82 -11.02 -13c0 -7.18 4.94 -13 11.02 -13z" />
+    <path
+        android:name="圆角矩形 17"
+        android:fillColor="#ffd7b4"
+        android:pathData="m131.52 102h52.97c6.36 0 11.52 5.15 11.52 11.5c0 6.35 -5.16 11.5 -11.52 11.5h-52.97c-6.36 0 -11.52 -5.15 -11.52 -11.5c0 -6.35 5.16 -11.5 11.52 -11.5z" />
+    <path
+        android:name="形状 37"
+        android:fillColor="#ffd7b4"
+        android:pathData="m130.38 58.72c0 0 4.92 -19.1 24.62 -1.72c0 0 8.97 26.83 0 48.9c-8.42 20.71 -7.38 19.86 -7.38 19.86l-40.62 1.24l1.23 -9.93c0 0 16.62 -12.41 18.46 -28.55" />
+    <path
+        android:name="椭圆 55"
+        android:fillColor="#f1c40f"
+        android:pathData="m80.5 175c3.59 0 6.5 2.91 6.5 6.5c0 3.59 -2.91 6.5 -6.5 6.5c-3.59 0 -6.5 -2.91 -6.5 -6.5c0 -3.59 2.91 -6.5 6.5 -6.5z" />
+</vector>

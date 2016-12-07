@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="94dp"
+    android:height="102dp"
+    android:viewportWidth="94"
+    android:viewportHeight="102">
+    <path
+        android:fillColor="#eee"
+        android:name="Shape 1 copy 5"
+        android:pathData="m46.9 7.86c21.57 0 39.05 17.49 39.05 39.06c0 21.57 -17.48 39.06 -39.05 39.06c-21.57 0 -39.05 -17.49 -39.05 -39.06c0 -21.57 17.48 -39.06 39.05 -39.06z" />
+    <path
+        android:fillColor="#eee"
+        android:fillAlpha="0.7"
+        android:name="Shape 1 copy 2"
+        android:pathData="m46.9 7.86c21.57 0 39.05 17.49 39.05 39.06c0 21.57 -17.48 39.06 -39.05 39.06c-21.57 0 -39.05 -17.49 -39.05 -39.06c0 -21.57 17.48 -39.06 39.05 -39.06z" />
+    <path
+        android:fillColor="#eee"
+        android:fillAlpha="0"
+        android:name="Shape 1 copy"
+        android:pathData="m46.9 7.86c21.57 0 39.05 17.49 39.05 39.06c0 21.57 -17.48 39.06 -39.05 39.06c-21.57 0 -39.05 -17.49 -39.05 -39.06c0 -21.57 17.48 -39.06 39.05 -39.06z" />
+    <path
+        android:fillColor="#eee"
+        android:name="Shape 1 copy 3"
+        android:pathData="m46.9 7.86c21.57 0 39.05 17.49 39.05 39.06c0 21.57 -17.48 39.06 -39.05 39.06c-21.57 0 -39.05 -17.49 -39.05 -39.06c0 -21.57 17.48 -39.06 39.05 -39.06z" />
+    <path
+        android:fillColor="#518dcd"
+        android:fillAlpha="0.7"
+        android:name="Shape 133"
+        android:pathData="m59.78 31.32 -3.16 3.16c-2.81 -2.09 -6.14 -3.13 -9.48 -3.13c-4.05 0 -8.1 1.54 -11.2 4.64c-2.78 2.78 -4.3 6.33 -4.58 9.95l5.34 1.13c0.02 -1.54 0.38 -3.08 1.07 -4.5l0.04 0.01c0.49 -0.97 1.14 -1.89 1.95 -2.7c2.04 -2.04 4.72 -3.06 7.4 -3.06c1.93 0 3.85 0.53 5.54 1.58l-3.4 3.4l13.26 2.8l-1.46 -7.08l-1.33 -6.19zm-2.14 16.15c-0.03 1.53 -0.38 3.06 -1.07 4.47l-0.04 -0.01c-0.49 0.97 -1.13 1.89 -1.95 2.7c-2.04 2.05 -4.72 3.07 -7.4 3.07c-1.93 0 -3.85 -0.53 -5.54 -1.58l3.37 -3.37l-13.25 -2.8l0.94 4.56l1.86 8.68l3.16 -3.16c2.81 2.09 6.14 3.13 9.47 3.13c4.05 0 8.11 -1.54 11.2 -4.64c2.77 -2.77 4.29 -6.3 4.58 -9.92l-5.34 -1.13z" />
+</vector>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#e58455</color>
+
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <color name="colorBackground">#cbe8fa</color>
+
+    <color name="colorAssist">#2e4f92</color>
+    <color name="colorAssistLight">#426cc2</color>
+
+    <color name="colorMain">#7ec8db</color>
+
+    <color name="colorSpecial">#d65b1c</color>
+    <color name="colorSpecialLight">#e58455</color>
+
+    <color name="colorSpecialConverse">#c9062a</color>
+    <color name="colorSpecialConverseLight">#e13457</color>
+
+    <color name="colorGrayTrans">#c8515151</color>
+    <color name="colorCouponItemLayout">#fcbe72</color>
+    <color name="colorCouponItemUsedLayout">#c5bb54</color>
+    <color name="colorCouponItemUnableLayout">#dddddd</color>
+
+
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_product_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".product.Product_Act">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/product_shoe_img_vp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/product_coupon_img"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/item_double_divider"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_product_coupon"
+        android:visibility="invisible" />
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<Button-->
+    <!--android:id="@+id/product_color_standard_btn"-->
+    <!--android:layout_width="70dp"-->
+    <!--android:layout_height="30dp" />-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/product_color_pick_ll"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical" />-->
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/product_ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <!--<ImageButton-->
+        <!--android:id="@+id/product_scan_imgbtn"-->
+        <!--style="@style/product_bar_imgbtn_style"-->
+        <!--android:src="@drawable/ic_product_scan" />-->
+
+        <ImageButton
+            android:id="@+id/product_fav_imgbtn"
+            style="@style/product_bar_imgbtn_style"
+            android:src="@drawable/ic_product_favorite_dark" />
+
+        <ImageButton
+            android:id="@+id/product_cart_imgbtn"
+            style="@style/product_bar_imgbtn_style"
+            android:src="@drawable/ic_product_shopcart_dark" />
+
+        <Button
+            android:id="@+id/product_add_cart_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:background="@drawable/dw_product_bar_btn"
+            android:text="@string/product_add_cart_btn"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/product_details_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/product_shoe_img_vp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/product_details_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/product_ll"
+        android:layout_below="@id/product_details_tab" />
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>

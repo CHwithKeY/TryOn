@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="wale_tech.tryon.user.User_Act">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorMain"
+            android:paddingBottom="@dimen/item_divider"
+            android:paddingTop="@dimen/item_divider">
+
+            <ImageButton
+                android:id="@+id/user_avatar_imgbtn"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/item_double_divider"
+                android:layout_marginRight="@dimen/item_double_divider"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/user_imgbtn_avatar_content_description"
+                android:scaleType="centerInside"
+                android:src="@drawable/image_user_avatar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/user_avatar_imgbtn"
+                android:layout_toStartOf="@id/user_avatar_imgbtn"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/user_username_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/image_user_avatar_badget"
+                    android:drawablePadding="@dimen/item_divider"
+                    android:drawableStart="@drawable/image_user_avatar_badget"
+                    android:text="Username"
+                    android:textSize="@dimen/text_large_size" />
+
+                <TextView
+                    android:id="@+id/user_level_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="等级：1级"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_large_size" />
+
+                <TextView
+                    android:id="@+id/user_mark_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="积分：300"
+                    android:textSize="@dimen/text_large_size" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <include layout="@layout/public_back_item" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_double_divider"
+        android:layout_marginRight="@dimen/item_double_divider"
+        android:layout_marginTop="@dimen/item_opf_divider"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/user_coupon_imgbtn"
+                style="@style/user_imgbtn_style"
+                android:contentDescription="@string/user_imgbtn_coupon_content_description"
+                android:src="@drawable/image_user_coupon" />
+
+            <TextView
+                style="@style/user_imgbtn_tv_style"
+                android:text="@string/user_imgbtn_coupon_tv" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/user_history_imgbtn"
+                style="@style/user_imgbtn_style"
+                android:contentDescription="@string/user_imgbtn_history_content_description"
+                android:src="@drawable/image_user_history" />
+
+            <TextView
+                style="@style/user_imgbtn_tv_style"
+                android:text="@string/user_imgbtn_history_tv" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/user_cart_imgbtn"
+                style="@style/user_imgbtn_style"
+                android:contentDescription="@string/user_imgbtn_cart_content_description"
+                android:src="@drawable/image_user_cart" />
+
+            <TextView
+                style="@style/user_imgbtn_tv_style"
+                android:text="@string/user_imgbtn_cart_tv" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/item_double_divider"
+        android:layout_marginRight="@dimen/item_double_divider"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/user_favourite_btn"
+            style="@style/user_item_btn_style"
+            android:drawableLeft="@drawable/image_user_item_favourite"
+            android:drawableStart="@drawable/image_user_item_favourite"
+            android:text="@string/user_item_favourite_tv" />
+
+        <Button
+            android:id="@+id/user_order_btn"
+            style="@style/user_item_btn_style"
+            android:drawableLeft="@drawable/image_user_item_order"
+            android:drawableStart="@drawable/image_user_item_order"
+            android:text="@string/user_item_order_tv" />
+
+        <Button
+            android:id="@+id/user_address_btn"
+            style="@style/user_item_btn_style"
+            android:drawableLeft="@drawable/image_user_item_address"
+            android:drawableStart="@drawable/image_user_item_address"
+            android:text="@string/user_item_address_tv" />
+
+        <Button
+            android:id="@+id/user_advice_btn"
+            style="@style/user_item_btn_style"
+            android:drawableLeft="@drawable/image_user_item_advice"
+            android:drawableStart="@drawable/image_user_item_advice"
+            android:text="@string/user_item_advice_tv" />
+
+        <Button
+            android:id="@+id/user_setting_btn"
+            style="@style/user_item_btn_style"
+            android:drawableLeft="@drawable/image_user_item_setting"
+            android:drawableStart="@drawable/image_user_item_setting"
+            android:text="@string/user_item_setting_tv" />
+
+        <Button
+            android:id="@+id/user_logout_btn"
+            style="@style/user_item_btn_style"
+            android:drawableLeft="@drawable/image_user_item_logout"
+            android:drawableStart="@drawable/image_user_item_logout"
+            android:text="@string/user_item_logout_tv" />
+
+    </LinearLayout>
+
+    <include layout="@layout/public_snack_page" />
+
+</LinearLayout>

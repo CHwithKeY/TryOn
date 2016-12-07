@@ -1,0 +1,195 @@
+<resources>
+    <string name="app_name">TryOn</string>
+
+    <!-- Error -->
+    <string name="error_snackbar_can_not_find_coordinatorLayout">SnackBar没有引入布局</string>
+    <string name="error_load_more_no_adapter_type">没有给 adapter 确定类型</string>
+
+    <!-- Base -->
+    <string name="base_toast_net_down">网络不可用，请检查网络</string>
+    <string name="base_toast_net_worse">网络连接不稳定，请稍后再试</string>
+    <string name="base_toast_login_first">请先登录</string>
+
+    <string name="base_snack_function_closed">功能尚未开放，敬请期待！</string>
+
+    <string name="base_snack_no_item">没有一条记录</string>
+    <string name="base_snack_no_more_item">没有更多的了</string>
+    <string name="base_snack_no_item_been_selected">没有一个项目被选中</string>
+
+    <string name="base_search_progress_title">查询</string>
+    <string name="base_search_progress_msg">正在查询，请稍后……</string>
+
+    <string name="base_add_progress_title">添加</string>
+    <string name="base_add_progress_msg">正在添加，请稍后……</string>
+
+    <string name="base_delete_progress_title">删除</string>
+    <string name="base_delete_progress_msg">正在删除，请稍后……</string>
+
+    <string name="base_refresh_progress_title">更新</string>
+    <string name="base_refresh_progress_msg">正在更新数据，请稍后……</string>
+
+    <string name="base_cancel_progress_title">取消</string>
+    <string name="base_cancel_progress_msg">正在取消，请稍后……</string>
+
+    <string name="base_dialog_delete_title">删除</string>
+    <string name="base_dialog_delete_message">是否要删除所选中的产品</string>
+
+    <string name="base_dialog_operate_title">操作</string>
+    <string name="base_dialog_operate_msg">正在操作，请稍后……</string>
+
+    <string name="base_dialog_btn_yes">是</string>
+    <string name="base_dialog_btn_no">否</string>
+
+    <string name="base_dialog_btn_confirm">确定</string>
+    <string name="base_dialog_btn_sure">确定</string>
+    <string name="base_dialog_btn_cancel">取消</string>
+
+    <string name="base_dialog_btn_okay">好的</string>
+
+    <string name="base_item_all">所有</string>
+
+    <!-- ScanAction -->
+    <string name="scan_progress_title">扫描</string>
+    <string name="scan_progress_msg">正在扫描并获取数据，请稍后……</string>
+
+    <!-- activity_login_layout -->
+    <string name="login_imgbtn_switch_content_description">用于切换注册和登录的图片</string>
+    <string name="login_imgbtn_icon_content_description">其他社交APP的图片</string>
+
+    <string name="login_usn_iet_hint">请输入用户名</string>
+    <string name="login_psd_iet_hint">请输入密码</string>
+    <string name="login_psd_confirm_iet_hint">请确认密码</string>
+
+    <string name="login_triangle_login_tv">登录</string>
+    <string name="login_triangle_register_tv">注册</string>
+
+    <string name="login_login_btn">登\t录</string>
+    <string name="login_register_btn">注\t册</string>
+
+    <string name="login_sex_radio_btn_male">男</string>
+    <string name="login_sex_radio_btn_female">女</string>
+
+    <string name="login_snack_sex_isNull">请选择性别</string>
+    <string name="login_snack_usn_psd_isNull">用户名或密码为空</string>
+    <string name="login_snack_psd_isDifferent">两次输入的密码不一样</string>
+
+    <string name="login_login_progress_title">登录</string>
+    <string name="login_login_progress_msg">登录中，请稍后……</string>
+
+    <string name="login_register_progress_title">注册</string>
+    <string name="login_register_progress_msg">注册中，请稍后……</string>
+
+    <!-- activity_user_layout -->
+    <string name="user_imgbtn_avatar_content_description">用户头像的图片</string>
+    <string name="user_imgbtn_history_content_description">足迹的图片</string>
+    <string name="user_imgbtn_coupon_content_description">优惠券的图片</string>
+    <string name="user_imgbtn_cart_content_description">购物车的图片</string>
+
+    <string name="user_imgbtn_coupon_tv">优惠券</string>
+    <string name="user_imgbtn_history_tv">足迹</string>
+    <string name="user_imgbtn_cart_tv">购物车</string>
+
+    <string name="user_item_favourite_tv">我 的 收 藏</string>
+    <string name="user_item_order_tv">我 的 订 单</string>
+    <string name="user_item_address_tv">收 货 地 址</string>
+    <string name="user_item_advice_tv">意 见 建 议</string>
+    <string name="user_item_setting_tv">系 统 设 置</string>
+    <string name="user_item_logout_tv">退 出 登 录</string>
+
+    <!-- activity_coupon_layout -->
+    <string name="coupon_tab_coupon_enable">可用</string>
+    <string name="coupon_tab_coupon_used">已使用</string>
+    <string name="coupon_tab_coupon_unable">不可用</string>
+
+    <!-- activity_product_layout -->
+    <string name="product_toolbar_title">产品信息</string>
+    <string name="product_add_cart_btn">加入购物车</string>
+    <string name="product_buy_btn">立即下单</string>
+
+    <string name="product_list_params_brand">品牌</string>
+    <string name="product_list_params_product">款名</string>
+    <string name="product_list_params_color">颜色</string>
+    <string name="product_list_params_size">尺寸</string>
+    <string name="product_list_params_gender">性别</string>
+    <string name="product_list_params_type">类别</string>
+    <string name="product_list_params_price">价格</string>
+    <string name="product_list_params_store">所在门店</string>
+
+    <string name="product_item_already_exists">已有该收藏</string>
+
+    <!-- activity_order_layout -->
+    <string name="order_item_order_number">订单号：</string>
+    <string name="order_item_whole_price">总金额：</string>
+
+    <string name="order_item_item_count">数量</string>
+    <string name="order_item_item_price">金额</string>
+
+    <!-- activity_cart_layout -->
+    <string name="cart_menu_item_edit">编辑</string>
+    <string name="cart_menu_item_finish">完成</string>
+
+    <string name="cart_whole_price_tv">合计金额：</string>
+    <string name="cart_make_order_tv">立即下单</string>
+    <string name="cart_rmb_tv">元</string>
+
+    <string name="cart_dialog_order_confirm_title">订单确认</string>
+    <string name="cart_dialog_order_confirm_msg">是否要购买所选中的产品？</string>
+
+    <string name="cart_snack_count_can_not_be_zero">数量不可以为0</string>
+
+    <!-- Pattern -->
+    <string name="pattern_price_tv">价格：0.00</string>
+    <string name="pattern_stock_tv">库存：0件</string>
+    <string name="pattern_toast_size_btn">请先选择颜色</string>
+
+    <!-- Coupon -->
+    <string name="coupon_list_params_name">券名</string>
+    <string name="coupon_list_params_discount">折扣率</string>
+    <string name="coupon_list_params_store">适用门店</string>
+
+    <string name="coupon_list_params_brand">适用品牌</string>
+    <string name="coupon_list_params_product_name">适用款名</string>
+    <string name="coupon_list_params_time">使用时间</string>
+
+    <string name="coupon_list_params_number">券号</string>
+    <string name="coupon_list_params_type">类别</string>
+    <string name="coupon_list_params_content">描述</string>
+    <string name="coupon_list_params_status">状态</string>
+
+    <!-- activity_setting_layout -->
+    <string name="setting_update_tv">版本更新</string>
+    <string name="setting_refresh_time_tv">设置刷新时间</string>
+    <string name="setting_get_refresh_time_tv">查看刷新时间</string>
+
+    <!-- activity_update_layout -->
+    <string name="update_version_tv">版本号：</string>
+    <string name="update_check_tv">检查更新</string>
+
+    <!-- Update_Act -->
+    <string name="update_toolbar_title">版本更新</string>
+
+    <string name="update_dialog_title">版本更新</string>
+    <string name="update_dialog_msg">检测到新版本，请问是否更新？</string>
+
+    <string name="update_snack_is_Latest_version">当前已经是最新版本</string>
+
+    <string name="update_downloading_latest_version">正在下载更新</string>
+
+    <!-- Authorize_Act -->
+    <string name="auth_toolbar_title">权限管理</string>
+
+    <string name="auth_config_tv">语言权限</string>
+    <string name="auth_camera_tv">相机权限</string>
+    <string name="auth_location_tv">地图权限</string>
+    <string name="auth_read_state_tv">推送权限</string>
+    <string name="auth_storage_tv">更新权限</string>
+    <string name="auth_warm_tips_tv">为了您更好的体验，建议您开启所有权限。</string>
+
+    <string name="auth_toast_permission_camera_authorized">请打开权限，否则无法正常扫码</string>
+    <string name="auth_toast_permission_update_authorized">请打开权限，否则无法下载新版本</string>
+
+    <string name="auth_dialog_title">权限设置</string>
+    <string name="auth_dialog_map_permission_msg">由于您未授予地图权限，因此无法显示地图功能，请点击右上角进入“个人信息”—>“授权”中进行设置</string>
+    <string name="auth_dialog_language_permission_msg">由于您未授予语言权限，因此无法使用切换语言功能，请点击“授权”进行设置</string>
+
+</resources>

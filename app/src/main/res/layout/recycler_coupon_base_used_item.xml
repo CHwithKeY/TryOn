@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_coupon_rl"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="@dimen/item_divider"
+    android:background="@color/colorCouponItemUsedLayout"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/rv_coupon_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorCouponItemUsedLayout"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_coupon_used" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/rv_coupon_img"
+        android:layout_toStartOf="@id/rv_coupon_img"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/rv_coupon_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="耐克优惠券"
+            android:textColor="@android:color/black"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/rv_coupon_discount_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----- 9折-----"
+            android:textSize="@dimen/text_x_large_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/item_three_time_divider"
+        android:background="@android:drawable/divider_horizontal_textfield" />
+
+    <TextView
+        android:id="@+id/rv_coupon_time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/item_half_divider"
+        android:gravity="center"
+        android:text="使用时间：2016.10.10 -- 2016.11.11" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/item_divider"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_coupon_used_post" />
+
+</RelativeLayout>

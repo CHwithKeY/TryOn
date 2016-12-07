@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cart_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.cart.Cart_Act">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cart_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_shoe_cart_item" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/rv_whole_price_tv"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:text="@string/cart_whole_price_tv" />
+
+        <TextView
+            android:id="@+id/rv_make_order_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@android:color/holo_red_light"
+            android:gravity="center"
+            android:text="@string/cart_make_order_tv"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/rv_pattern_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrayTrans"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity="bottom"
+            android:background="@android:color/white">
+
+            <include layout="@layout/recycler_shoe_base_item" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/colorBackground"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/rv_price_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.7"
+                    android:gravity="center"
+                    android:text="金额：289.45" />
+
+                <TextView
+                    android:id="@+id/rv_confirm_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:background="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</FrameLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="product_standard">
+        <item>@string/product_list_params_brand</item>
+        <item>@string/product_list_params_product</item>
+        <item>@string/product_list_params_color</item>
+        <item>@string/product_list_params_size</item>
+        <item>@string/product_list_params_type</item>
+        <item>@string/product_list_params_gender</item>
+        <item>@string/product_list_params_price</item>
+    </array>
+
+    <array name="coupon_full">
+        <item>@string/coupon_list_params_number</item>
+        <item>@string/coupon_list_params_name</item>
+        <item>@string/coupon_list_params_discount</item>
+
+        <item>@string/coupon_list_params_store</item>
+        <item>@string/coupon_list_params_brand</item>
+        <item>@string/coupon_list_params_content</item>
+        <item>@string/coupon_list_params_time</item>
+    </array>
+
+</resources>

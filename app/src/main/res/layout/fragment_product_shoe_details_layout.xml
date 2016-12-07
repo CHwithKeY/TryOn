@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <include layout="@layout/divider_horizontal_item" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ListView
+            android:id="@+id/shoe_details_standard_lv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:divider="@color/colorMain"
+            android:dividerHeight="1px"
+            android:scrollbars="none" />
+
+        <include layout="@layout/divider_vertical_item" />
+
+        <ListView
+            android:id="@+id/shoe_details_params_lv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:divider="@color/colorMain"
+            android:dividerHeight="1px"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <include layout="@layout/divider_horizontal_item" />
+
+</LinearLayout>

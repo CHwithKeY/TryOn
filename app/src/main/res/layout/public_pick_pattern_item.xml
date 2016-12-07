@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_pick_pattern_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/item_pick_standard_btn"
+        android:layout_width="70dp"
+        android:layout_height="30dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_double_divider"
+        android:layout_marginRight="@dimen/item_double_divider">
+
+        <TextView
+            android:id="@+id/item_pick_color_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/item_divider"
+            android:text="颜色选择"
+            android:textColor="@color/colorAssist" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/item_pick_color_tv"
+            android:layout_toStartOf="@id/item_pick_color_tv"
+            android:background="@color/colorAssist" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/item_pick_color_tv"
+            android:layout_toRightOf="@id/item_pick_color_tv"
+            android:background="@color/colorAssist" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_pick_pattern_color_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_double_divider"
+        android:layout_marginRight="@dimen/item_double_divider">
+
+        <TextView
+            android:id="@+id/item_pick_size_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/item_divider"
+            android:text="尺码选择"
+            android:textColor="@color/colorAssist" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/item_pick_size_tv"
+            android:layout_toStartOf="@id/item_pick_size_tv"
+            android:background="@color/colorAssist" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/item_pick_size_tv"
+            android:layout_toRightOf="@id/item_pick_size_tv"
+            android:background="@color/colorAssist" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_pick_pattern_size_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+</LinearLayout>

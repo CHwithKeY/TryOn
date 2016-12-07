@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wale_tech.tryon.login.Login_Act">
+
+    <include layout="@layout/public_back_item" />
+
+    <ImageButton
+        android:id="@+id/login_switch_imgbtn"
+        style="@style/login_right_top_style"
+        android:layout_width="95dp"
+        android:layout_height="83dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/login_imgbtn_switch_content_description"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_login_triangle_register" />
+
+    <TextView
+        android:id="@+id/login_switch_tv"
+        style="@style/login_right_top_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/item_divider"
+        android:text="@string/login_triangle_register_tv"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_large_size"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/login_psd_input"
+        style="@style/login_input_style"
+        android:layout_centerInParent="true"
+        android:focusable="false">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/login_psd_iet"
+            style="@style/login_iet_style"
+            android:drawableLeft="@drawable/ic_login_psd"
+            android:drawableStart="@drawable/ic_login_psd"
+            android:hint="@string/login_psd_iet_hint"
+            android:inputType="textPassword" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/login_usn_input"
+        style="@style/login_input_style"
+        android:layout_above="@id/login_psd_input"
+        android:layout_centerHorizontal="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/login_usn_iet"
+            style="@style/login_iet_style"
+            android:drawableLeft="@drawable/ic_login_user"
+            android:drawableStart="@drawable/ic_login_user"
+            android:hint="@string/login_usn_iet_hint" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/login_reg_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_psd_input"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_psd_confirm_input"
+            style="@style/login_input_style">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/login_psd_confirm_iet"
+                style="@style/login_iet_style"
+                android:drawableLeft="@drawable/ic_login_psd_confirm"
+                android:drawableStart="@drawable/ic_login_psd_confirm"
+                android:hint="@string/login_psd_confirm_iet_hint"
+                android:inputType="textPassword" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_divider"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/login_male_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_sex_radio_btn_male" />
+
+            <View
+                android:layout_width="@dimen/item_three_time_divider"
+                android:layout_height="@dimen/item_divider" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/login_female_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_sex_radio_btn_female" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_login_btn"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/login_reg_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/item_three_time_divider"
+        android:background="@drawable/dw_color_assist_square_btn"
+        android:text="@string/login_login_btn"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/login_usn_input"
+        android:layout_marginBottom="@dimen/item_double_divider"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/login_icon_alipay_imgbtn"
+            style="@style/login_icon_imgbtn_style"
+            android:contentDescription="@string/login_imgbtn_icon_content_description"
+            android:src="@drawable/image_login_alipay" />
+
+        <View
+            android:layout_width="@dimen/item_double_divider"
+            android:layout_height="@dimen/item_divider" />
+
+        <ImageButton
+            android:id="@+id/login_icon_wechat_imgbtn"
+            style="@style/login_icon_imgbtn_style"
+            android:contentDescription="@string/login_imgbtn_icon_content_description"
+            android:src="@drawable/image_login_wechat" />
+
+        <View
+            android:layout_width="@dimen/item_double_divider"
+            android:layout_height="@dimen/item_divider" />
+
+        <ImageButton
+            android:id="@+id/login_icon_microblog_imgbtn"
+            style="@style/login_icon_imgbtn_style"
+            android:contentDescription="@string/login_imgbtn_icon_content_description"
+            android:src="@drawable/image_login_microblog" />
+    </LinearLayout>
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>

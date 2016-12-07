@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_coupon_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wale_tech.tryon.user.coupon.Coupon_Act">
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/coupon_rv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:listitem="@layout/recycler_coupon_general_item" />-->
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/coupon_info_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/coupon_info_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/coupon_info_tab" />
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>

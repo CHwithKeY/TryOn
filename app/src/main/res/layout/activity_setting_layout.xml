@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_setting_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wale_tech.tryon.user.Setting_Act">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
+        <TextView
+            android:id="@+id/setting_update_tv"
+            style="@style/base_list_item_tv_style"
+            android:text="@string/setting_update_tv" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
+        <TextView
+            android:id="@+id/setting_refresh_time_tv"
+            style="@style/base_list_item_tv_style"
+            android:text="@string/setting_refresh_time_tv" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
+        <TextView
+            android:id="@+id/setting_get_refresh_time_tv"
+            style="@style/base_list_item_tv_style"
+            android:text="@string/setting_get_refresh_time_tv" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
+    </LinearLayout>
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>

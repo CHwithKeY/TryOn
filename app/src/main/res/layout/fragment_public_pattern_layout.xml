@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <TextView
+        android:id="@+id/pattern_shadow_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrayTrans" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_divider">
+
+            <ImageView
+                android:id="@+id/pattern_img"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_public_none_image" />
+
+            <TextView
+                android:id="@+id/pattern_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/item_divider"
+                android:layout_toEndOf="@id/pattern_img"
+                android:layout_toRightOf="@id/pattern_img"
+                android:text="@string/pattern_price_tv" />
+
+            <TextView
+                android:id="@+id/pattern_stock_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/pattern_price_tv"
+                android:layout_alignStart="@id/pattern_price_tv"
+                android:layout_below="@id/pattern_price_tv"
+                android:layout_marginTop="@dimen/item_half_divider"
+                android:text="@string/pattern_stock_tv" />
+
+            <ImageButton
+                android:id="@+id/pattern_close_imgbtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="@dimen/item_half_divider"
+                android:background="@drawable/dw_pattern_close_imgbtn"
+                android:src="@drawable/ic_pattern_close_window" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/public_pick_pattern_item" />
+
+        <Button
+            android:id="@+id/pattern_btn0"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/dw_product_bar_btn"
+            android:gravity="center"
+            android:text="@string/product_add_cart_btn"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!--<include layout="@layout/divider_horizontal_item" />-->
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/pattern_ll"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<Button-->
+        <!--android:id="@+id/pattern_item_standard_btn"-->
+        <!--android:layout_width="70dp"-->
+        <!--android:layout_height="30dp" />-->
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/pattern_color_ll"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical" />-->
+
+        <!--<include layout="@layout/divider_horizontal_item" />-->
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/pattern_size_ll"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical" />-->
+
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="25dp"
+    android:height="26dp"
+    android:viewportHeight="268"
+    android:viewportWidth="257">
+    <path
+        android:name="椭圆 39"
+        android:fillColor="#88d6c6"
+        android:pathData="m128 -0c70.69 0 128 57.31 128 128c0 70.69 -57.31 128 -128 128c-70.69 0 -128 -57.31 -128 -128c0 -70.69 57.31 -128 128 -128z" />
+    <path
+        android:name="矩形 31"
+        android:fillColor="#fed674"
+        android:pathData="m131 71 -62 25.91v94.09h121v-92.96l-59 -27.04z" />
+    <path
+        android:name="矩形 33"
+        android:fillColor="#7e5529"
+        android:pathData="m90 121v70h36v-70z" />
+    <path
+        android:name="矩形 30"
+        android:fillColor="#27ae61"
+        android:pathData="m15.99 190c21.83 39.36 63.81 66 112.01 66c48.2 0 90.18 -26.64 112.01 -66z" />
+    <path
+        android:name="矩形 32"
+        android:fillColor="#7e5529"
+        android:pathData="m166 66h9v21h-9v-21z" />
+    <path
+        android:name="矩形 34"
+        android:fillColor="#7e5529"
+        android:pathData="m147 121h24v24h-24v-24z" />
+</vector>

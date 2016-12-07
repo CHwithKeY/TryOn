@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_coupon_used_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <wale_tech.tryon.publicView.EmptyRecyclerView
+        android:id="@+id/coupon_used_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_shoe_general_used_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+    <include layout="@layout/fragment_public_empty_page_layout" />
+
+</LinearLayout>

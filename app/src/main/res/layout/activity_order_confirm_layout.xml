@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_order_confirm_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wale_tech.tryon.user.cart.orderPart.Order_Confirm_Act">
+
+    <Button
+        android:id="@+id/order_confirm_pay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorSpecial"
+        android:text="立即支付"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_large_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/order_confirm_pay_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/order_confirm_rv"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            tools:listitem="@layout/recycler_shoe_order_item" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/item_double_divider"
+            android:layout_marginRight="@dimen/item_double_divider"
+            android:layout_marginTop="@dimen/item_divider"
+            android:background="@color/colorAssist" />
+
+        <Button
+            android:id="@+id/order_confirm_coupon_select_btn"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/item_double_divider"
+            android:background="@drawable/dw_color_assist_square_btn"
+            android:text="选择可用的优惠券"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/order_confirm_coupon_select_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|end"
+            android:paddingLeft="@dimen/item_double_divider"
+            android:paddingRight="@dimen/item_double_divider"
+            android:text="优惠券：不选择" />
+
+        <TextView
+            android:id="@+id/order_confirm_discount_before_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|end"
+            android:paddingLeft="@dimen/item_double_divider"
+            android:paddingRight="@dimen/item_double_divider"
+            android:text="优惠后总金额：¥ 0.0" />
+
+        <TextView
+            android:id="@+id/order_confirm_discount_after_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|end"
+            android:paddingLeft="@dimen/item_double_divider"
+            android:paddingRight="@dimen/item_double_divider"
+            android:text="优惠后总金额：¥ 0.0" />
+
+    </LinearLayout>
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>
