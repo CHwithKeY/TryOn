@@ -27,6 +27,8 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
 
     private ScanAction scanAction;
 
+    // hey , this is from ck
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
