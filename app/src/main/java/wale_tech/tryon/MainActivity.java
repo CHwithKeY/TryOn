@@ -84,6 +84,11 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
 
     private void setupNetSwitch() {
         final SwitchCompat net_sw = (SwitchCompat) findViewById(R.id.main_net_sw);
+        if (sharedAction.getNet() == 0) {
+            net_sw.setChecked(true);
+        } else {
+            net_sw.setChecked(true);
+        }
         net_sw.setOnCheckedChangeListener(this);
     }
 
