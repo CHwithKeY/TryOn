@@ -24,6 +24,12 @@
 
         <include layout="@layout/divider_horizontal_item" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_opf_divider" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
         <TextView
             android:id="@+id/setting_refresh_time_tv"
             style="@style/base_list_item_tv_style"
@@ -35,6 +41,19 @@
             android:id="@+id/setting_get_refresh_time_tv"
             style="@style/base_list_item_tv_style"
             android:text="@string/setting_get_refresh_time_tv" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_opf_divider" />
+
+        <include layout="@layout/divider_horizontal_item" />
+
+        <TextView
+            android:id="@+id/setting_check_net_tv"
+            style="@style/base_list_item_tv_style"
+            android:text="@string/setting_check_net_tv" />
 
         <include layout="@layout/divider_horizontal_item" />
 

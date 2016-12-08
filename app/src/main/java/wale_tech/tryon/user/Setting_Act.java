@@ -13,6 +13,7 @@ import org.json.JSONException;
 
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.Base_Act;
+import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.update.Update_Act;
 
 public class Setting_Act extends Base_Act implements View.OnClickListener {
@@ -31,6 +32,8 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         setupRefreshTimeText();
 
         setupGetRefreshTimeText();
+
+        setupCheckNetText();
 
     }
 
@@ -57,6 +60,11 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
     private void setupGetRefreshTimeText() {
         final TextView get_time_tv = (TextView) findViewById(R.id.setting_get_refresh_time_tv);
         get_time_tv.setOnClickListener(this);
+    }
+
+    private void setupCheckNetText() {
+        final TextView check_net_tv = (TextView) findViewById(R.id.setting_check_net_tv);
+        check_net_tv.setOnClickListener(this);
     }
 
     @Override
@@ -95,6 +103,10 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
                 onShowRefreshTime();
                 break;
 
+            case R.id.setting_check_net_tv:
+                onCheckNet();
+                break;
+
             default:
                 break;
         }
@@ -131,6 +143,19 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
     private void onShowRefreshTime() {
         new AlertDialog.Builder(this)
                 .setMessage("刷新时间为：" + sharedAction.getRefreshTime())
+                .show();
+    }
+
+    private void onCheckNet() {
+        String net;
+        if (sharedAction.getNet() == 0) {
+            net = HttpSet.NORMAL_URL;
+        } else {
+            net = HttpSet.DEDICATED_URL;
+        }
+
+        new AlertDialog.Builder(this)
+                .setMessage("当前网络为：" + net)
                 .show();
     }
 }

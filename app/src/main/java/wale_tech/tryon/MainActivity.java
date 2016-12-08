@@ -88,10 +88,11 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     }
 
     private UpdateAction updateAction;
-private void checkUpdate() {
-    updateAction = new UpdateAction(this);
-    updateAction.checkVersion(false);
-}
+
+    private void checkUpdate() {
+        updateAction = new UpdateAction(this);
+        updateAction.checkVersion(false);
+    }
 
     @Override
     public void onMultiHandleResponse(String tag, String result) throws JSONException {
@@ -186,9 +187,13 @@ private void checkUpdate() {
         if (b) {
             showSnack(R.id.main_col, "切换至专用网络");
             HttpSet.setBaseUrl(HttpSet.DEDICATED_URL);
+
+            sharedAction.setNet(1);
         } else {
             showSnack(R.id.main_col, "切换至普通网络");
             HttpSet.setBaseUrl(HttpSet.NORMAL_URL);
+
+            sharedAction.setNet(0);
         }
     }
 }
