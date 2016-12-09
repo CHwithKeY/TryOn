@@ -71,7 +71,7 @@ public class TriggerList_Act extends Base_Act {
         shoeList = new ArrayList<>();
 
         triggerAction = new TriggerAction(this);
-        int result = triggerAction.getList(BaseAction.REQUEST_DEFAULT, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), true);
+        int result = triggerAction.getList(BaseAction.REQUEST_DEFAULT, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), true, false);
         if (result == BaseAction.ACTION_LACK) {
             Intent login_int = new Intent(this, Login_Act.class);
             login_int.setAction("GetSkuCodeAction");
@@ -174,6 +174,7 @@ public class TriggerList_Act extends Base_Act {
         }
 
         onStopRefresh();
+        triggerAction.cancelProgressBar();
     }
 
     private void handleDefaultList(ArrayList<ObjectShoe> shoeList) {
@@ -196,6 +197,7 @@ public class TriggerList_Act extends Base_Act {
             case HttpTag.TRIGGER_GET_TRIGGER:
                 showNetDownPage(R.id.activity_trigger_list_layout);
                 onStopRefresh();
+                triggerAction.cancelProgressBar();
                 break;
 
             default:
@@ -218,7 +220,7 @@ public class TriggerList_Act extends Base_Act {
         public void handleMessage(Message msg) {
             if (!refreshing) {
                 if (msg.what == TriggerService.MSG_REFRESH) {
-                    triggerAction.getList(BaseAction.REQUEST_REFRESH, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), false);
+                    triggerAction.getList(BaseAction.REQUEST_REFRESH, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), false, true);
                     refreshing = true;
                 }
             }
