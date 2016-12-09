@@ -40,6 +40,8 @@ public class TriggerList_Act extends Base_Act {
 
     private ArrayList<ObjectShoe> shoeList;
 
+    private boolean refreshing;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,8 @@ public class TriggerList_Act extends Base_Act {
 
     @Override
     public void varInit() {
+        refreshing = false;
+
         shoeList = new ArrayList<>();
 
         triggerAction = new TriggerAction(this);
@@ -168,6 +172,8 @@ public class TriggerList_Act extends Base_Act {
             default:
                 break;
         }
+
+        onStopRefresh();
     }
 
     private void handleDefaultList(ArrayList<ObjectShoe> shoeList) {
@@ -189,6 +195,7 @@ public class TriggerList_Act extends Base_Act {
         switch (tag) {
             case HttpTag.TRIGGER_GET_TRIGGER:
                 showNetDownPage(R.id.activity_trigger_list_layout);
+                onStopRefresh();
                 break;
 
             default:
@@ -209,8 +216,11 @@ public class TriggerList_Act extends Base_Act {
     private class RefreshHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == TriggerService.MSG_REFRESH) {
-                triggerAction.getList(BaseAction.REQUEST_REFRESH, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), false);
+            if (!refreshing) {
+                if (msg.what == TriggerService.MSG_REFRESH) {
+                    triggerAction.getList(BaseAction.REQUEST_REFRESH, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), false);
+                    refreshing = true;
+                }
             }
         }
     }
@@ -222,5 +232,9 @@ public class TriggerList_Act extends Base_Act {
             unbindService(conn);
             serv_msger = null;
         }
+    }
+
+    private void onStopRefresh() {
+        refreshing = false;
     }
 }
