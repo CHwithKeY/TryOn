@@ -28,10 +28,6 @@ public class ScanAction extends BaseAction {
     }
 
     public void scan() {
-        if (!PermissionAction.checkAutoRequest(context, Manifest.permission.CAMERA, PermissionSet.CAMERA)) {
-            return;
-        }
-
         if (!checkLoginStatus()) {
             return;
         }

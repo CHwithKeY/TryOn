@@ -1,5 +1,6 @@
 package wale_tech.tryon;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -23,12 +25,11 @@ import wale_tech.tryon.publicSet.PermissionSet;
 import wale_tech.tryon.result.Result_Act;
 import wale_tech.tryon.update.UpdateAction;
 import wale_tech.tryon.user.User_Act;
+import wale_tech.tryon.user.setting.PermissionAction;
 
 public class MainActivity extends Base_Act implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private ScanAction scanAction;
-
-    // hey , this is from ck
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +143,12 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionAction.handle(this, requestCode, grantResults);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -183,7 +190,9 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     }
 
     private void toScan() {
-        scanAction.scan();
+        if (PermissionAction.checkAutoRequest(this, Manifest.permission.CAMERA, PermissionSet.CAMERA)) {
+            scanAction.scan();
+        }
     }
 
     private void toUser() {

@@ -47,8 +47,7 @@ public class Authorize_Act extends Base_Act implements CompoundButton.OnCheckedC
 
     @Override
     protected void setupToolbar() {
-        setTbTitle(getString(R.string.auth_toolbar_title));
-        setTbNavigation();
+        setBackBtn();
     }
 
     private void setupCameraSwitch() {

@@ -303,14 +303,6 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
 
     @Override
     public void onPermissionRefused(int permission_code) {
-//        toast.showToast(getString(R.string.auth_toast_permission_camera_authorized));
-        showSnack(0, "");
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        PermissionAction.handle(this, requestCode, grantResults);
     }
 
     @Override

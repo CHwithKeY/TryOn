@@ -14,21 +14,21 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
-        <include layout="@layout/divider_horizontal_item" />
+        <include layout="@layout/divider_horizontal_gray_item" />
 
         <TextView
             android:id="@+id/update_version_tv"
             style="@style/base_list_item_tv_style"
             android:text="@string/update_version_tv" />
 
-        <include layout="@layout/divider_horizontal_item" />
+        <include layout="@layout/divider_horizontal_gray_item" />
 
         <TextView
             android:id="@+id/update_check_tv"
             style="@style/base_list_item_tv_style"
             android:text="@string/update_check_tv" />
 
-        <include layout="@layout/divider_horizontal_item" />
+        <include layout="@layout/divider_horizontal_gray_item" />
 
     </LinearLayout>
 

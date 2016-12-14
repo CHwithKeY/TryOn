@@ -35,6 +35,8 @@
             style="@style/base_list_item_tv_style"
             android:text="@string/setting_authorize_tv" />
 
+        <include layout="@layout/divider_horizontal_gray_item" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_opf_divider" />
