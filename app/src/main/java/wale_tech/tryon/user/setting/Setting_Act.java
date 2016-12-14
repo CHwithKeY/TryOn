@@ -1,4 +1,4 @@
-package wale_tech.tryon.user;
+package wale_tech.tryon.user.setting;
 
 import android.content.DialogInterface;
 import android.content.Intent;

@@ -52,7 +52,7 @@
         <activity android:name=".product.Product_Act" />
         <activity android:name=".user.cart.orderPart.Order_Confirm_Act" />
         <activity android:name=".update.Update_Act" />
-        <activity android:name=".user.Setting_Act" />
+        <activity android:name=".user.setting.Setting_Act" />
         <activity android:name=".result.Result_Act" />
         <activity
             android:name=".trigger.TriggerList_Act"

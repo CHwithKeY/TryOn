@@ -18,6 +18,7 @@ import wale_tech.tryon.history.History_Act;
 import wale_tech.tryon.user.order.Order_Act;
 import wale_tech.tryon.user.coupon.Coupon_Act;
 import wale_tech.tryon.user.favourite.Favourite_Act;
+import wale_tech.tryon.user.setting.Setting_Act;
 
 public class User_Act extends Base_Act implements View.OnClickListener {
 
