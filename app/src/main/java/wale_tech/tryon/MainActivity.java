@@ -19,6 +19,7 @@ import wale_tech.tryon.http.HttpTag;
 import wale_tech.tryon.login.LoginAction;
 import wale_tech.tryon.login.Login_Act;
 import wale_tech.tryon.publicClass.Methods;
+import wale_tech.tryon.publicSet.PermissionSet;
 import wale_tech.tryon.result.Result_Act;
 import wale_tech.tryon.update.UpdateAction;
 import wale_tech.tryon.user.User_Act;
@@ -118,12 +119,26 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
 
     @Override
     public void onPermissionAccepted(int permission_code) {
+        switch (permission_code) {
+            case PermissionSet.CAMERA:
+                scanAction.scan();
+                break;
 
+            default:
+                break;
+        }
     }
 
     @Override
     public void onPermissionRefused(int permission_code) {
+        switch (permission_code) {
+            case PermissionSet.CAMERA:
+                showSnack(R.id.main_col, getString(R.string.auth_toast_permission_camera_authorized));
+                break;
 
+            default:
+                break;
+        }
     }
 
     @Override

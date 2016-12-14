@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 
-import wale_tech.tryon.PermissionAction;
+import wale_tech.tryon.user.setting.PermissionAction;
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.Base_Act;
 import wale_tech.tryon.publicClass.Methods;

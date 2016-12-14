@@ -1,4 +1,4 @@
-package wale_tech.tryon;
+package wale_tech.tryon.user.setting;
 
 import android.app.Activity;
 import android.content.Context;

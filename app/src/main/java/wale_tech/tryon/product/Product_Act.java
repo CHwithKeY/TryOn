@@ -1,6 +1,5 @@
 package wale_tech.tryon.product;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import wale_tech.tryon.PermissionAction;
+import wale_tech.tryon.user.setting.PermissionAction;
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.Base_Act;
 import wale_tech.tryon.http.HttpResult;

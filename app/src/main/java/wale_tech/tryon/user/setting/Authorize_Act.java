@@ -7,7 +7,6 @@ import android.widget.CompoundButton;
 
 import org.json.JSONException;
 
-import wale_tech.tryon.PermissionAction;
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.Base_Act;
 import wale_tech.tryon.publicSet.PermissionSet;
