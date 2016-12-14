@@ -82,6 +82,16 @@ public final class SharedAction {
         return sp.getInt(SharedSet.KEY_REFRESH_TIME, 2500);
     }
 
+    public void setNet(int net) {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(SharedSet.KEY_NET, net);
+        editor.apply();
+    }
+
+    public int getNet() {
+        return sp.getInt(SharedSet.KEY_NET, 0);
+    }
+
     public void setAppLaunch(boolean isLaunch) {
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean(SharedSet.KEY_APP_LAUNCH, isLaunch);

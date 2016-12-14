@@ -158,7 +158,7 @@ public class TriggerService extends Base_Serv {
 
             triggerAction.getList(BaseAction.REQUEST_REFRESH,
                     bundle.getString(BundleSet.KEY_TRIGGER_RESULT), bundle.getString(BundleSet.KEY_TRIGGER_PATH),
-                    bundle.getString(BundleSet.KEY_TRIGGER_WORK_SPACE), false);
+                    bundle.getString(BundleSet.KEY_TRIGGER_WORK_SPACE), false, false);
         }
     }
 

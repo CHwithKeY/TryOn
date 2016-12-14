@@ -49,14 +49,23 @@ public final class HttpAction {
 
     private ColorSnackBar snackBar;
 
+    private SharedAction sharedAction;
+
     public HttpAction(Context context) {
         this.context = context;
         snackBar = new ColorSnackBar(context);
+
+        sharedAction = new SharedAction(context);
     }
 
     public void setUrl(String url) {
 //        this.url = url;
-        this.url = HttpSet.BASE_URL + url;
+        if (sharedAction.getNet() == 0) {
+            this.url = HttpSet.NORMAL_URL + url;
+        } else {
+            this.url = HttpSet.DEDICATED_URL + url;
+        }
+//        this.url = HttpSet.BASE_URL + url;
         Log.i("Result", "url is : " + this.url);
     }
 

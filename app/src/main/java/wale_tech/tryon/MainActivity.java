@@ -84,14 +84,20 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
 
     private void setupNetSwitch() {
         final SwitchCompat net_sw = (SwitchCompat) findViewById(R.id.main_net_sw);
+        if (sharedAction.getNet() == HttpSet.NORMAL_NET) {
+            net_sw.setChecked(false);
+        } else {
+            net_sw.setChecked(true);
+        }
         net_sw.setOnCheckedChangeListener(this);
     }
 
     private UpdateAction updateAction;
-private void checkUpdate() {
-    updateAction = new UpdateAction(this);
-    updateAction.checkVersion(false);
-}
+
+    private void checkUpdate() {
+        updateAction = new UpdateAction(this);
+        updateAction.checkVersion(false);
+    }
 
     @Override
     public void onMultiHandleResponse(String tag, String result) throws JSONException {
@@ -186,9 +192,13 @@ private void checkUpdate() {
         if (b) {
             showSnack(R.id.main_col, "切换至专用网络");
             HttpSet.setBaseUrl(HttpSet.DEDICATED_URL);
+
+            sharedAction.setNet(HttpSet.DEDICATED_NET);
         } else {
             showSnack(R.id.main_col, "切换至普通网络");
             HttpSet.setBaseUrl(HttpSet.NORMAL_URL);
+
+            sharedAction.setNet(HttpSet.NORMAL_NET);
         }
     }
 }

@@ -23,4 +23,6 @@ public final class SharedSet {
 
     public final static String KEY_REFRESH_TIME = "refresh_time";
 
+    public final static String KEY_NET = "net";
+
 }

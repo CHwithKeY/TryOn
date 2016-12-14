@@ -10,7 +10,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
+import android.support.v7.widget.RecyclerView;
 
 import org.json.JSONException;
 
@@ -20,18 +20,16 @@ import wale_tech.tryon.R;
 import wale_tech.tryon.base.BaseAction;
 import wale_tech.tryon.base.Base_Act;
 import wale_tech.tryon.http.HttpTag;
-import wale_tech.tryon.login.Login_Act;
 import wale_tech.tryon.publicAdapter.BaseRycAdapter;
 import wale_tech.tryon.publicClass.DataParse;
 import wale_tech.tryon.publicObject.ObjectShoe;
 import wale_tech.tryon.publicObject.ObjectTrigger;
 import wale_tech.tryon.publicSet.BundleSet;
-import wale_tech.tryon.publicView.EmptyRecyclerView;
 
 public class TriggerList_Act extends Base_Act {
 
     private TriggerAction triggerAction;
-    private EmptyRecyclerView trigger_rv;
+    private RecyclerView trigger_rv;
     private ObjectTrigger trigger;
 
     private ServiceConnection conn;
@@ -39,6 +37,8 @@ public class TriggerList_Act extends Base_Act {
     private RefreshHandler handler;
 
     private ArrayList<ObjectShoe> shoeList;
+
+    private boolean refreshing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +64,12 @@ public class TriggerList_Act extends Base_Act {
 
     @Override
     public void varInit() {
+        refreshing = false;
+
         shoeList = new ArrayList<>();
 
         triggerAction = new TriggerAction(this);
-        int result = triggerAction.getList(BaseAction.REQUEST_DEFAULT, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), true);
-        if (result == BaseAction.ACTION_LACK) {
-            Intent login_int = new Intent(this, Login_Act.class);
-            login_int.setAction("GetSkuCodeAction");
-            startActivity(login_int);
-            finish();
-        }
+        triggerAction.getList(BaseAction.REQUEST_DEFAULT, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), true, false);
     }
 
     @Override
@@ -122,11 +118,9 @@ public class TriggerList_Act extends Base_Act {
         };
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        trigger_rv = (EmptyRecyclerView) findViewById(R.id.trigger_rv);
+        trigger_rv = (RecyclerView) findViewById(R.id.trigger_rv);
         trigger_rv.setLayoutManager(manager);
         trigger_rv.setAdapter(adapter);
-        trigger_rv.setEmptyView(View.inflate(this, R.layout.fragment_public_empty_page_layout, null));
-
 
 //        if (shoeList.size() == 1) {
 //            Intent product_int = new Intent(this, Product_Act.class);
@@ -168,6 +162,9 @@ public class TriggerList_Act extends Base_Act {
             default:
                 break;
         }
+
+        onStopRefresh();
+        triggerAction.cancelProgressBar();
     }
 
     private void handleDefaultList(ArrayList<ObjectShoe> shoeList) {
@@ -189,6 +186,8 @@ public class TriggerList_Act extends Base_Act {
         switch (tag) {
             case HttpTag.TRIGGER_GET_TRIGGER:
                 showNetDownPage(R.id.activity_trigger_list_layout);
+                onStopRefresh();
+                triggerAction.cancelProgressBar();
                 break;
 
             default:
@@ -209,8 +208,11 @@ public class TriggerList_Act extends Base_Act {
     private class RefreshHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == TriggerService.MSG_REFRESH) {
-                triggerAction.getList(BaseAction.REQUEST_REFRESH, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), false);
+            if (!refreshing) {
+                if (msg.what == TriggerService.MSG_REFRESH) {
+                    triggerAction.getList(BaseAction.REQUEST_REFRESH, trigger.getResult(), trigger.getPath(), trigger.getWorkSpace(), false, true);
+                    refreshing = true;
+                }
             }
         }
     }
@@ -222,5 +224,9 @@ public class TriggerList_Act extends Base_Act {
             unbindService(conn);
             serv_msger = null;
         }
+    }
+
+    private void onStopRefresh() {
+        refreshing = false;
     }
 }
