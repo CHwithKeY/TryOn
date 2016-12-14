@@ -29,6 +29,8 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
 
         setupUpdateText();
 
+        setupAuthorizeText();
+
         setupRefreshTimeText();
 
         setupGetRefreshTimeText();
@@ -50,6 +52,11 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
     private void setupUpdateText() {
         final TextView update_tv = (TextView) findViewById(R.id.setting_update_tv);
         update_tv.setOnClickListener(this);
+    }
+
+    private void setupAuthorizeText() {
+        final TextView authorize_tv = (TextView) findViewById(R.id.setting_authorize_tv);
+        authorize_tv.setOnClickListener(this);
     }
 
     private void setupRefreshTimeText() {
@@ -93,6 +100,11 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
             case R.id.setting_update_tv:
                 Intent update_int = new Intent(this, Update_Act.class);
                 startActivity(update_int);
+                break;
+
+            case R.id.setting_authorize_tv:
+                Intent authorize_int = new Intent(this, Authorize_Act.class);
+                startActivity(authorize_int);
                 break;
 
             case R.id.setting_refresh_time_tv:

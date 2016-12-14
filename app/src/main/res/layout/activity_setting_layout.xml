@@ -31,6 +31,17 @@
         <include layout="@layout/divider_horizontal_gray_item" />
 
         <TextView
+            android:id="@+id/setting_authorize_tv"
+            style="@style/base_list_item_tv_style"
+            android:text="@string/setting_authorize_tv" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_opf_divider" />
+
+        <include layout="@layout/divider_horizontal_gray_item" />
+
+        <TextView
             android:id="@+id/setting_refresh_time_tv"
             style="@style/base_list_item_tv_style"
             android:text="@string/setting_refresh_time_tv" />

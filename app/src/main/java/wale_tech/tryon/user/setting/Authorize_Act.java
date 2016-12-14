@@ -14,10 +14,10 @@ import wale_tech.tryon.publicSet.PermissionSet;
 
 public class Authorize_Act extends Base_Act implements CompoundButton.OnCheckedChangeListener {
 
-    private SwitchCompat config_sw;
+    //    private SwitchCompat config_sw;
     private SwitchCompat camera_sw;
-    private SwitchCompat location_sw;
-    private SwitchCompat read_state_sw;
+    //    private SwitchCompat location_sw;
+//    private SwitchCompat read_state_sw;
     private SwitchCompat storage_sw;
 
     @Override
@@ -131,13 +131,13 @@ public class Authorize_Act extends Base_Act implements CompoundButton.OnCheckedC
                 camera_sw.setChecked(false);
                 break;
 
-            case PermissionSet.ACCESS_COARSE_LOCATION:
-                location_sw.setChecked(false);
-                break;
-
-            case PermissionSet.READ_PHONE_STATE:
-                read_state_sw.setChecked(false);
-                break;
+//            case PermissionSet.ACCESS_COARSE_LOCATION:
+//                location_sw.setChecked(false);
+//                break;
+//
+//            case PermissionSet.READ_PHONE_STATE:
+//                read_state_sw.setChecked(false);
+//                break;
 
             case PermissionSet.WRITE_EXTERNAL_STORAGE:
                 storage_sw.setChecked(false);
