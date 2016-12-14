@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_trigger_list_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="wale_tech.tryon.trigger.TriggerList_Act">
 
-    <wale_tech.tryon.publicView.EmptyRecyclerView
+    <LinearLayout
+        android:id="@+id/trigger_coupon_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/item_divider"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="@dimen/item_divider"
+            android:background="@drawable/dw_color_assist_square_btn"
+            android:gravity="center"
+            android:text="点击查看产品即可获得优惠券"
+            android:textColor="@android:color/white" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:contentPadding="@dimen/item_half_divider">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="120dp"
+                android:background="@drawable/image_coupon_enable"
+                android:scaleType="centerCrop" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/trigger_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/trigger_coupon_ll"
         tools:listitem="@layout/recycler_shoe_general_item" />
+
+    <ProgressBar
+        android:id="@+id/trigger_pb"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/item_divider"
+        android:visibility="gone" />
 
     <include layout="@layout/public_back_item" />
 

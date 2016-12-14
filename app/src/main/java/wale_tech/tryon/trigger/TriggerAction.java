@@ -64,6 +64,8 @@ public class TriggerAction extends BaseAction {
         checkRequest(request);
 
         if (sharedAction.getUsername().isEmpty()) {
+            Intent login_int = new Intent(context, Login_Act.class);
+            context.startActivity(login_int);
             return ACTION_LACK;
         }
 
