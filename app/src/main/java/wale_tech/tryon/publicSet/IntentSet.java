@@ -16,6 +16,6 @@ public final class IntentSet {
     public final static String KEY_ORDER_NUM = "key_order_num";
 
     public final static String ACTION_SCAN = "wale_tech.tryon.scan";
-
+    public final static String ACTION_NFC = "wale_tech.tryon.nfc";
 
 }

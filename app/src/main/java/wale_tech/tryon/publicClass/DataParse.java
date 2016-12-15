@@ -26,7 +26,10 @@ public class DataParse {
             return setupScanTrigger(intent);
         } else if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
             return setupNfcTrigger(context, intent);
+        } else if (intent.getAction().equals(IntentSet.ACTION_NFC)) {
+            return setupNfcLoginTrigger(intent);
         }
+
         return null;
     }
 
@@ -61,6 +64,16 @@ public class DataParse {
         if (trigger_result.isEmpty()) {
             return null;
         }
+
+        return trigger;
+    }
+
+    private ObjectTrigger setupNfcLoginTrigger(Intent intent) {
+        ObjectTrigger trigger = new ObjectTrigger();
+
+        trigger.setResult(intent.getStringExtra(IntentSet.KEY_TRIGGER_RESULT));
+        trigger.setPath(TriggerSet.PATH_SCAN);
+        trigger.setWorkSpace(intent.getStringExtra(IntentSet.KEY_TRIGGER_WORK_SPACE));
 
         return trigger;
     }
