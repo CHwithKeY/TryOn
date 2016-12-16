@@ -20,6 +20,8 @@ public final class HttpResult {
     public final static String UPDATE_NICKNAME_SUCCESS = "修改昵称成功";
     public final static String UPDATE_NICKNAME_SUCCESS_EN = "Update the nickname successfully";
 
+    public final static String ORDER_SUCCESS = "下单成功";
+
     // Response
     public final static String STATUS = "status";
     public final static String USERNAME = "username";

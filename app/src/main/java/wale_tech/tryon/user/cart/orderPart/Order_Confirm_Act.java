@@ -1,8 +1,10 @@
 package wale_tech.tryon.user.cart.orderPart;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.Base_Act;
+import wale_tech.tryon.http.HttpResult;
 import wale_tech.tryon.http.HttpTag;
 import wale_tech.tryon.publicAdapter.BaseShoeRycAdapter;
 import wale_tech.tryon.publicObject.ObjectCoupon;
@@ -49,6 +52,7 @@ public class Order_Confirm_Act extends Base_Act implements View.OnClickListener 
     @Override
     public void varInit() {
         String sku_code_series = getIntent().getStringExtra(IntentSet.KEY_SKU_CODE);
+        coupon_number = "";
 
         shoeList = new ArrayList<>();
         orderConfirmAction = new OrderConfirmAction(this);
@@ -122,11 +126,13 @@ public class Order_Confirm_Act extends Base_Act implements View.OnClickListener 
                 break;
 
             case HttpTag.ORDER_CONFIRM_CREATE_ORDER:
-                orderConfirmAction.handleCreateOrderResponse(result);
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.add(R.id.activity_order_confirm_layout, new Order_Success_Frag());
-                transaction.commit();
+                String order_status = orderConfirmAction.handleCreateOrderResponse(result);
+                if (order_status.equals(HttpResult.ORDER_SUCCESS)) {
+                    Intent success_int = new Intent(this, Order_Success_Act.class);
+                    startActivity(success_int);
+                    Cart_Act.cart_act.finish();
+                    finish();
+                }
                 return;
 
             default:

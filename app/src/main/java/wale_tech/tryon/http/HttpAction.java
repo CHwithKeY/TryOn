@@ -88,7 +88,7 @@ public final class HttpAction {
     public void setDialog(String title, String msg) {
         dialog = new ProgressDialog(context);
 
-        dialog.setTitle(title);
+//        dialog.setTitle(title);
         dialog.setMessage(msg);
 
         // 不允许用户点击 dialog 外部从而导致 dialog 消失

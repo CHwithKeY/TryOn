@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_order_success_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wale_tech.tryon.user.cart.orderPart.Order_Success_Act">
+
+    <ImageView
+        android:id="@+id/order_success_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/item_divider"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_order_success" />
+
+    <Button
+        android:id="@+id/order_success_check_order_btn"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/order_success_img"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/dw_color_assist_square_btn"
+        android:text="查看订单"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_large_size" />
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>
