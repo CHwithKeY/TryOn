@@ -64,7 +64,7 @@ public class TriggerAction extends BaseAction {
 
         checkRequest(request);
 
-        if (sharedAction.getUsername().isEmpty()) {
+        if (!sharedAction.getLoginStatus()) {
             Intent login_int = new Intent(context, Login_Act.class);
             login_int.setAction(IntentSet.ACTION_NFC);
             login_int.putExtra(IntentSet.KEY_TRIGGER_RESULT, trigger_result);

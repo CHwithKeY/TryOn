@@ -50,18 +50,25 @@ public class ProductAction extends BaseAction {
             return;
         }
 
-        if (!sharedAction.getLoginStatus()) {
-            Intent login_int = new Intent(context, Login_Act.class);
-            login_int.putExtra(IntentSet.KEY_SKU_CODE, sku_code);
-            login_int.putExtra(IntentSet.KEY_TRIGGER_PATH, path);
-            login_int.setAction("GetSkuCodeAction");
-            context.startActivity(login_int);
-            ((Base_Act) context).finish();
-            return;
+//        if (!sharedAction.getLoginStatus()) {
+//            Intent login_int = new Intent(context, Login_Act.class);
+//            login_int.putExtra(IntentSet.KEY_SKU_CODE, sku_code);
+//            login_int.putExtra(IntentSet.KEY_TRIGGER_PATH, path);
+//            login_int.setAction("GetSkuCodeAction");
+//            context.startActivity(login_int);
+//            ((Base_Act) context).finish();
+//            return;
+//        }
+
+        String username = "Visitor";
+        if (sharedAction.getLoginStatus()) {
+            username = sharedAction.getUsername();
         }
 
+        Log.i("Result", "un is : " + username + " sku " + sku_code + " path " + path);
+
         String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE, HttpSet.KEY_TRIGGER_PATH};
-        String[] value = {sharedAction.getUsername(), sku_code, path};
+        String[] value = {username, sku_code, path};
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_GET_SHOE_DETAILS);

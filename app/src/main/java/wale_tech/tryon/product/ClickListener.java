@@ -36,6 +36,13 @@ class ClickListener extends BaseClickListener {
 
     @Override
     public void onClick(View v) {
+
+        Log.i("Result", "click os");
+        if (!productAction.checkLoginStatus()) {
+            Log.i("Result", "click");
+            return;
+        }
+
         switch (v.getId()) {
             case R.id.product_coupon_img:
                 onGetCoupon();
@@ -65,11 +72,10 @@ class ClickListener extends BaseClickListener {
         productAction.onGetCoupon();
     }
 
-
     private void onFavouriteOperate(View view) {
-        if (!new BaseAction(context).checkLoginStatus()) {
-            return;
-        }
+//        if (!new BaseAction(context).checkLoginStatus()) {
+//            return;
+//        }
 
         HashMap<String, Object> map = Methods.cast(view.getTag());
         boolean isHaveFav = (boolean) map.get(MapSet.KEY_IS_HAVE_FAVOURITE);

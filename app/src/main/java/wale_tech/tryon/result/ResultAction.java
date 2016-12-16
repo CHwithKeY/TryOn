@@ -28,7 +28,6 @@ public class ResultAction extends BaseAction {
     public final static String FILTER_TYPE_COLOR = "color";
     public final static String FILTER_TYPE_SIZE = "size";
 
-
     private String save_brand;
     private String save_product_name;
     private String save_color;
@@ -89,7 +88,12 @@ public class ResultAction extends BaseAction {
 
     public void getFilterOption(String table_tag, String filter_option_tag) {
         String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_TABLE_TAG, HttpSet.KEY_FILTER_OPTION_TAG};
-        String[] value = {sharedAction.getUsername(), table_tag, filter_option_tag};
+
+        String username = "";
+        if (sharedAction.getLoginStatus()) {
+            username = sharedAction.getUsername();
+        }
+        String[] value = {username, table_tag, filter_option_tag};
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_RESULT_FILTER_OPTION);

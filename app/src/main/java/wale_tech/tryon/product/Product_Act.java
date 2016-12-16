@@ -121,7 +121,12 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
             case HttpTag.PRODUCT_GET_SHOE_DETAILS:
                 shoe = productAction.handleDetailsResponse(result);
                 productAction.onColorPick(shoe.getBrand(), shoe.getProductName());
-                productAction.onFavouriteOperate(FavAction.OPERATION_CHECK, shoe.getSkuCode());
+
+                if (sharedAction.getLoginStatus()) {
+                    productAction.onFavouriteOperate(FavAction.OPERATION_CHECK, shoe.getSkuCode());
+                } else {
+                    setupBottomBar();
+                }
 
                 setupDetailsViewPager();
                 break;
