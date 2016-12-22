@@ -1,15 +1,11 @@
 package wale_tech.tryon.http;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Message;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
-import android.view.Window;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -18,12 +14,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import wale_tech.tryon.R;
+import wale_tech.tryon.VolleySingleton;
 import wale_tech.tryon.publicClass.Methods;
 import wale_tech.tryon.publicView.ColorSnackBar;
 import wale_tech.tryon.sharedinfo.SharedAction;
@@ -118,11 +114,13 @@ public final class HttpAction {
             dialog.show();
         }
 
-//        RequestQueue queue = Volley.newRequestQueue(context);
-
         if (queue == null) {
-            queue = Volley.newRequestQueue(context);
+            queue = VolleySingleton.getInstance(context).getRequestQueue();
         }
+
+//        if (queue == null) {
+//            queue = Volley.newRequestQueue(context);
+//        }
 
         StringRequest request = new StringRequest(Request.Method.POST, url, resListener, errListener) {
             @Override
@@ -136,6 +134,7 @@ public final class HttpAction {
         queue.add(request);
 
     }
+
 
     private Response.Listener<String> resListener = new Response.Listener<String>() {
         @Override
