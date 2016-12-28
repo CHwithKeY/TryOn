@@ -61,17 +61,6 @@ public final class SharedAction {
         return sp.getInt(SharedSet.KEY_LAST_ID, 0);
     }
 
-
-    public void setAppLanguage(String language) {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString(SharedSet.KEY_APP_LANGUAGE, language);
-        editor.apply();
-    }
-
-    public String getAppLanguage() {
-        return sp.getString(SharedSet.KEY_APP_LANGUAGE, SharedSet.LANGUAGE_CHINESE);
-    }
-
     public void setRefreshTime(int refresh_time) {
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(SharedSet.KEY_REFRESH_TIME, refresh_time);

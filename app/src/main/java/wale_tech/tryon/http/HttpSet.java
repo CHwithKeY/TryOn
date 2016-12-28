@@ -12,13 +12,14 @@ public final class HttpSet {
     // 183.62.156.108:427
     // 192.168.137.1:8080
     // 10.10.4.122:8080
+    // 10.10.5.119
     // 192.168.2.211:8080
 
     public final static int NORMAL_NET = 0;
     public final static int DEDICATED_NET = 1;
 
     public final static String NORMAL_URL = "http://183.62.156.108:427/TryOnService/";
-    public final static String DEDICATED_URL = "http://192.168.2.211:8080/TryOnService/";
+    public final static String DEDICATED_URL = "http://10.10.5.119:8080/TryOnService/";
 
     public static String BASE_URL = "http://183.62.156.108:427/TryOnService/";
 

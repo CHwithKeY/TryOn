@@ -7,9 +7,6 @@ public final class SharedSet {
 
     public final static String NAME = "sp_file";
 
-    public final static String LANGUAGE_CHINESE = "Chinese";
-    public final static String LANGUAGE_ENGLISH = "English";
-
     public final static String KEY_IS_LOGIN = "is_login";
     public final static String KEY_USERNAME = "username";
 

@@ -83,9 +83,9 @@
     <string name="user_imgbtn_history_tv">History</string>
     <string name="user_imgbtn_cart_tv">Cart</string>
 
-    <string name="user_item_favourite_tv">My Favourite</string>
-    <string name="user_item_order_tv">My Order</string>
-    <string name="user_item_address_tv">Delivery Address</string>
+    <string name="user_item_favourite_tv">Favourite</string>
+    <string name="user_item_order_tv">Order</string>
+    <string name="user_item_address_tv">Address</string>
     <string name="user_item_advice_tv">Advice</string>
     <string name="user_item_setting_tv">Setting</string>
     <string name="user_item_logout_tv">Log Out</string>
