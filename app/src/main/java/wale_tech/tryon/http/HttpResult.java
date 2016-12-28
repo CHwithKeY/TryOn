@@ -6,7 +6,7 @@ package wale_tech.tryon.http;
 public final class HttpResult {
 
     // Login_Act
-    public final static String LOGIN_SUCCESS = "登录成功";
+    public final static String LOGIN_SUCCESS = "1002";
     public final static String LOGIN_SUCCESS_EN = "Login successfully";
 
     // Register_Fst_Act

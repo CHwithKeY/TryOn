@@ -65,13 +65,15 @@ public class LoginAction extends BaseAction {
     boolean handleResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
         String response = obj.getString(HttpResult.RESULT);
-        snackBar.show(response);
 
         if (response.equals(HttpResult.LOGIN_SUCCESS)) {
+            showSnack(context.getString(R.string.login_snack_login_success));
             sharedAction.setLoginStatus(obj.getString(HttpResult.USERNAME));
             ((AppCompatActivity) context).finish();
 
             return true;
+        } else {
+            showSnack(response);
         }
 
         return false;
