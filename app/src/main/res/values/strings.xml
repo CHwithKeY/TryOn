@@ -2,8 +2,8 @@
     <string name="app_name">TryOn</string>
 
     <!-- Error -->
-    <string name="error_snackbar_can_not_find_coordinatorLayout">SnackBar没有引入布局</string>
-    <string name="error_load_more_no_adapter_type">没有给 adapter 确定类型</string>
+    <string name="error_snackbar_can_not_find_coordinatorLayout" translatable="false">SnackBar没有引入布局</string>
+    <string name="error_load_more_no_adapter_type" translatable="false">没有给 adapter 确定类型</string>
 
     <!-- Base -->
     <string name="base_toast_net_down">网络不可用，请检查网络</string>
@@ -53,8 +53,8 @@
     <string name="scan_progress_msg">正在扫描并获取数据，请稍后……</string>
 
     <!-- activity_login_layout -->
-    <string name="login_imgbtn_switch_content_description">用于切换注册和登录的图片</string>
-    <string name="login_imgbtn_icon_content_description">其他社交APP的图片</string>
+    <string name="login_imgbtn_switch_content_description" translatable="false">用于切换注册和登录的图片</string>
+    <string name="login_imgbtn_icon_content_description" translatable="false">其他社交APP的图片</string>
 
     <string name="login_usn_iet_hint">请输入用户名</string>
     <string name="login_psd_iet_hint">请输入密码</string>
@@ -83,10 +83,10 @@
     <string name="login_register_progress_msg">注册中，请稍后……</string>
 
     <!-- activity_user_layout -->
-    <string name="user_imgbtn_avatar_content_description">用户头像的图片</string>
-    <string name="user_imgbtn_history_content_description">足迹的图片</string>
-    <string name="user_imgbtn_coupon_content_description">优惠券的图片</string>
-    <string name="user_imgbtn_cart_content_description">购物车的图片</string>
+    <string name="user_imgbtn_avatar_content_description" translatable="false">用户头像的图片</string>
+    <string name="user_imgbtn_history_content_description" translatable="false">足迹的图片</string>
+    <string name="user_imgbtn_coupon_content_description" translatable="false">优惠券的图片</string>
+    <string name="user_imgbtn_cart_content_description" translatable="false">购物车的图片</string>
 
     <string name="user_imgbtn_coupon_tv">优惠券</string>
     <string name="user_imgbtn_history_tv">足迹</string>
@@ -196,7 +196,7 @@
     <string name="auth_toast_permission_update_authorized">请打开权限，否则无法下载新版本</string>
 
     <string name="auth_dialog_title">权限设置</string>
-    <string name="auth_dialog_map_permission_msg">由于您未授予地图权限，因此无法显示地图功能，请点击右上角进入“个人信息”—>“授权”中进行设置</string>
-    <string name="auth_dialog_language_permission_msg">由于您未授予语言权限，因此无法使用切换语言功能，请点击“授权”进行设置</string>
+    <string name="auth_dialog_map_permission_msg" translatable="false">由于您未授予地图权限，因此无法显示地图功能，请点击右上角进入“个人信息”—>“授权”中进行设置</string>
+    <string name="auth_dialog_language_permission_msg" translatable="false">由于您未授予语言权限，因此无法使用切换语言功能，请点击“授权”进行设置</string>
 
 </resources>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TryOn</string>
+
+    <!-- Base -->
+    <string name="base_toast_net_down">The network connection is unavailable.</string>
+    <string name="base_toast_net_worse">The network connection is unstable, please wait and try again.</string>
+    <string name="base_toast_login_first">Please login first.</string>
+
+    <string name="base_snack_function_closed">The function has not been opened, please wait.</string>
+
+    <string name="base_snack_no_item">No item.</string>
+    <string name="base_snack_no_more_item">No more item.</string>
+    <string name="base_snack_no_item_been_selected">No item has been selected.</string>
+
+    <string name="base_search_progress_title">Search</string>
+    <string name="base_search_progress_msg">Searching, please wait.</string>
+
+    <string name="base_add_progress_title">Add</string>
+    <string name="base_add_progress_msg">Adding, please wait.</string>
+
+    <string name="base_delete_progress_title">Delete</string>
+    <string name="base_delete_progress_msg">Deleting, please waiting.</string>
+
+    <string name="base_refresh_progress_title">Update</string>
+    <string name="base_refresh_progress_msg">Updating, please wait.</string>
+
+    <string name="base_cancel_progress_title">Cancel</string>
+    <string name="base_cancel_progress_msg">Cancelling, please wait.</string>
+
+    <string name="base_dialog_delete_title">Delete</string>
+
+    <string name="base_dialog_operate_title">Operation</string>
+    <string name="base_dialog_operate_msg">Operating, please wait.</string>
+
+    <string name="base_dialog_btn_yes">Yes</string>
+    <string name="base_dialog_btn_no">No</string>
+
+    <string name="base_dialog_btn_confirm">Confirm</string>
+    <string name="base_dialog_btn_sure">Sure</string>
+    <string name="base_dialog_btn_cancel">Cancel</string>
+
+    <string name="base_dialog_btn_okay">Okay</string>
+
+    <string name="base_item_all">All</string>
+    <string name="base_dialog_delete_message">Are you sure to delete the selected item?</string>
+
+    !-- ScanAction -->
+    <string name="scan_progress_title">Scan</string>
+    <string name="scan_progress_msg">Scanning, please wait.</string>
+
+    <!-- activity_login_layout -->
+
+    <string name="login_usn_iet_hint">Please enter the username</string>
+    <string name="login_psd_iet_hint">Please enter the password</string>
+    <string name="login_psd_confirm_iet_hint">Please confirm the password.</string>
+
+    <string name="login_triangle_login_tv">Login</string>
+    <string name="login_triangle_register_tv">Register</string>
+
+    <string name="login_login_btn">L o g i n</string>
+    <string name="login_register_btn">Register</string>
+
+    <string name="login_sex_radio_btn_male">Male</string>
+    <string name="login_sex_radio_btn_female">Female</string>
+
+    <string name="login_snack_login_success">Login successfully.</string>
+    <string name="login_snack_register_success">Register successfully.</string>
+
+    <string name="login_snack_sex_isNull">Please choose the sex.</string>
+    <string name="login_snack_usn_psd_isNull">The username or password is empty.</string>
+    <string name="login_snack_psd_isDifferent">The two password is different.</string>
+
+    <string name="login_login_progress_title">Login</string>
+    <string name="login_login_progress_msg">Login, please wait.</string>
+
+    <string name="login_register_progress_title">Register</string>
+    <string name="login_register_progress_msg">Regitering, please wait.</string>
+
+    <!-- activity_user_layout -->
+
+    <string name="user_imgbtn_coupon_tv">Coupon</string>
+    <string name="user_imgbtn_history_tv">History</string>
+    <string name="user_imgbtn_cart_tv">Cart</string>
+
+    <string name="user_item_favourite_tv">My Favourite</string>
+    <string name="user_item_order_tv">My Order</string>
+    <string name="user_item_address_tv">Delivery Address</string>
+    <string name="user_item_advice_tv">Advice</string>
+    <string name="user_item_setting_tv">Setting</string>
+    <string name="user_item_logout_tv">Log Out</string>
+
+    <!-- activity_coupon_layout -->
+    <string name="coupon_tab_coupon_enable">Enable</string>
+    <string name="coupon_tab_coupon_used">Used</string>
+    <string name="coupon_tab_coupon_unable">Unable</string>
+
+    <!-- activity_product_layout -->
+    <string name="product_toolbar_title">Product Info</string>
+    <string name="product_add_cart_btn">Add to Cart</string>
+    <string name="product_buy_btn">Buy it</string>
+
+    <string name="product_list_params_brand">Brand</string>
+    <string name="product_list_params_product">Product</string>
+    <string name="product_list_params_color">Color</string>
+    <string name="product_list_params_size">Size</string>
+    <string name="product_list_params_gender">Gender</string>
+    <string name="product_list_params_type">Type</string>
+    <string name="product_list_params_price">Price</string>
+    <string name="product_list_params_store">Store</string>
+
+    <string name="product_item_already_exists">Already has the product.</string>
+
+    <!-- activity_order_layout -->
+    <string name="order_item_order_number">OrderNumber:</string>
+    <string name="order_item_whole_price">Whole Price:</string>
+
+    <string name="order_item_item_count">Count</string>
+    <string name="order_item_item_price">Price</string>
+
+    <string name="order_snack_order_success">Order successfully.</string>
+
+    <!-- activity_cart_layout -->
+    <string name="cart_menu_item_edit">Edit</string>
+    <string name="cart_menu_item_finish">Finish</string>
+
+    <string name="cart_whole_price_tv">Whole price:</string>
+    <string name="cart_make_order_tv">Make Order</string>
+    <string name="cart_rmb_tv">RMB</string>
+
+    <string name="cart_dialog_order_confirm_title">Order confirm</string>
+    <string name="cart_dialog_order_confirm_msg">Are you confirm to buy the selected product?</string>
+
+    <string name="cart_snack_count_can_not_be_zero">The count cannot be 0.</string>
+
+    <!-- Pattern -->
+    <string name="pattern_price_tv">Price : 0.00</string>
+    <string name="pattern_stock_tv">Stock : 0</string>
+    <string name="pattern_toast_size_btn">Please choose the color first.</string>
+
+    <!-- Coupon -->
+    <string name="coupon_list_params_name">Name</string>
+    <string name="coupon_list_params_discount">Discount</string>
+
+    <string name="coupon_list_params_brand">Brand</string>
+    <string name="coupon_list_params_product_name">Product</string>
+    <string name="coupon_list_params_time">Time</string>
+
+    <string name="coupon_list_params_number">Number</string>
+    <string name="coupon_list_params_type">Type</string>
+    <string name="coupon_list_params_content">Content</string>
+    <string name="coupon_list_params_status">Status</string>
+
+    <!-- activity_setting_layout -->
+    <string name="setting_update_tv">Update Version</string>
+    <string name="setting_authorize_tv">Authorize Setting</string>
+    <string name="setting_refresh_time_tv">Set Refresh Time</string>
+    <string name="setting_get_refresh_time_tv">Check Refresh Time</string>
+    <string name="setting_check_net_tv">Check Network</string>
+
+    <!-- activity_update_layout -->
+    <string name="update_version_tv">Version Number :</string>
+    <string name="update_check_tv">Check Version</string>
+
+    <!-- Update_Act -->
+    <string name="update_toolbar_title">Update Version</string>
+
+    <string name="update_dialog_title">Update Version</string>
+    <string name="update_dialog_msg">Check the new version, ready to update?</string>
+
+    <string name="update_snack_is_Latest_version">This is the latest version.</string>
+
+    <string name="update_downloading_latest_version">Downloading the new version.</string>
+
+    <!-- Authorize_Act -->
+    <string name="auth_toolbar_title">Authorize Manage</string>
+
+    <string name="auth_config_tv">Language</string>
+    <string name="auth_camera_tv">Camera</string>
+    <string name="auth_location_tv">Location</string>
+    <string name="auth_read_state_tv">Push</string>
+    <string name="auth_storage_tv">Update</string>
+    <string name="auth_warm_tips_tv">We advice to access all permissions for your better experience.</string>
+
+    <string name="auth_toast_permission_camera_authorized">Please access the permission, or you can not scan normally.</string>
+    <string name="auth_toast_permission_update_authorized">Please access the permission, or you can not download the new version.</string>
+
+    <string name="auth_dialog_title">Authorize Setting</string>
+    <string name="coupon_list_params_store">Store</string>
+
+</resources>
