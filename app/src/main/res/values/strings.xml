@@ -166,6 +166,7 @@
     <string name="setting_authorize_tv">设置权限</string>
     <string name="setting_refresh_time_tv">设置刷新时间</string>
     <string name="setting_get_refresh_time_tv">查看刷新时间</string>
+    <string name="setting_set_dedicated_net_tv">设置专用网络</string>
     <string name="setting_check_net_tv">查看当前网络</string>
 
     <!-- activity_update_layout -->

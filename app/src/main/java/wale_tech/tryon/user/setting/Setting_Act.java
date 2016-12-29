@@ -6,7 +6,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -34,6 +37,8 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         setupRefreshTimeText();
 
         setupGetRefreshTimeText();
+
+        setupSetDedicatedNetText();
 
         setupCheckNetText();
 
@@ -67,6 +72,11 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
     private void setupGetRefreshTimeText() {
         final TextView get_time_tv = (TextView) findViewById(R.id.setting_get_refresh_time_tv);
         get_time_tv.setOnClickListener(this);
+    }
+
+    private void setupSetDedicatedNetText() {
+        final TextView check_net_tv = (TextView) findViewById(R.id.setting_set_dedicated_net_tv);
+        check_net_tv.setOnClickListener(this);
     }
 
     private void setupCheckNetText() {
@@ -115,6 +125,10 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
                 onShowRefreshTime();
                 break;
 
+            case R.id.setting_set_dedicated_net_tv:
+                onSetDedicatedNet();
+                break;
+
             case R.id.setting_check_net_tv:
                 onCheckNet();
                 break;
@@ -130,20 +144,25 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         new AlertDialog.Builder(this)
                 .setTitle("设置时间")
                 .setView(time_edit_view)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.base_dialog_btn_confirm), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText time_et = (EditText) time_edit_view.findViewById(R.id.dialog_ert_time_et);
-                        int time = Integer.parseInt(time_et.getText().toString());
-                        if (time < 1000) {
-                            showSnack(0, "不能设置时间小于1秒");
+                        String time_str = time_et.getText().toString();
+                        if (time_str.isEmpty()) {
+                            showSnack(0, "刷新时间不能为空");
                         } else {
-                            sharedAction.setRefreshTime(time);
-                            showSnack(0, "设置成功");
+                            int time = Integer.parseInt(time_et.getText().toString());
+                            if (time < 1000) {
+                                showSnack(0, "不能设置时间小于1秒");
+                            } else {
+                                sharedAction.setRefreshTime(time);
+                                showSnack(0, "设置成功");
+                            }
                         }
                     }
                 })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.base_dialog_btn_cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -155,6 +174,35 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
     private void onShowRefreshTime() {
         new AlertDialog.Builder(this)
                 .setMessage("刷新时间为：" + sharedAction.getRefreshTime())
+                .show();
+    }
+
+    private void onSetDedicatedNet() {
+        String[] net_list = {
+                "港中大专用网络",
+                "宝绅专用网络"
+        };
+
+        int net_default = HttpSet.DEDICATED_URL.equals(HttpSet.GZD_DEDICATED_URL) ? 0 : 1;
+
+        new AlertDialog.Builder(this)
+                .setTitle("请选择专用网络")
+                .setSingleChoiceItems(net_list, net_default, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                HttpSet.setDedicatedUrl(HttpSet.GZD_DEDICATED_URL);
+                                break;
+
+                            case 1:
+                                HttpSet.setDedicatedUrl(HttpSet.BS_DEDICATED_URL);
+                                break;
+                        }
+                        dialog.dismiss();
+                        showSnack(0, "设置成功");
+                    }
+                })
                 .show();
     }
 

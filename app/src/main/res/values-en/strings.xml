@@ -156,6 +156,7 @@
     <string name="setting_authorize_tv">Authorize Setting</string>
     <string name="setting_refresh_time_tv">Set Refresh Time</string>
     <string name="setting_get_refresh_time_tv">Check Refresh Time</string>
+    <string name="setting_set_dedicated_net_tv">Set Dedicated Network</string>
     <string name="setting_check_net_tv">Check Network</string>
 
     <!-- activity_update_layout -->
