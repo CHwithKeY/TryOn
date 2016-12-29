@@ -136,7 +136,7 @@ public final class HttpAction {
         };
 
         // 这条语句意思是让这个傻逼的 volley 能够重连，保持时间为10s，不然TMD服务器还没反应过来呢
-        request.setRetryPolicy(new DefaultRetryPolicy(7 * 1000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        request.setRetryPolicy(new DefaultRetryPolicy(5 * 1000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(request);
 
     }
@@ -179,7 +179,7 @@ public final class HttpAction {
 
             snackBar.show(context.getString(R.string.base_toast_net_worse));
 
-            queue.stop();
+//            queue.stop();
         }
     };
 

@@ -19,7 +19,7 @@ public final class HttpSet {
     public final static int DEDICATED_NET = 1;
 
     public final static String NORMAL_URL = "http://183.62.156.108:427/TryOnService/";
-    public static String DEDICATED_URL = "http://192.168.2.211:8080/TryOnService/";
+    public static String DEDICATED_URL = "http://10.10.5.119:8080/TryOnService/";
 
     public final static String GZD_DEDICATED_URL = "http://10.10.5.119:8080/TryOnService/";
     public final static String BS_DEDICATED_URL = "http://192.168.2.211:8080/TryOnService/";
@@ -33,7 +33,6 @@ public final class HttpSet {
     public static void setDedicatedUrl(String dedicatedUrl) {
         DEDICATED_URL = dedicatedUrl;
     }
-
     //
     public static final String URL_GET_SERVICE = "GetServiceAction.action";
     public static final String URL_PING = "PingAction.action";
