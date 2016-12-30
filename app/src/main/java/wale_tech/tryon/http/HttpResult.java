@@ -7,20 +7,18 @@ public final class HttpResult {
 
     // Login_Act
     public final static String LOGIN_SUCCESS = "1002";
-    public final static String LOGIN_SUCCESS_EN = "Login successfully";
 
     // Register_Fst_Act
-    public final static String REGISTER_SUCCESS = "注册成功";
-    public final static String REGISTER_SUCCESS_EN = "Register successfully";
+    public final static String REGISTER_SUCCESS = "1101";
 
     // Edit_Info_Act
     public final static String UPDATE_PASSWORD_SUCCESS = "修改密码成功";
-    public final static String UPDATE_PASSWORD_SUCCESS_EN = "Update the password successfully";
 
     public final static String UPDATE_NICKNAME_SUCCESS = "修改昵称成功";
-    public final static String UPDATE_NICKNAME_SUCCESS_EN = "Update the nickname successfully";
 
-    public final static String ORDER_SUCCESS = "下单成功";
+    public final static String FAVOURITE_ITEM_EXIST = "1300";
+
+    public final static String ORDER_SUCCESS = "1401";
 
     // Response
     public final static String STATUS = "status";

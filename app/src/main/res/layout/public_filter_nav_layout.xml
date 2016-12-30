@@ -13,7 +13,7 @@
 
         <TextView
             style="@style/result_filter_spinner_title_style"
-            android:text="品牌" />
+            android:text="@string/product_list_params_brand" />
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/filter_brand_spn"
@@ -25,7 +25,7 @@
         <TextView
             style="@style/result_filter_spinner_title_style"
             android:layout_marginTop="@dimen/item_opf_divider"
-            android:text="颜色" />
+            android:text="@string/product_list_params_color" />
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/filter_color_spn"
@@ -36,7 +36,7 @@
         <TextView
             style="@style/result_filter_spinner_title_style"
             android:layout_marginTop="@dimen/item_opf_divider"
-            android:text="尺寸" />
+            android:text="@string/product_list_params_size" />
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/filter_size_spn"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@drawable/dw_color_assist_square_entire_btn"
-        android:text="重置"
+        android:text="@string/filter_nav_reset_tv"
         android:textColor="@android:color/white" />
 
 </android.support.design.widget.NavigationView>

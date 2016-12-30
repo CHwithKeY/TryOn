@@ -92,11 +92,11 @@ public class Order_Confirm_Act extends Base_Act implements View.OnClickListener 
         final TextView discount_before_tv = (TextView) findViewById(R.id.order_confirm_discount_before_tv);
         discount_before_tv.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
 
-        String discount_before_str = "优惠前总金额：" + discount_before_price;
+        String discount_before_str = getString(R.string.order_confirm_price_discount_before) + discount_before_price;
         discount_before_tv.setText(discount_before_str);
 
         final TextView discount_after_tv = (TextView) findViewById(R.id.order_confirm_discount_after_tv);
-        String discount_after_str = "优惠后总金额：" + discount_after_price;
+        String discount_after_str = getString(R.string.order_confirm_price_discount_after) + discount_after_price;
         discount_after_tv.setText(discount_after_str);
     }
 
@@ -144,11 +144,12 @@ public class Order_Confirm_Act extends Base_Act implements View.OnClickListener 
         ArrayList<String> couponInfoList = new ArrayList<>();
         for (int i = 0; i < couponList.size(); i++) {
             ObjectCoupon coupon = couponList.get(i);
-            float discount = Float.parseFloat(coupon.getDiscount()) / 10;
-            couponInfoList.add(coupon.getName() + "-" + discount + "折");
+            String discount = coupon.getDiscount() + "%";
+//            float discount = Float.parseFloat(coupon.getDiscount()) / 10;
+            couponInfoList.add(coupon.getName() + "-" + discount);
         }
 
-        couponInfoList.add("不选择");
+        couponInfoList.add(getString(R.string.base_no_item_selected));
 
         final String[] couponInfo_arr = couponInfoList.toArray(new String[couponInfoList.size()]);
 
@@ -173,24 +174,24 @@ public class Order_Confirm_Act extends Base_Act implements View.OnClickListener 
         final TextView discount_before_tv = (TextView) findViewById(R.id.order_confirm_discount_before_tv);
         String discount_before_str = discount_before_tv.getText().toString();
 
-        if (!coupon_info.equals("不选择")) {
+        if (!coupon_info.equals(getString(R.string.base_no_item_selected))) {
             // parse discount
             String[] coupon_info_arr = coupon_info.split("-");
             int len = coupon_info_arr[1].length();
             float discount = Float.parseFloat(coupon_info_arr[1].substring(0, len - 1));
 
-            coupon_info = "优惠券：" + coupon_info;
+            coupon_info = getString(R.string.order_confirm_coupon) + coupon_info;
             coupon_select_tv.setText(coupon_info);
 
-            float discount_before_price = Float.parseFloat(discount_before_str.substring(7, discount_before_str.length()));
-            float discount_after_price = discount_before_price * discount / 10;
+            float discount_before_price = Float.parseFloat(discount_before_str.split("：")[1]);
+            float discount_after_price = discount_before_price * discount / 100;
 
             setupTotalPriceText(discount_before_price, discount_after_price);
         } else {
-            coupon_info = "优惠券：" + coupon_info;
+            coupon_info = getString(R.string.order_confirm_coupon) + coupon_info;
             coupon_select_tv.setText(coupon_info);
 
-            float discount_before_price = Float.parseFloat(discount_before_str.substring(7, discount_before_str.length()));
+            float discount_before_price = Float.parseFloat(discount_before_str.split("：")[1]);
             setupTotalPriceText(discount_before_price, discount_before_price);
         }
 
@@ -238,7 +239,7 @@ public class Order_Confirm_Act extends Base_Act implements View.OnClickListener 
     private void onMakeOrder() {
         final TextView discount_after_tv = (TextView) findViewById(R.id.order_confirm_discount_after_tv);
         String order_total_price = discount_after_tv.getText().toString();
-        order_total_price = "" + Float.parseFloat(order_total_price.substring(7, order_total_price.length()));
+        order_total_price = "" + Float.parseFloat(order_total_price.split("：")[1]);
 
         StringBuilder sku_code_builder = new StringBuilder("");
         StringBuilder count_builder = new StringBuilder("");

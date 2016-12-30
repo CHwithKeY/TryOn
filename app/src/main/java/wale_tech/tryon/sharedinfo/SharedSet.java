@@ -12,10 +12,6 @@ public final class SharedSet {
 
     public final static String KEY_LAST_ID = "last_id";
 
-    public final static String KEY_APP_LANGUAGE = "app_language";
-    public final static String KEY_APP_LAUNCH = "app_launch";
-    public final static String KEY_APP_FST_LAUNCH = "app_fst_launch";
-
     public final static String KEY_NOTICE_ENTER = "notice_enter";
 
     public final static String KEY_REFRESH_TIME = "refresh_time";

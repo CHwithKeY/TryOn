@@ -19,8 +19,6 @@ import wale_tech.tryon.publicObject.ObjectCoupon;
  */
 public abstract class BaseCouponRycAdapter extends BaseRycAdapter implements View.OnClickListener {
 
-    protected Context context;
-
     public BaseCouponRycAdapter(ArrayList<ObjectCoupon> objectList) {
         super(objectList);
     }
@@ -38,22 +36,24 @@ public abstract class BaseCouponRycAdapter extends BaseRycAdapter implements Vie
 
     @Override
     public void onBindDataViewHolder(DataViewHolder parent, int position) {
+        Context context = parent.itemView.getContext();
+
         CouponViewHolder holder = (CouponViewHolder) parent;
         ObjectCoupon coupon = getDataList().get(position);
         holder.item_ll.setTag(position);
         holder.item_ll.setOnClickListener(this);
 
-        String discount_str = coupon.getDiscount();
-        int discount_percent = Integer.parseInt(discount_str);
-        float discount = discount_percent / 10;
-        discount_str = discount + "折";
+        String discount_str = coupon.getDiscount() + "%";
+//        int discount_percent = Integer.parseInt(discount_str);
+//        float discount = discount_percent / 10;
+//        discount_str = discount + context.getString(R.string.coupon_discount);
 
         holder.discount_tv.setText(discount_str);
 
         String name_str = coupon.getName();
         holder.name_tv.setText(name_str);
 
-        String time_str = "使用时间：" + coupon.getTime();
+        String time_str = context.getString(R.string.coupon_list_params_time) + " : " + coupon.getTime();
         holder.time_tv.setText(time_str);
     }
 
@@ -85,7 +85,7 @@ public abstract class BaseCouponRycAdapter extends BaseRycAdapter implements Vie
         String[] items = itemList.toArray(new String[itemList.size()]);
 
         new AlertDialog.Builder(context)
-                .setTitle("优惠券")
+                .setTitle(context.getString(R.string.coupon_dialog_coupon_title))
                 .setItems(items, null)
                 .show();
     }

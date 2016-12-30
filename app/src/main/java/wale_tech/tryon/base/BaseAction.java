@@ -2,6 +2,7 @@ package wale_tech.tryon.base;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import wale_tech.tryon.publicView.ColorSnackBar;
 import wale_tech.tryon.login.Login_Act;
@@ -77,6 +78,18 @@ public class BaseAction {
         }
 
         return sharedAction.getLoginStatus();
+    }
+
+    protected void getStringRes(int resId) {
+        try {
+            if (context != null) {
+                context.getString(resId);
+            } else {
+                Log.e("Result", "没有给 context 初始化");
+            }
+        } catch (Exception exception) {
+            Log.e("Result", "没有找到对应的字符串资源ID");
+        }
     }
 
     protected void showSnack(String snack_text) {

@@ -9,7 +9,7 @@
         android:id="@+id/dialog_ert_time_et"
         style="@style/base_public_et_style"
         android:gravity="center"
-        android:hint="请输入刷新时间"
+        android:hint="@string/edit_refresh_set_refresh_time_et_hint"
         android:inputType="numberDecimal" />
 
 </LinearLayout>

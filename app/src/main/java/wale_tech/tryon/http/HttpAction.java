@@ -56,35 +56,48 @@ public final class HttpAction {
     }
 
     public void setUrl(String url) {
-//        this.url = url;
+        if (!Methods.isChineseLocale(context)) {
+            if (!HttpSet.NORMAL_URL.endsWith("EN/")) {
+                HttpSet.NORMAL_URL = convertEN(HttpSet.NORMAL_URL);
+                HttpSet.DEDICATED_URL = convertEN(HttpSet.DEDICATED_URL);
+            }
+        } else {
+            HttpSet.NORMAL_URL = convertCH(HttpSet.NORMAL_URL);
+            HttpSet.DEDICATED_URL = convertCH(HttpSet.DEDICATED_URL);
+        }
+
         if (sharedAction.getNet() == 0) {
             this.url = HttpSet.NORMAL_URL + url;
         } else {
             this.url = HttpSet.DEDICATED_URL + url;
         }
-//        this.url = HttpSet.BASE_URL + url;
+
         Log.i("Result", "url is : " + this.url);
+    }
+
+    private String convertEN(String url) {
+        int len = url.length();
+        StringBuilder url_builder = new StringBuilder(url);
+        return url_builder.replace(len - 1, len, "EN/").toString();
+    }
+
+    private String convertCH(String url) {
+        return url.replace("EN/", "/");
     }
 
     public void setMap(String[] key, String[] value) {
         map = new HashMap<>();
 
-//        if (new SharedAction(context).getAppLanguage().equals(SharedSet.LANGUAGE_CHINESE)) {
-//            map.put(HttpSet.KEY_LANGUAGE, SharedSet.LANGUAGE_CHINESE);
+//        if (Methods.isChineseLocale(context)) {
+//            map.put(HttpSet.KEY_LANGUAGE, LanguageSet.CHINESE);
 //        } else {
-//            map.put(HttpSet.KEY_LANGUAGE, SharedSet.LANGUAGE_ENGLISH);
+//            map.put(HttpSet.KEY_LANGUAGE, LanguageSet.ENGLISH);
 //        }
-
-        if (Methods.isChineseLocale(context)) {
-            map.put(HttpSet.KEY_LANGUAGE, LanguageSet.CHINESE);
-        } else {
-            map.put(HttpSet.KEY_LANGUAGE, LanguageSet.ENGLISH);
-        }
 
         for (int i = 0; i < key.length; i++) {
             map.put(key[i], value[i]);
         }
-        Log.i("Result", "map value is : " + map.get(HttpSet.KEY_LANGUAGE));
+//        Log.i("Result", "map value is : " + map.get(HttpSet.KEY_LANGUAGE));
     }
 
     public void setDialog(String title, String msg) {

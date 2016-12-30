@@ -22,7 +22,7 @@
         android:layout_below="@id/order_success_img"
         android:layout_centerHorizontal="true"
         android:background="@drawable/dw_color_assist_square_btn"
-        android:text="查看订单"
+        android:text="@string/order_success_check_order_btn"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_large_size" />
 

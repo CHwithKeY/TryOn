@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/item_divider"
-            android:text="颜色选择"
+            android:text="@string/pick_pattern_pick_color_tv"
             android:textColor="@color/colorAssist" />
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/item_divider"
-            android:text="尺码选择"
+            android:text="@string/pick_pattern_pick_size_tv"
             android:textColor="@color/colorAssist" />
 
         <TextView

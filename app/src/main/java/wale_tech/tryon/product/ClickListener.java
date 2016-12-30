@@ -111,12 +111,12 @@ class ClickListener extends BaseClickListener {
                 if (shoePattern_frag.getPatternAction().getSaveColor().isEmpty()
                         || shoePattern_frag.getPatternAction().getSaveSize().isEmpty()) {
                     Log.i("Result", "click save color");
-                    ((Base_Act) context).showSnack(0, "请选择颜色或尺码");
+                    ((Base_Act) context).showSnack(0, context.getString(R.string.pattern_snack_select_color_size));
                     return;
                 }
 
                 if (shoePattern_frag.getStock() == 0) {
-                    ((Base_Act) context).showSnack(0, "该款产品暂无库存，请选择其他产品");
+                    ((Base_Act) context).showSnack(0, context.getString(R.string.pattern_snack_no_stock));
                     return;
                 }
 
@@ -124,19 +124,5 @@ class ClickListener extends BaseClickListener {
                 break;
             }
         }
-//        ObjectShoe shoe = Methods.cast(view.getTag());
-//
-//        Bundle bundle = new Bundle();
-//        bundle.putString("brand", shoe.getBrand());
-//        bundle.putString("product_name", shoe.getProductName());
-//
-//        FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
-//        FragmentTransaction transaction = fragmentManager.beginTransaction();
-//
-//        Pattern_Frag pattern_frag = new Pattern_Frag();
-//        pattern_frag.setArguments(bundle);
-//
-//        transaction.add(R.id.activity_product_layout, pattern_frag, "pattern_frag");
-//        transaction.commit();
     }
 }

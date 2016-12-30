@@ -29,7 +29,7 @@ public class Order_Success_Act extends Base_Act implements View.OnClickListener 
 
     @Override
     public void varInit() {
-        showSnack(0, "下单成功");
+        showSnack(0, getString(R.string.order_snack_order_success));
     }
 
     @Override

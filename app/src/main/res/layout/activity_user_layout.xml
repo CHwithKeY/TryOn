@@ -46,14 +46,13 @@
                     android:drawableLeft="@drawable/image_user_avatar_badget"
                     android:drawablePadding="@dimen/item_divider"
                     android:drawableStart="@drawable/image_user_avatar_badget"
-                    android:text="Username"
                     android:textSize="@dimen/text_large_size" />
 
                 <TextView
                     android:id="@+id/user_level_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="等级：1级"
+                    android:text="@string/user_level_tv"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/text_large_size" />
 
@@ -61,7 +60,7 @@
                     android:id="@+id/user_mark_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="积分：300"
+                    android:text="@string/user_mark_tv"
                     android:textSize="@dimen/text_large_size" />
             </LinearLayout>
 

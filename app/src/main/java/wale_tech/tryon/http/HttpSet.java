@@ -18,11 +18,12 @@ public final class HttpSet {
     public final static int NORMAL_NET = 0;
     public final static int DEDICATED_NET = 1;
 
-    public final static String NORMAL_URL = "http://183.62.156.108:427/TryOnService/";
-    public static String DEDICATED_URL = "http://10.10.5.119:8080/TryOnService/";
+    public static String DEDICATED_IP = "192.168.2.211:8080";
+    public final static String GZD_DEDICATED_IP = "10.10.5.119:8080";
+    public final static String BS_DEDICATED_IP = "192.168.2.211:8080";
 
-    public final static String GZD_DEDICATED_URL = "http://10.10.5.119:8080/TryOnService/";
-    public final static String BS_DEDICATED_URL = "http://192.168.2.211:8080/TryOnService/";
+    public static String NORMAL_URL = "http://183.62.156.108:427/TryOnService/";
+    public static String DEDICATED_URL = "http://" + DEDICATED_IP + "/TryOnService/";
 
     public static String BASE_URL = "http://183.62.156.108:427/TryOnService/";
 
@@ -30,9 +31,17 @@ public final class HttpSet {
         BASE_URL = baseUrl;
     }
 
-    public static void setDedicatedUrl(String dedicatedUrl) {
-        DEDICATED_URL = dedicatedUrl;
+    public static void setDedicatedIp(String dedicatedIp) {
+        DEDICATED_IP = dedicatedIp;
+        StringBuilder durl_sb = new StringBuilder("http://").append(dedicatedIp);
+        if (DEDICATED_URL.endsWith("EN/")) {
+            durl_sb.append("/TryOnServiceEN/");
+        } else {
+            durl_sb.append("/TryOnService/");
+        }
+        DEDICATED_URL = durl_sb.toString();
     }
+
     //
     public static final String URL_GET_SERVICE = "GetServiceAction.action";
     public static final String URL_PING = "PingAction.action";

@@ -29,6 +29,7 @@
     <string name="base_cancel_progress_msg">Cancelling, please wait.</string>
 
     <string name="base_dialog_delete_title">Delete</string>
+    <string name="base_dialog_delete_message">Are you sure to delete the selected item?</string>
 
     <string name="base_dialog_operate_title">Operation</string>
     <string name="base_dialog_operate_msg">Operating, please wait.</string>
@@ -43,9 +44,9 @@
     <string name="base_dialog_btn_okay">Okay</string>
 
     <string name="base_item_all">All</string>
-    <string name="base_dialog_delete_message">Are you sure to delete the selected item?</string>
+    <string name="base_no_item_selected">No selection</string>
 
-    !-- ScanAction -->
+    <!-- ScanAction -->
     <string name="scan_progress_title">Scan</string>
     <string name="scan_progress_msg">Scanning, please wait.</string>
 
@@ -79,6 +80,9 @@
 
     <!-- activity_user_layout -->
 
+    <string name="user_level_tv">Level : Primary</string>
+    <string name="user_mark_tv">Mark : 300</string>
+
     <string name="user_imgbtn_coupon_tv">Coupon</string>
     <string name="user_imgbtn_history_tv">History</string>
     <string name="user_imgbtn_cart_tv">Cart</string>
@@ -89,6 +93,9 @@
     <string name="user_item_advice_tv">Advice</string>
     <string name="user_item_setting_tv">Setting</string>
     <string name="user_item_logout_tv">Log Out</string>
+
+    <!-- activity_trigger_list_layout -->
+    <string name="trigger_click_product_get_coupon_tv">Click the item to get the COUPON!</string>
 
     <!-- activity_coupon_layout -->
     <string name="coupon_tab_coupon_enable">Enable</string>
@@ -133,10 +140,58 @@
 
     <string name="cart_snack_count_can_not_be_zero">The count cannot be 0.</string>
 
-    <!-- Pattern -->
-    <string name="pattern_price_tv">Price : 0.00</string>
-    <string name="pattern_stock_tv">Stock : 0</string>
+    <!-- activity_setting_layout -->
+    <string name="setting_update_tv">Update Version</string>
+    <string name="setting_authorize_tv">Authorize Setting</string>
+    <string name="setting_refresh_time_tv">Set Refresh Time</string>
+    <string name="setting_get_refresh_time_tv">Check Refresh Time</string>
+    <string name="setting_set_dedicated_net_tv">Set Dedicated Network</string>
+    <string name="setting_check_net_tv">Check Network</string>
+
+    <string name="setting_dialog_set_refresh_time_title">Set Refresh Time</string>
+    <string name="setting_snack_refresh_time_cannot_zero">The refresh time can not be 0</string>
+    <string name="setting_snack_refresh_time_cannot_less_one">The refresh time can not less than 1 sec</string>
+    <string name="setting_snack_set_success">Set refresh time successfully</string>
+    <string name="setting_dialog_check_refresh_time_msg">Refresh time is : </string>
+    <string name="setting_dialog_gzd_net">CUHK dedicated net</string>
+    <string name="setting_dialog_bs_net">BaoShen dedicated net</string>
+    <string name="setting_dialog_choose_dedicated_net_title">Choose Dedicated Net</string>
+    <string name="setting_dialog_check_net_msg">Dedicated net is : </string>
+
+    <!-- activity_order_confirm_layout -->
+    <string name="order_confirm_coupon_select_btn">Select the usable coupon</string>
+    <string name="order_confirm_pay_btn">Pay</string>
+
+    <!-- activity_order_success_layout -->
+    <string name="order_success_check_order_btn">Check Order</string>
+
+    <!-- activity_update_layout -->
+    <string name="update_version_tv">Version Number :</string>
+    <string name="update_check_tv">Check Version</string>
+
+    <!-- MainActivity -->
+    <string name="main_snack_switch_normal_net">Switch to normal net</string>
+    <string name="main_snack_switch_dedicated_net">Switch to dedicated net</string>
+
+    <!-- Product_Act -->
+    <string name="product_details_frag_title">Details</string>
+    <string name="product_pattern_frag_title">Pattern</string>
+
+    <!-- Pattern_Frag -->
+    <string name="pattern_price">Price : </string>
+    <string name="pattern_stock">Stock : </string>
+
+    <string name="pattern_price_init_tv">Price : 0.00</string>
+    <string name="pattern_stock_init_tv">Stock : 0</string>
     <string name="pattern_toast_size_btn">Please choose the color first.</string>
+
+    <string name="pattern_snack_select_color_size">Please select the color or size</string>
+    <string name="pattern_snack_no_stock">This product has no stock, please choose others</string>
+
+    <!-- ProductAction -->
+    <string name="product_action_already_get_coupon">You have already got the coupon</string>
+    <string name="product_action_congratulation_start">Congratulation! You have got -</string>
+    <string name="product_action_congratulation_end">- for one!</string>
 
     <!-- Coupon -->
     <string name="coupon_list_params_name">Name</string>
@@ -151,17 +206,8 @@
     <string name="coupon_list_params_content">Content</string>
     <string name="coupon_list_params_status">Status</string>
 
-    <!-- activity_setting_layout -->
-    <string name="setting_update_tv">Update Version</string>
-    <string name="setting_authorize_tv">Authorize Setting</string>
-    <string name="setting_refresh_time_tv">Set Refresh Time</string>
-    <string name="setting_get_refresh_time_tv">Check Refresh Time</string>
-    <string name="setting_set_dedicated_net_tv">Set Dedicated Network</string>
-    <string name="setting_check_net_tv">Check Network</string>
-
-    <!-- activity_update_layout -->
-    <string name="update_version_tv">Version Number :</string>
-    <string name="update_check_tv">Check Version</string>
+    <string name="coupon_discount">discount</string>
+    <string name="coupon_dialog_coupon_title">Coupon</string>
 
     <!-- Update_Act -->
     <string name="update_toolbar_title">Update Version</string>
@@ -172,6 +218,17 @@
     <string name="update_snack_is_Latest_version">This is the latest version.</string>
 
     <string name="update_downloading_latest_version">Downloading the new version.</string>
+
+    <!-- User_Act -->
+    <string name="user_dialog_log_out_title">Log out</string>
+    <string name="user_dialog_log_out_msg">Are you confirm to log out?</string>
+
+    <!-- Order_Confirm_Act -->
+    <string name="order_confirm_price_discount_before">Price before discount：</string>
+    <string name="order_confirm_price_discount_after">Price after discount：</string>
+
+    <string name="order_confirm_coupon">Coupon : </string>
+    <string name="order_confirm_coupon_no_selected">Coupon：No selection</string>
 
     <!-- Authorize_Act -->
     <string name="auth_toolbar_title">Authorize Manage</string>
@@ -188,5 +245,34 @@
 
     <string name="auth_dialog_title">Authorize Setting</string>
     <string name="coupon_list_params_store">Store</string>
+
+    <!-- fragment_product_shoe_pattern_layout -->
+    <string name="shoe_pattern_stock_only">Stock Only</string>
+    <string name="shoe_pattern_price_stock_divider">Stock - Price</string>
+
+    <!-- fragment_public_empty_page_layout -->
+    <string name="empty_page_no_any_data_record">No any data or record</string>
+
+    <!-- fragment_public_net_down_layout -->
+    <string name="net_down_press_btn_refresh">Press the button to refresh</string>
+
+    <!-- dialog_edit_refresh_item_view -->
+    <string name="edit_refresh_set_refresh_time_et_hint">Enter the refresh time</string>
+
+    <!-- public_filter_call_item -->
+    <string name="filter_call_filter_tv">Filter</string>
+
+    <!-- public_filter_nav_layout -->
+    <string name="filter_nav_reset_tv">Reset</string>
+
+    <!-- public_pick_pattern_item -->
+    <string name="pick_pattern_pick_color_tv">Color Pick</string>
+    <string name="pick_pattern_pick_size_tv">Size Pick</string>
+
+    <!-- public_search_item -->
+    <string name="search_search_tv">Search Here</string>
+
+    <!-- public_load_more_item -->
+    <string name="load_more_load_more_tv">Loading…</string>
 
 </resources>

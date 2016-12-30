@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/item_divider"
-        android:text="筛选"
+        android:text="@string/filter_call_filter_tv"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_large_size" />
 

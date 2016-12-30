@@ -12,7 +12,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorSpecial"
-        android:text="立即支付"
+        android:text="@string/order_confirm_pay_btn"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_large_size" />
 
@@ -45,7 +45,7 @@
             android:layout_height="30dp"
             android:layout_margin="@dimen/item_double_divider"
             android:background="@drawable/dw_color_assist_square_btn"
-            android:text="选择可用的优惠券"
+            android:text="@string/order_confirm_coupon_select_btn"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:gravity="center_vertical|end"
             android:paddingLeft="@dimen/item_double_divider"
             android:paddingRight="@dimen/item_double_divider"
-            android:text="优惠券：不选择" />
+            android:text="@string/order_confirm_coupon_no_selected" />
 
         <TextView
             android:id="@+id/order_confirm_discount_before_tv"

@@ -29,12 +29,10 @@ import wale_tech.tryon.publicObject.ObjectShoe;
 import wale_tech.tryon.publicSet.FilterSet;
 import wale_tech.tryon.publicView.EmptyRecyclerView;
 
-public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelectedListener,*/ View.OnClickListener {
+public class Result_Act extends Base_Act implements View.OnClickListener {
 
     private ResultAction resultAction;
     private EmptyRecyclerView result_rv;
-
-//    private int initCount = 0;
 
     private ArrayList<String> brandList;
     private ArrayList<String> colorList;
@@ -48,8 +46,6 @@ public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelected
         varInit();
 
         setupToolbar();
-
-//        setupFilterCallItem();
 
         setupBackTopBtn();
 
@@ -93,47 +89,8 @@ public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelected
         bt_imgbtn.setOnClickListener(this);
     }
 
-//    private void setupFilterCallItem() {
-//        final FrameLayout filter_fl = (FrameLayout) findViewById(R.id.item_filter_call_fl);
-//        filter_fl.setOnClickListener(this);
-//    }
-
     private void setupFilterNav() {
         FilterHelper.setupFilterLayout(this, resultAction, brandList, colorList, sizeList);
-//        brandList.add(0, "所有");
-//        colorList.add(0, "所有");
-//        sizeList.add(0, "所有");
-//
-//        final AppCompatSpinner brand_spn = (AppCompatSpinner) findViewById(R.id.filter_brand_spn);
-//        final AppCompatSpinner color_spn = (AppCompatSpinner) findViewById(R.id.filter_color_spn);
-//        final AppCompatSpinner size_spn = (AppCompatSpinner) findViewById(R.id.filter_size_spn);
-//
-//        ArrayAdapter<String> brand_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, brandList);
-//        ArrayAdapter<String> color_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, colorList);
-//        ArrayAdapter<String> size_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sizeList);
-//
-//        brand_spn.setAdapter(brand_adapter);
-//        color_spn.setAdapter(color_adapter);
-//        size_spn.setAdapter(size_adapter);
-//
-//        brand_spn.setTag(ResultAction.FILTER_TYPE_BRAND);
-//        color_spn.setTag(ResultAction.FILTER_TYPE_COLOR);
-//        size_spn.setTag(ResultAction.FILTER_TYPE_SIZE);
-//
-//        brand_spn.setOnItemSelectedListener(this);
-//        color_spn.setOnItemSelectedListener(this);
-//        size_spn.setOnItemSelectedListener(this);
-//
-//        final Button reset_btn = (Button) findViewById(R.id.filter_reset_btn);
-//        reset_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                brand_spn.setSelection(0);
-//                color_spn.setSelection(0);
-//                size_spn.setSelection(0);
-//            }
-//        });
-
     }
 
 
@@ -145,10 +102,6 @@ public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelected
                 if (FilterHelper.getSpnInitCount() <= 3) {
                     resultAction.getFilterOption(FilterSet.TABLE_WAREHOUSE, FilterSet.OPTION_BRAND);
                 }
-
-//                if (initCount <= 3) {
-//                    resultAction.getFilterOption(FilterSet.TABLE_WAREHOUSE, FilterSet.OPTION_BRAND);
-//                }
                 break;
 
             case HttpTag.RESULT_FILTER_BRAND:
@@ -268,30 +221,6 @@ public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelected
 
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//        Log.i("Result", "type is : " + adapterView.getTag().toString());
-//
-//        String filter_type = adapterView.getTag().toString();
-//        String filter_content = adapterView.getItemAtPosition(i).toString();
-//
-//        Log.i("Result", "filter selected init action");
-//
-//        if (filter_content.equals("所有")) {
-//            filter_content = "All";
-//        }
-//
-//        initCount++;
-//        if (initCount > 3) {
-//            resultAction.getFilter(BaseAction.REQUEST_FILTER, filter_content, filter_type);
-//        }
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -301,9 +230,6 @@ public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelected
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.item_filter_call_fl:
-//                onCallFilterNav();
-//                break;
 
             case R.id.result_back_top_imgbtn:
                 onBackTop();
@@ -313,13 +239,6 @@ public class Result_Act extends Base_Act implements /*AdapterView.OnItemSelected
                 break;
         }
     }
-
-//    private void onCallFilterNav() {
-//        final DrawerLayout filter_dl = (DrawerLayout) findViewById(R.id.result_filter_dl);
-//        if (!filter_dl.isDrawerOpen(GravityCompat.END)) {
-//            filter_dl.openDrawer(GravityCompat.END);
-//        }
-//    }
 
     private void onBackTop() {
         result_rv.smoothScrollToPosition(0);

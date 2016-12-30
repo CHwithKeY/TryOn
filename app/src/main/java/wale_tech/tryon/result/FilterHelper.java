@@ -29,8 +29,7 @@ public class FilterHelper {
         return spnInitCount;
     }
 
-    public static void setupFilterLayout(Context context, final ResultAction resultAction, ArrayList<String> brandList, ArrayList<String> colorList, ArrayList<String> sizeList) {
-        Log.i("Result", "what?");
+    public static void setupFilterLayout(final Context context, final ResultAction resultAction, ArrayList<String> brandList, ArrayList<String> colorList, ArrayList<String> sizeList) {
         AdapterView.OnItemSelectedListener selectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -39,7 +38,7 @@ public class FilterHelper {
                 String filter_type = adapterView.getTag().toString();
                 String filter_content = adapterView.getItemAtPosition(i).toString();
 
-                if (filter_content.equals("所有")) {
+                if (filter_content.equals(context.getString(R.string.base_item_all))) {
                     filter_content = "All";
                 }
 
@@ -55,7 +54,6 @@ public class FilterHelper {
             }
         };
 
-        Log.i("Result", "init");
         setupFilterCallItem(context);
 
         setupFilterNav(context, selectedListener, brandList, colorList, sizeList);
@@ -63,15 +61,12 @@ public class FilterHelper {
 
     private static void setupFilterCallItem(Context context) {
         final Activity activity = (Activity) context;
-        Log.i("Result", "setup Filter Call");
 
         try {
             final FrameLayout filter_fl = (FrameLayout) activity.findViewById(R.id.item_filter_call_fl);
             filter_fl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i("Result", "Filter click");
-
                     final DrawerLayout filter_dl = (DrawerLayout) activity.findViewById(R.id.result_filter_dl);
                     if (!filter_dl.isDrawerOpen(GravityCompat.END)) {
                         filter_dl.openDrawer(GravityCompat.END);
@@ -86,9 +81,9 @@ public class FilterHelper {
     private static void setupFilterNav(Context context, AdapterView.OnItemSelectedListener selectedListener,
                                        ArrayList<String> brandList, ArrayList<String> colorList, ArrayList<String> sizeList) {
 
-        brandList.add(0, "所有");
-        colorList.add(0, "所有");
-        sizeList.add(0, "所有");
+        brandList.add(0, context.getString(R.string.base_item_all));
+        colorList.add(0, context.getString(R.string.base_item_all));
+        sizeList.add(0, context.getString(R.string.base_item_all));
 
         Activity activity = (Activity) context;
         try {

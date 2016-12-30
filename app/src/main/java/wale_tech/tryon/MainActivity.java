@@ -214,12 +214,12 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (b) {
-            showSnack(R.id.main_col, "切换至专用网络");
+            showSnack(R.id.main_col, getString(R.string.main_snack_switch_dedicated_net));
             HttpSet.setBaseUrl(HttpSet.DEDICATED_URL);
 
             sharedAction.setNet(HttpSet.DEDICATED_NET);
         } else {
-            showSnack(R.id.main_col, "切换至普通网络");
+            showSnack(R.id.main_col, getString(R.string.main_snack_switch_normal_net));
             HttpSet.setBaseUrl(HttpSet.NORMAL_URL);
 
             sharedAction.setNet(HttpSet.NORMAL_NET);

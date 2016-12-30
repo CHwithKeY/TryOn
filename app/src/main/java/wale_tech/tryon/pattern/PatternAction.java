@@ -118,7 +118,7 @@ public class PatternAction extends BaseAction {
         }
 
         if (save_color.equals("") || save_size.equals("")) {
-            showSnack("请选择颜色或尺码");
+            showSnack(context.getString(R.string.pattern_snack_select_color_size));
             return;
         }
 

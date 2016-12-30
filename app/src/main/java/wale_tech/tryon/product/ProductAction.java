@@ -108,14 +108,12 @@ public class ProductAction extends BaseAction {
         }
 
         if (isGetCoupon) {
-            showSnack("您已经领取过该优惠券了！");
+            showSnack(context.getString(R.string.product_action_already_get_coupon));
             return;
         }
 
         String[] key = {HttpSet.KEY_USERNAME};
         String[] value = {sharedAction.getUsername()};
-
-        Log.i("Result", "click coupon");
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_COUPON_AWARD);
@@ -130,9 +128,6 @@ public class ProductAction extends BaseAction {
     public ObjectShoe handleDetailsResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
         ObjectShoe shoe = new ObjectShoe();
-
-        Log.i("Result", "obj len is : " + obj.length());
-        Log.i("Result", "value set is : " + ObjectShoe.key_set.length);
 
         for (int i = 0; i < obj.length(); i++) {
             shoe.value_set[i] = obj.getString(ObjectShoe.key_set[i]);
@@ -174,7 +169,7 @@ public class ProductAction extends BaseAction {
         }
 
         new AlertDialog.Builder(context)
-                .setMessage("恭喜您获得 “ " + coupon.getName() + " ” 一张！")
+                .setMessage(context.getString(R.string.product_action_congratulation_start) + coupon.getName() + context.getString(R.string.product_action_congratulation_end))
                 .setPositiveButton(context.getString(R.string.base_dialog_btn_okay), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

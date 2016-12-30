@@ -142,7 +142,7 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         final View time_edit_view = View.inflate(this, R.layout.dialog_edit_refresh_time_view, null);
 
         new AlertDialog.Builder(this)
-                .setTitle("设置时间")
+                .setTitle(getString(R.string.setting_dialog_set_refresh_time_title))
                 .setView(time_edit_view)
                 .setPositiveButton(getString(R.string.base_dialog_btn_confirm), new DialogInterface.OnClickListener() {
                     @Override
@@ -150,14 +150,14 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
                         EditText time_et = (EditText) time_edit_view.findViewById(R.id.dialog_ert_time_et);
                         String time_str = time_et.getText().toString();
                         if (time_str.isEmpty()) {
-                            showSnack(0, "刷新时间不能为空");
+                            showSnack(0, getString(R.string.setting_snack_refresh_time_cannot_zero));
                         } else {
                             int time = Integer.parseInt(time_et.getText().toString());
                             if (time < 1000) {
-                                showSnack(0, "不能设置时间小于1秒");
+                                showSnack(0, getString(R.string.setting_snack_refresh_time_cannot_less_one));
                             } else {
                                 sharedAction.setRefreshTime(time);
-                                showSnack(0, "设置成功");
+                                showSnack(0, getString(R.string.setting_snack_set_success));
                             }
                         }
                     }
@@ -173,34 +173,34 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
 
     private void onShowRefreshTime() {
         new AlertDialog.Builder(this)
-                .setMessage("刷新时间为：" + sharedAction.getRefreshTime())
+                .setMessage(getString(R.string.setting_dialog_check_refresh_time_msg) + sharedAction.getRefreshTime())
                 .show();
     }
 
     private void onSetDedicatedNet() {
         String[] net_list = {
-                "港中大专用网络",
-                "宝绅专用网络"
+                getString(R.string.setting_dialog_gzd_net),
+                getString(R.string.setting_dialog_bs_net)
         };
 
-        int net_default = HttpSet.DEDICATED_URL.equals(HttpSet.GZD_DEDICATED_URL) ? 0 : 1;
+        int net_default = HttpSet.DEDICATED_IP.equals(HttpSet.GZD_DEDICATED_IP) ? 0 : 1;
 
         new AlertDialog.Builder(this)
-                .setTitle("请选择专用网络")
+                .setTitle(getString(R.string.setting_dialog_choose_dedicated_net_title))
                 .setSingleChoiceItems(net_list, net_default, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case 0:
-                                HttpSet.setDedicatedUrl(HttpSet.GZD_DEDICATED_URL);
+                                HttpSet.setDedicatedIp(HttpSet.GZD_DEDICATED_IP);
                                 break;
 
                             case 1:
-                                HttpSet.setDedicatedUrl(HttpSet.BS_DEDICATED_URL);
+                                HttpSet.setDedicatedIp(HttpSet.BS_DEDICATED_IP);
                                 break;
                         }
                         dialog.dismiss();
-                        showSnack(0, "设置成功");
+                        showSnack(0, getString(R.string.setting_snack_set_success));
                     }
                 })
                 .show();
@@ -215,7 +215,7 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         }
 
         new AlertDialog.Builder(this)
-                .setMessage("当前网络为：" + net)
+                .setMessage(getString(R.string.setting_dialog_check_net_msg) + net)
                 .show();
     }
 }
