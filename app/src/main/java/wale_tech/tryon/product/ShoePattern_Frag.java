@@ -100,10 +100,10 @@ public class ShoePattern_Frag extends Pattern_Frag {
             final TextView price_tv = (TextView) view.findViewById(R.id.shoe_pattern_price_tv);
             final TextView stock_tv = (TextView) view.findViewById(R.id.shoe_pattern_stock_tv);
 
-            String price_str = "价格：" + shoe.getPrice();
+            String price_str = getString(R.string.pattern_price) + shoe.getPrice();
             price_tv.setText(price_str);
 
-            String count_str = "库存：" + shoe.getCount();
+            String count_str = getString(R.string.pattern_stock) + shoe.getCount();
             stock_tv.setText(count_str);
             stock = Integer.parseInt(shoe.getCount());
         }

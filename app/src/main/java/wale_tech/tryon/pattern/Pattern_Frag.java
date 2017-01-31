@@ -27,6 +27,7 @@ import wale_tech.tryon.publicClass.BitmapCache;
 import wale_tech.tryon.publicClass.Methods;
 import wale_tech.tryon.publicClass.ScreenSize;
 import wale_tech.tryon.publicObject.ObjectShoe;
+import wale_tech.tryon.publicSet.BundleSet;
 
 /**
  * Created by KeY on 2016/7/4.
@@ -79,8 +80,8 @@ public class Pattern_Frag extends Base_Frag {
     public void setArguments(Bundle bundle) {
         super.setArguments(bundle);
 
-        brand = bundle.getString("brand");
-        product_name = bundle.getString("product_name");
+        brand = bundle.getString(BundleSet.KEY_BRAND);
+        product_name = bundle.getString(BundleSet.KEY_PRODUCT_NAME);
     }
 
     @Override
@@ -245,10 +246,10 @@ public class Pattern_Frag extends Base_Frag {
             final TextView price_tv = (TextView) view.findViewById(R.id.pattern_price_tv);
             final TextView stock_tv = (TextView) view.findViewById(R.id.pattern_stock_tv);
 
-            String price_str = "价格：" + shoe.getPrice();
+            String price_str = getString(R.string.pattern_price) + shoe.getPrice();
             price_tv.setText(price_str);
 
-            String count_str = "库存：" + shoe.getCount();
+            String count_str = getString(R.string.pattern_stock) + shoe.getCount();
             stock_tv.setText(count_str);
 
             final Button add_cart_btn = (Button) view.findViewById(R.id.pattern_btn0);

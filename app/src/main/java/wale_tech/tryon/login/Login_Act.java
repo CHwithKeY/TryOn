@@ -128,21 +128,16 @@ public class Login_Act extends Base_Act implements View.OnClickListener {
         // wow
 
         if (loginSuccess) {
-            Intent user_int = new Intent();
+            Intent intent = new Intent();
 
-            if (getIntent() != null && getIntent().getAction() != null && getIntent().getAction().equals("GetSkuCodeAction")) {
-//                String sku_code = getIntent().getStringExtra(IntentSet.KEY_SKU_CODE);
-//                String path = getIntent().getStringExtra(IntentSet.KEY_TRIGGER_PATH);
-//
-//                user_int.setClass(this, TriggerList_Act.class);
-//                user_int.putExtra(IntentSet.KEY_SKU_CODE, sku_code);
-//                user_int.putExtra(IntentSet.KEY_TRIGGER_PATH, path);
-                user_int.setClass(this, User_Act.class);
+            if (getIntent() != null && getIntent().getAction() != null && getIntent().getAction().equals(IntentSet.ACTION_NFC)) {
+                intent = getIntent();
+                intent.setClass(this, TriggerList_Act.class);
             } else {
-                user_int.setClass(this, User_Act.class);
+                intent.setClass(this, User_Act.class);
             }
 
-            startActivity(user_int);
+            startActivity(intent);
         }
     }
 

@@ -1,4 +1,4 @@
-package wale_tech.tryon.user;
+package wale_tech.tryon.user.setting;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -6,7 +6,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -29,9 +32,13 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
 
         setupUpdateText();
 
+        setupAuthorizeText();
+
         setupRefreshTimeText();
 
         setupGetRefreshTimeText();
+
+        setupSetDedicatedNetText();
 
         setupCheckNetText();
 
@@ -52,6 +59,11 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         update_tv.setOnClickListener(this);
     }
 
+    private void setupAuthorizeText() {
+        final TextView authorize_tv = (TextView) findViewById(R.id.setting_authorize_tv);
+        authorize_tv.setOnClickListener(this);
+    }
+
     private void setupRefreshTimeText() {
         final TextView refresh_time_tv = (TextView) findViewById(R.id.setting_refresh_time_tv);
         refresh_time_tv.setOnClickListener(this);
@@ -60,6 +72,11 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
     private void setupGetRefreshTimeText() {
         final TextView get_time_tv = (TextView) findViewById(R.id.setting_get_refresh_time_tv);
         get_time_tv.setOnClickListener(this);
+    }
+
+    private void setupSetDedicatedNetText() {
+        final TextView check_net_tv = (TextView) findViewById(R.id.setting_set_dedicated_net_tv);
+        check_net_tv.setOnClickListener(this);
     }
 
     private void setupCheckNetText() {
@@ -95,12 +112,21 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
                 startActivity(update_int);
                 break;
 
+            case R.id.setting_authorize_tv:
+                Intent authorize_int = new Intent(this, Authorize_Act.class);
+                startActivity(authorize_int);
+                break;
+
             case R.id.setting_refresh_time_tv:
                 setRefreshTimeDialog();
                 break;
 
             case R.id.setting_get_refresh_time_tv:
                 onShowRefreshTime();
+                break;
+
+            case R.id.setting_set_dedicated_net_tv:
+                onSetDedicatedNet();
                 break;
 
             case R.id.setting_check_net_tv:
@@ -116,22 +142,27 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         final View time_edit_view = View.inflate(this, R.layout.dialog_edit_refresh_time_view, null);
 
         new AlertDialog.Builder(this)
-                .setTitle("设置时间")
+                .setTitle(getString(R.string.setting_dialog_set_refresh_time_title))
                 .setView(time_edit_view)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.base_dialog_btn_confirm), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText time_et = (EditText) time_edit_view.findViewById(R.id.dialog_ert_time_et);
-                        int time = Integer.parseInt(time_et.getText().toString());
-                        if (time < 1000) {
-                            showSnack(0, "不能设置时间小于1秒");
+                        String time_str = time_et.getText().toString();
+                        if (time_str.isEmpty()) {
+                            showSnack(0, getString(R.string.setting_snack_refresh_time_cannot_zero));
                         } else {
-                            sharedAction.setRefreshTime(time);
-                            showSnack(0, "设置成功");
+                            int time = Integer.parseInt(time_et.getText().toString());
+                            if (time < 1000) {
+                                showSnack(0, getString(R.string.setting_snack_refresh_time_cannot_less_one));
+                            } else {
+                                sharedAction.setRefreshTime(time);
+                                showSnack(0, getString(R.string.setting_snack_set_success));
+                            }
                         }
                     }
                 })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.base_dialog_btn_cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -142,7 +173,36 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
 
     private void onShowRefreshTime() {
         new AlertDialog.Builder(this)
-                .setMessage("刷新时间为：" + sharedAction.getRefreshTime())
+                .setMessage(getString(R.string.setting_dialog_check_refresh_time_msg) + sharedAction.getRefreshTime())
+                .show();
+    }
+
+    private void onSetDedicatedNet() {
+        String[] net_list = {
+                getString(R.string.setting_dialog_gzd_net),
+                getString(R.string.setting_dialog_bs_net)
+        };
+
+        int net_default = HttpSet.DEDICATED_IP.equals(HttpSet.GZD_DEDICATED_IP) ? 0 : 1;
+
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.setting_dialog_choose_dedicated_net_title))
+                .setSingleChoiceItems(net_list, net_default, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                HttpSet.setDedicatedIp(HttpSet.GZD_DEDICATED_IP);
+                                break;
+
+                            case 1:
+                                HttpSet.setDedicatedIp(HttpSet.BS_DEDICATED_IP);
+                                break;
+                        }
+                        dialog.dismiss();
+                        showSnack(0, getString(R.string.setting_snack_set_success));
+                    }
+                })
                 .show();
     }
 
@@ -155,7 +215,7 @@ public class Setting_Act extends Base_Act implements View.OnClickListener {
         }
 
         new AlertDialog.Builder(this)
-                .setMessage("当前网络为：" + net)
+                .setMessage(getString(R.string.setting_dialog_check_net_msg) + net)
                 .show();
     }
 }

@@ -1,6 +1,5 @@
 package wale_tech.tryon.product;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -21,7 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import wale_tech.tryon.PermissionAction;
+import wale_tech.tryon.publicSet.BundleSet;
+import wale_tech.tryon.user.setting.PermissionAction;
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.Base_Act;
 import wale_tech.tryon.http.HttpResult;
@@ -86,21 +86,6 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
         } else {
             finish();
         }
-//        String intent_sku_code = getIntent().getStringExtra(IntentSet.KEY_SKU_CODE);
-
-//        if (intent_sku_code == null || intent_sku_code.isEmpty()) {
-//            sku_code = NfcHelper.read(this, getIntent());
-//            path = PATH_NFC;
-//        } else {
-//            sku_code = intent_sku_code;
-//
-//            String intent_path = getIntent().getStringExtra(IntentSet.KEY_SCAN_PATH);
-//            if (intent_path != null) {
-//                path = PATH_SCAN;
-//            } else {
-//                path = PATH_OTHER;
-//            }
-//        }
     }
 
     public ObjectShoe getShoe() {
@@ -122,7 +107,12 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
             case HttpTag.PRODUCT_GET_SHOE_DETAILS:
                 shoe = productAction.handleDetailsResponse(result);
                 productAction.onColorPick(shoe.getBrand(), shoe.getProductName());
-                productAction.onFavouriteOperate(FavAction.OPERATION_CHECK, shoe.getSkuCode());
+
+                if (sharedAction.getLoginStatus()) {
+                    productAction.onFavouriteOperate(FavAction.OPERATION_CHECK, shoe.getSkuCode());
+                } else {
+                    setupBottomBar();
+                }
 
                 setupDetailsViewPager();
                 break;
@@ -142,7 +132,7 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
             case HttpTag.FAVOURITE_CHECK_FAVOURITE:
                 // 返回值有两个，"已有该收藏"和"没有该收藏"
                 String result_str = new JSONObject(result).getString(HttpResult.RESULT);
-                if (result_str.equals(getString(R.string.product_item_already_exists))) {
+                if (result_str.equals(HttpResult.FAVOURITE_ITEM_EXIST)) {
                     isHaveFav = true;
                 }
 
@@ -195,7 +185,7 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
         for (int i = 0; i < imageList.size(); i++) {
             Image_Frag image_tab = new Image_Frag();
             Bundle bundle = new Bundle();
-            bundle.putString("img_url", imageList.get(i));
+            bundle.putString(BundleSet.KEY_IMG_URL, imageList.get(i));
             image_tab.setArguments(bundle);
 
             fragments.add(image_tab);
@@ -237,16 +227,16 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
         tab02.setCustomTag("shoePattern_frag");
 
         Bundle bundle = new Bundle();
-        bundle.putString("brand", shoe.getBrand());
-        bundle.putString("product_name", shoe.getProductName());
+        bundle.putString(BundleSet.KEY_BRAND, shoe.getBrand());
+        bundle.putString(BundleSet.KEY_PRODUCT_NAME, shoe.getProductName());
         tab02.setArguments(bundle);
 
         fragments.add(tab01);
         fragments.add(tab02);
 
         String[] titles = {
-                "产品详细",
-                "款式选择"};
+                getString(R.string.product_details_frag_title),
+                getString(R.string.product_pattern_frag_title)};
 
         ViewTitleAdapter adapter = new ViewTitleAdapter(getSupportFragmentManager());
         adapter.setFragments(fragments);
@@ -304,38 +294,30 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
 
     @Override
     public void onPermissionRefused(int permission_code) {
-//        toast.showToast(getString(R.string.auth_toast_permission_camera_authorized));
-        showSnack(0, "");
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        PermissionAction.handle(this, requestCode, grantResults);
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // Check if the key event was the Back button and if there's history
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            collapsePattern();
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    // 两次点击返回键退出
-    public void collapsePattern() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        if (fragmentManager.findFragmentByTag("pattern_frag") != null) {
-            transaction.remove(fragmentManager.findFragmentByTag("pattern_frag"));
-            transaction.commit();
-        } else {
-            System.gc();
-            finish();
-        }
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        // Check if the key event was the Back button and if there's history
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            collapsePattern();
+//            return false;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
+//
+//    // 两次点击返回键退出
+//    public void collapsePattern() {
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction transaction = fragmentManager.beginTransaction();
+//        if (fragmentManager.findFragmentByTag("pattern_frag") != null) {
+//            transaction.remove(fragmentManager.findFragmentByTag("pattern_frag"));
+//            transaction.commit();
+//        } else {
+//            System.gc();
+//            finish();
+//        }
+//    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

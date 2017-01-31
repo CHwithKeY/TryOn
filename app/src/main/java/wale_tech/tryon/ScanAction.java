@@ -1,5 +1,6 @@
 package wale_tech.tryon;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +10,10 @@ import com.zbar.lib.CaptureActivity;
 
 import wale_tech.tryon.base.BaseAction;
 import wale_tech.tryon.publicSet.IntentSet;
+import wale_tech.tryon.publicSet.PermissionSet;
 import wale_tech.tryon.trigger.TriggerList_Act;
 import wale_tech.tryon.trigger.TriggerSet;
+import wale_tech.tryon.user.setting.PermissionAction;
 
 /**
  * Created by KeY on 2016/10/27.
@@ -25,11 +28,11 @@ public class ScanAction extends BaseAction {
     }
 
     public void scan() {
-        if (!checkNet()) {
+        if (!checkLoginStatus()) {
             return;
         }
 
-        if (!checkLoginStatus()) {
+        if (!checkNet()) {
             return;
         }
 

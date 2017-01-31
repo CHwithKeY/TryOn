@@ -22,6 +22,15 @@
         <item name="android:layout_margin">@dimen/item_half_divider</item>
     </style>
 
+    <style name="base_public_et_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textSize">@dimen/text_normal_size</item>
+        <item name="android:padding">@dimen/item_divider</item>
+        <item name="android:background">@drawable/dw_public_base_frame_et</item>
+        <item name="android:layout_margin">@dimen/item_divider</item>
+    </style>
+
     <style name="base_list_item_tv_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>

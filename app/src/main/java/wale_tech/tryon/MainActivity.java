@@ -1,5 +1,6 @@
 package wale_tech.tryon;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -19,15 +21,15 @@ import wale_tech.tryon.http.HttpTag;
 import wale_tech.tryon.login.LoginAction;
 import wale_tech.tryon.login.Login_Act;
 import wale_tech.tryon.publicClass.Methods;
+import wale_tech.tryon.publicSet.PermissionSet;
 import wale_tech.tryon.result.Result_Act;
 import wale_tech.tryon.update.UpdateAction;
 import wale_tech.tryon.user.User_Act;
+import wale_tech.tryon.user.setting.PermissionAction;
 
 public class MainActivity extends Base_Act implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private ScanAction scanAction;
-
-    // hey , this is from ck
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,12 +120,32 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
 
     @Override
     public void onPermissionAccepted(int permission_code) {
+        switch (permission_code) {
+            case PermissionSet.CAMERA:
+                scanAction.scan();
+                break;
 
+            default:
+                break;
+        }
     }
 
     @Override
     public void onPermissionRefused(int permission_code) {
+        switch (permission_code) {
+            case PermissionSet.CAMERA:
+                showSnack(R.id.main_col, getString(R.string.auth_toast_permission_camera_authorized));
+                break;
 
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionAction.handle(this, requestCode, grantResults);
     }
 
     @Override
@@ -168,7 +190,9 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     }
 
     private void toScan() {
-        scanAction.scan();
+        if (PermissionAction.checkAutoRequest(this, Manifest.permission.CAMERA, PermissionSet.CAMERA)) {
+            scanAction.scan();
+        }
     }
 
     private void toUser() {
@@ -190,12 +214,12 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (b) {
-            showSnack(R.id.main_col, "切换至专用网络");
+            showSnack(R.id.main_col, getString(R.string.main_snack_switch_dedicated_net));
             HttpSet.setBaseUrl(HttpSet.DEDICATED_URL);
 
             sharedAction.setNet(HttpSet.DEDICATED_NET);
         } else {
-            showSnack(R.id.main_col, "切换至普通网络");
+            showSnack(R.id.main_col, getString(R.string.main_snack_switch_normal_net));
             HttpSet.setBaseUrl(HttpSet.NORMAL_URL);
 
             sharedAction.setNet(HttpSet.NORMAL_NET);

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical">
 
     <EditText
         android:id="@+id/dialog_ert_time_et"
-        style="@style/login_iet_style"
-        android:hint="请输入刷新时间"
+        style="@style/base_public_et_style"
+        android:gravity="center"
+        android:hint="@string/edit_refresh_set_refresh_time_et_hint"
         android:inputType="numberDecimal" />
 
 </LinearLayout>

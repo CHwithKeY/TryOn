@@ -35,7 +35,7 @@
                 android:layout_margin="@dimen/item_divider"
                 android:layout_toEndOf="@id/pattern_img"
                 android:layout_toRightOf="@id/pattern_img"
-                android:text="@string/pattern_price_tv" />
+                android:text="@string/pattern_price_init_tv" />
 
             <TextView
                 android:id="@+id/pattern_stock_tv"
@@ -45,7 +45,7 @@
                 android:layout_alignStart="@id/pattern_price_tv"
                 android:layout_below="@id/pattern_price_tv"
                 android:layout_marginTop="@dimen/item_half_divider"
-                android:text="@string/pattern_stock_tv" />
+                android:text="@string/pattern_stock_init_tv" />
 
             <ImageButton
                 android:id="@+id/pattern_close_imgbtn"

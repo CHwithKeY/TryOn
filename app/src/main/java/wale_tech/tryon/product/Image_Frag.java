@@ -13,6 +13,7 @@ import wale_tech.tryon.R;
 import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.publicClass.BitmapCache;
 import wale_tech.tryon.publicClass.Methods;
+import wale_tech.tryon.publicSet.BundleSet;
 
 /**
  * Created by KeY on 2016/4/24.
@@ -33,7 +34,7 @@ public class Image_Frag extends Fragment {
         super.setArguments(bundle);
 
         Log.i("Result", "img url is : " + bundle.getString("img_url"));
-        img_url = HttpSet.BASE_URL + bundle.getString("img_url");
+        img_url = HttpSet.BASE_URL + bundle.getString(BundleSet.KEY_IMG_URL);
     }
 
     @Override
@@ -60,14 +61,4 @@ public class Image_Frag extends Fragment {
             pro_img.setImageBitmap(cache.getBitmap(img_url));
         }
     }
-
-//    private void downloadImage(ImageView pro_img, String img_url, BitmapCache cache) {
-//        RequestQueue queue = Volley.newRequestQueue(getContext());
-//
-//        ImageLoader loader = new ImageLoader(queue, cache);
-//
-//        ImageLoader.ImageListener listener = ImageLoader.getImageListener(pro_img, R.mipmap.ic_launcher, R.mipmap.ic_launcher);
-//
-//        loader.get(img_url, listener);
-//    }
 }

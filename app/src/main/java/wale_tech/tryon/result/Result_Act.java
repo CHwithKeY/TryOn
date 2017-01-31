@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -28,12 +29,10 @@ import wale_tech.tryon.publicObject.ObjectShoe;
 import wale_tech.tryon.publicSet.FilterSet;
 import wale_tech.tryon.publicView.EmptyRecyclerView;
 
-public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class Result_Act extends Base_Act implements View.OnClickListener {
 
     private ResultAction resultAction;
     private EmptyRecyclerView result_rv;
-
-    private boolean init;
 
     private ArrayList<String> brandList;
     private ArrayList<String> colorList;
@@ -48,16 +47,12 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
 
         setupToolbar();
 
-        setupFilterNav();
-
         setupBackTopBtn();
 
     }
 
     @Override
     public void varInit() {
-        init = true;
-
         resultAction = new ResultAction(this);
         if (resultAction.getFilter(BaseAction.REQUEST_DEFAULT, null, null) == BaseAction.ACTION_NET_DOWN) {
             showNetDownPage(R.id.activity_result_layout);
@@ -89,44 +84,13 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
         result_rv.setOnTouchListener(new LoadMoreTouchListener());
     }
 
-    private void setupFilterNav() {
-        final FrameLayout filter_fl = (FrameLayout) findViewById(R.id.result_call_filter_fl);
-        filter_fl.setOnClickListener(this);
-    }
-
     private void setupBackTopBtn() {
         final ImageButton bt_imgbtn = (ImageButton) findViewById(R.id.result_back_top_imgbtn);
         bt_imgbtn.setOnClickListener(this);
     }
 
-    private void setupFilterBar() {
-        brandList.add("所有");
-        colorList.add("所有");
-        sizeList.add("所有");
-
-        final AppCompatSpinner brand_spn = (AppCompatSpinner) findViewById(R.id.result_brand_spn);
-        final AppCompatSpinner color_spn = (AppCompatSpinner) findViewById(R.id.result_color_spn);
-        final AppCompatSpinner size_spn = (AppCompatSpinner) findViewById(R.id.result_size_spn);
-
-        ArrayAdapter<String> brand_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, brandList);
-        ArrayAdapter<String> color_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, colorList);
-        ArrayAdapter<String> size_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sizeList);
-
-        brand_spn.setAdapter(brand_adapter);
-        color_spn.setAdapter(color_adapter);
-        size_spn.setAdapter(size_adapter);
-
-        brand_spn.setTag(ResultAction.FILTER_TYPE_BRAND);
-        color_spn.setTag(ResultAction.FILTER_TYPE_COLOR);
-        size_spn.setTag(ResultAction.FILTER_TYPE_SIZE);
-
-        brand_spn.setOnItemSelectedListener(this);
-        color_spn.setOnItemSelectedListener(this);
-        size_spn.setOnItemSelectedListener(this);
-
-        brand_spn.setSelection(brandList.size() - 1);
-        color_spn.setSelection(colorList.size() - 1);
-        size_spn.setSelection(sizeList.size() - 1);
+    private void setupFilterNav() {
+        FilterHelper.setupFilterLayout(this, resultAction, brandList, colorList, sizeList);
     }
 
 
@@ -135,7 +99,7 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
         switch (tag) {
             case HttpTag.RESULT_FILTER:
                 onHandleResult(result);
-                if (init) {
+                if (FilterHelper.getSpnInitCount() <= 3) {
                     resultAction.getFilterOption(FilterSet.TABLE_WAREHOUSE, FilterSet.OPTION_BRAND);
                 }
                 break;
@@ -152,7 +116,7 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
 
             case HttpTag.RESULT_FILTER_SIZE:
                 onHandleSize(result);
-                setupFilterBar();
+                setupFilterNav();
                 break;
 
             default:
@@ -258,29 +222,6 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.i("Result", "type is : " + adapterView.getTag().toString());
-        String filter_type = adapterView.getTag().toString();
-        String filter_content = adapterView.getItemAtPosition(i).toString();
-
-        if (filter_content.equals("所有")) {
-            filter_content = "All";
-        }
-
-        if (init) {
-            init = false;
-        } else {
-            resultAction.getFilter(BaseAction.REQUEST_FILTER, filter_content, filter_type);
-        }
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         System.gc();
@@ -289,9 +230,6 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.result_call_filter_fl:
-                onCallFilterNav();
-                break;
 
             case R.id.result_back_top_imgbtn:
                 onBackTop();
@@ -299,13 +237,6 @@ public class Result_Act extends Base_Act implements AdapterView.OnItemSelectedLi
 
             default:
                 break;
-        }
-    }
-
-    private void onCallFilterNav() {
-        final DrawerLayout filter_dl = (DrawerLayout) findViewById(R.id.result_filter_dl);
-        if (!filter_dl.isDrawerOpen(GravityCompat.END)) {
-            filter_dl.openDrawer(GravityCompat.END);
         }
     }
 

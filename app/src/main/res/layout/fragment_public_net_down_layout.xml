@@ -16,7 +16,7 @@
         android:layout_below="@id/net_down_refresh_img"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/item_double_divider"
-        android:text="请点击刷新按钮进行刷新"
+        android:text="@string/net_down_press_btn_refresh"
         android:textSize="@dimen/text_large_size" />
 
     <include layout="@layout/public_snack_page" />

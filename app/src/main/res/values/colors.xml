@@ -24,5 +24,7 @@
     <color name="colorCouponItemUsedLayout">#c5bb54</color>
     <color name="colorCouponItemUnableLayout">#dddddd</color>
 
+    <color name="colorLayout">#f2f2f2</color>
+    <color name="colorGrayDivider">#e6e2e2</color>
 
 </resources>

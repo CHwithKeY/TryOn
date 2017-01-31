@@ -61,17 +61,6 @@ public final class SharedAction {
         return sp.getInt(SharedSet.KEY_LAST_ID, 0);
     }
 
-
-    public void setAppLanguage(String language) {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString(SharedSet.KEY_APP_LANGUAGE, language);
-        editor.apply();
-    }
-
-    public String getAppLanguage() {
-        return sp.getString(SharedSet.KEY_APP_LANGUAGE, SharedSet.LANGUAGE_CHINESE);
-    }
-
     public void setRefreshTime(int refresh_time) {
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(SharedSet.KEY_REFRESH_TIME, refresh_time);
@@ -90,26 +79,6 @@ public final class SharedAction {
 
     public int getNet() {
         return sp.getInt(SharedSet.KEY_NET, 0);
-    }
-
-    public void setAppLaunch(boolean isLaunch) {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean(SharedSet.KEY_APP_LAUNCH, isLaunch);
-        editor.apply();
-    }
-
-    public boolean getAppLaunch() {
-        return sp.getBoolean(SharedSet.KEY_APP_LAUNCH, false);
-    }
-
-    public void setAppFstLaunch(boolean isFstLaunch) {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean(SharedSet.KEY_APP_FST_LAUNCH, isFstLaunch);
-        editor.apply();
-    }
-
-    public boolean getAppFstLaunch() {
-        return sp.getBoolean(SharedSet.KEY_APP_FST_LAUNCH, false);
     }
 
     public void setNoticeEnter(boolean isNoticeEnter) {

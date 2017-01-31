@@ -121,13 +121,6 @@ public class TriggerList_Act extends Base_Act {
         trigger_rv = (RecyclerView) findViewById(R.id.trigger_rv);
         trigger_rv.setLayoutManager(manager);
         trigger_rv.setAdapter(adapter);
-
-//        if (shoeList.size() == 1) {
-//            Intent product_int = new Intent(this, Product_Act.class);
-//            product_int.putExtra(IntentSet.KEY_SKU_CODE, shoeList.get(0).getSkuCode());
-//            product_int.putExtra(IntentSet.KEY_TRIGGER_PATH, trigger.getPath());
-//            startActivity(product_int);
-//        }
     }
 
     private void launchService() {

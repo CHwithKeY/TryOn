@@ -34,13 +34,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".login.Login_Act" />
         <activity android:name=".user.User_Act" />
-        <activity android:name=".Test_Act">
-
-        </activity>
+        <activity android:name=".Test_Act"></activity>
         <activity android:name=".user.favourite.Favourite_Act" />
         <activity android:name=".user.coupon.Coupon_Act" />
         <activity android:name=".history.History_Act" />
@@ -52,8 +49,9 @@
         <activity android:name=".product.Product_Act" />
         <activity android:name=".user.cart.orderPart.Order_Confirm_Act" />
         <activity android:name=".update.Update_Act" />
-        <activity android:name=".user.Setting_Act" />
+        <activity android:name=".user.setting.Setting_Act" />
         <activity android:name=".result.Result_Act" />
+        <activity android:name=".user.setting.Authorize_Act" />
         <activity
             android:name=".trigger.TriggerList_Act"
             android:launchMode="singleTop">
@@ -69,7 +67,9 @@
         <service
             android:name=".trigger.TriggerService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".user.cart.orderPart.Order_Success_Act"></activity>
     </application>
 
 </manifest>

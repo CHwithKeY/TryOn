@@ -18,6 +18,7 @@ import wale_tech.tryon.history.History_Act;
 import wale_tech.tryon.user.order.Order_Act;
 import wale_tech.tryon.user.coupon.Coupon_Act;
 import wale_tech.tryon.user.favourite.Favourite_Act;
+import wale_tech.tryon.user.setting.Setting_Act;
 
 public class User_Act extends Base_Act implements View.OnClickListener {
 
@@ -123,16 +124,16 @@ public class User_Act extends Base_Act implements View.OnClickListener {
 
     private void onLogout() {
         new AlertDialog.Builder(this)
-                .setTitle("退出登录")
-                .setMessage("确定退出登录吗？")
-                .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                .setTitle(getString(R.string.user_dialog_log_out_title))
+                .setMessage(getString(R.string.user_dialog_log_out_msg))
+                .setPositiveButton(getString(R.string.base_dialog_btn_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sharedAction.clearLoginStatus();
                         finish();
                     }
                 })
-                .setNegativeButton("否", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.base_dialog_btn_no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

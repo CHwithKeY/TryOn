@@ -16,7 +16,7 @@
         android:layout_below="@id/empty_page_shark_img"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/item_double_divider"
-        android:text="尚无任何数据或记录"
+        android:text="@string/empty_page_no_any_data_record"
         android:textSize="@dimen/text_large_size" />
 
 </RelativeLayout>

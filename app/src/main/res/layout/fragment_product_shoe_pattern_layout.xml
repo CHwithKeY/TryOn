@@ -18,7 +18,7 @@
             android:layout_marginEnd="@dimen/item_double_divider"
             android:layout_marginRight="@dimen/item_double_divider"
             android:gravity="center_vertical|end"
-            android:text="只看有货" />
+            android:text="@string/shoe_pattern_stock_only" />
 
         <LinearLayout
             android:id="@+id/shoe_pattern_ll"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_margin="@dimen/item_divider"
-                    android:text="库存 - 价格"
+                    android:text="@string/shoe_pattern_price_stock_divider"
                     android:textColor="@color/colorAssist" />
 
                 <TextView
@@ -74,14 +74,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="库存：" />
+                    android:text="@string/pattern_stock" />
 
                 <TextView
                     android:id="@+id/shoe_pattern_price_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="价格：" />
+                    android:text="@string/pattern_price" />
             </LinearLayout>
 
         </LinearLayout>

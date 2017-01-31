@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/result_call_filter_fl"
+    android:id="@+id/item_filter_call_fl"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentEnd="true"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/item_divider"
-        android:text="筛选"
+        android:text="@string/filter_call_filter_tv"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_large_size" />
 

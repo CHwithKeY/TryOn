@@ -104,9 +104,11 @@ public class OrderConfirmAction extends BaseAction {
         return couponAction.handleResponse(result);
     }
 
-    public void handleCreateOrderResponse(String result) throws JSONException {
+    public String handleCreateOrderResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
-        showSnack(obj.getString(HttpResult.RESULT));
+        //        showSnack(order_status);
+
+        return obj.getString(HttpResult.RESULT);
     }
 
 

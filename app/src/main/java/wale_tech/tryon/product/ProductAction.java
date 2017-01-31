@@ -50,18 +50,25 @@ public class ProductAction extends BaseAction {
             return;
         }
 
-        if (!sharedAction.getLoginStatus()) {
-            Intent login_int = new Intent(context, Login_Act.class);
-            login_int.putExtra(IntentSet.KEY_SKU_CODE, sku_code);
-            login_int.putExtra(IntentSet.KEY_TRIGGER_PATH, path);
-            login_int.setAction("GetSkuCodeAction");
-            context.startActivity(login_int);
-            ((Base_Act) context).finish();
-            return;
+//        if (!sharedAction.getLoginStatus()) {
+//            Intent login_int = new Intent(context, Login_Act.class);
+//            login_int.putExtra(IntentSet.KEY_SKU_CODE, sku_code);
+//            login_int.putExtra(IntentSet.KEY_TRIGGER_PATH, path);
+//            login_int.setAction("GetSkuCodeAction");
+//            context.startActivity(login_int);
+//            ((Base_Act) context).finish();
+//            return;
+//        }
+
+        String username = "Visitor";
+        if (sharedAction.getLoginStatus()) {
+            username = sharedAction.getUsername();
         }
 
+        Log.i("Result", "un is : " + username + " sku " + sku_code + " path " + path);
+
         String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE, HttpSet.KEY_TRIGGER_PATH};
-        String[] value = {sharedAction.getUsername(), sku_code, path};
+        String[] value = {username, sku_code, path};
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_GET_SHOE_DETAILS);
@@ -101,14 +108,12 @@ public class ProductAction extends BaseAction {
         }
 
         if (isGetCoupon) {
-            showSnack("您已经领取过该优惠券了！");
+            showSnack(context.getString(R.string.product_action_already_get_coupon));
             return;
         }
 
         String[] key = {HttpSet.KEY_USERNAME};
         String[] value = {sharedAction.getUsername()};
-
-        Log.i("Result", "click coupon");
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_COUPON_AWARD);
@@ -123,9 +128,6 @@ public class ProductAction extends BaseAction {
     public ObjectShoe handleDetailsResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
         ObjectShoe shoe = new ObjectShoe();
-
-        Log.i("Result", "obj len is : " + obj.length());
-        Log.i("Result", "value set is : " + ObjectShoe.key_set.length);
 
         for (int i = 0; i < obj.length(); i++) {
             shoe.value_set[i] = obj.getString(ObjectShoe.key_set[i]);
@@ -167,7 +169,7 @@ public class ProductAction extends BaseAction {
         }
 
         new AlertDialog.Builder(context)
-                .setMessage("恭喜您获得 “ " + coupon.getName() + " ” 一张！")
+                .setMessage(context.getString(R.string.product_action_congratulation_start) + coupon.getName() + context.getString(R.string.product_action_congratulation_end))
                 .setPositiveButton(context.getString(R.string.base_dialog_btn_okay), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

@@ -22,6 +22,7 @@ import wale_tech.tryon.http.HttpTag;
 import wale_tech.tryon.login.Login_Act;
 import wale_tech.tryon.product.ProductAction;
 import wale_tech.tryon.publicObject.ObjectShoe;
+import wale_tech.tryon.publicSet.IntentSet;
 
 /**
  * Created by lenovo on 2016/11/22.
@@ -63,8 +64,12 @@ public class TriggerAction extends BaseAction {
 
         checkRequest(request);
 
-        if (sharedAction.getUsername().isEmpty()) {
+        if (!sharedAction.getLoginStatus()) {
             Intent login_int = new Intent(context, Login_Act.class);
+            login_int.setAction(IntentSet.ACTION_NFC);
+            login_int.putExtra(IntentSet.KEY_TRIGGER_RESULT, trigger_result);
+            login_int.putExtra(IntentSet.KEY_TRIGGER_PATH, trigger_path);
+            login_int.putExtra(IntentSet.KEY_TRIGGER_WORK_SPACE, trigger_work_space);
             context.startActivity(login_int);
             return ACTION_LACK;
         }

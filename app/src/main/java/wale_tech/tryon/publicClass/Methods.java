@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import wale_tech.tryon.R;
@@ -140,12 +142,11 @@ public final class Methods {
         return false;
     }
 
-//    private static void onCheckNetService(Context context) {
-//        if (!isServiceWork(context, "com.waletech.walesmart.CheckNet_Serv")) {
-//            Intent net_service = new Intent(context, CheckNet_Serv.class);
-//            context.startService(net_service);
-//        }
-//    }
+    public static boolean isChineseLocale(Context context) {
+        Locale locale = context.getResources().getConfiguration().locale;
+        String language = locale.getLanguage();
+        return language.contains("zh");
+    }
 
     public static boolean isServiceWork(Context context, String serviceName) {
         boolean isWork = false;
