@@ -19,7 +19,7 @@ public final class HttpSet {
     public final static int DEDICATED_NET = 1;
 
     public static String DEDICATED_IP = "192.168.2.211:8080";
-    public final static String GZD_DEDICATED_IP = "10.10.5.119:8080";
+    public final static String GZD_DEDICATED_IP = "192.168.137.1:8080";
     public final static String BS_DEDICATED_IP = "192.168.2.211:8080";
 
     public static String NORMAL_URL = "http://183.62.156.108:427/TryOnService/";

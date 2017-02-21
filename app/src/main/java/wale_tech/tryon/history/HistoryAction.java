@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import wale_tech.tryon.R;
 import wale_tech.tryon.base.BaseAction;
+import wale_tech.tryon.base.Base_Frag;
 import wale_tech.tryon.http.HttpAction;
 import wale_tech.tryon.http.HttpHandler;
 import wale_tech.tryon.http.HttpSet;
@@ -23,8 +24,15 @@ import wale_tech.tryon.publicObject.ObjectShoe;
 
 public class HistoryAction extends BaseAction {
 
+    private Base_Frag fragment;
+
     public HistoryAction(Context context) {
         super(context);
+    }
+
+    public HistoryAction(Context context, Base_Frag fragment) {
+        super(context);
+        this.fragment = fragment;
     }
 
     public int getHistory(int request) {
@@ -49,7 +57,11 @@ public class HistoryAction extends BaseAction {
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_HISTORY);
         action.setTag(HttpTag.HISTORY_GET_HISTORY);
-        action.setHandler(new HttpHandler(context));
+        if (fragment == null) {
+            action.setHandler(new HttpHandler(context));
+        } else {
+            action.setHandler(new HttpHandler(context, fragment));
+        }
         action.setMap(key, value);
         action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
         action.interaction();
