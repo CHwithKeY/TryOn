@@ -45,8 +45,8 @@ public class HistoryRecord_Frag extends Base_Frag {
 
     private void varInit() {
         historyAction = new HistoryAction(getContext(), this);
-        if (historyAction.getHistory(BaseAction.REQUEST_DEFAULT) == BaseAction.ACTION_NET_DOWN) {
-            showNetDownPage(R.id.activity_history_layout);
+        if (historyAction.getHistoryRecord(BaseAction.REQUEST_DEFAULT) == BaseAction.ACTION_NET_DOWN) {
+            showNetDownPage(R.id.fragment_history_record_layout);
         }
     }
 
@@ -55,7 +55,7 @@ public class HistoryRecord_Frag extends Base_Frag {
             BaseShoeRycAdapter adapter = new HistoryShoeRycAdapter(shoeList) {
                 @Override
                 public void onLoadMore() {
-                    historyAction.getHistory(BaseAction.REQUEST_LOAD_MORE);
+                    historyAction.getHistoryRecord(BaseAction.REQUEST_LOAD_MORE);
                 }
             };
 
@@ -72,7 +72,7 @@ public class HistoryRecord_Frag extends Base_Frag {
     @Override
     public void onMultiHandleResponse(String tag, String result) throws JSONException {
         switch (tag) {
-            case HttpTag.HISTORY_GET_HISTORY:
+            case HttpTag.HISTORY_GET_RECORD:
                 onHandleHistory(result);
                 break;
 
@@ -82,7 +82,7 @@ public class HistoryRecord_Frag extends Base_Frag {
     }
 
     private void onHandleHistory(String result) throws JSONException {
-        ArrayList<ObjectShoe> shoeList = historyAction.handleResponse(result);
+        ArrayList<ObjectShoe> shoeList = historyAction.handleRecordResponse(result);
 
         switch (historyAction.getRequest()) {
             case BaseAction.REQUEST_DEFAULT:
@@ -100,7 +100,7 @@ public class HistoryRecord_Frag extends Base_Frag {
 
     private void handleDefaultList(ArrayList<ObjectShoe> shoeList) {
         if (shoeList.size() == 0) {
-            showEmptyPage(R.id.history_record_layout);
+            showEmptyPage(R.id.fragment_history_record_layout);
         }
         setupRecyclerView(shoeList);
     }
@@ -126,7 +126,7 @@ public class HistoryRecord_Frag extends Base_Frag {
     @Override
     public void onNullResponse(String tag) throws JSONException {
         switch (tag) {
-            case HttpTag.HISTORY_GET_HISTORY:
+            case HttpTag.HISTORY_GET_RECORD:
                 onHandleNullHistory();
                 break;
 
@@ -138,7 +138,7 @@ public class HistoryRecord_Frag extends Base_Frag {
     private void onHandleNullHistory() {
         switch (historyAction.getRequest()) {
             case BaseAction.REQUEST_DEFAULT:
-                showNetDownPage(R.id.activity_history_layout);
+                showNetDownPage(R.id.fragment_history_record_layout);
                 break;
 
             case BaseAction.REQUEST_LOAD_MORE:

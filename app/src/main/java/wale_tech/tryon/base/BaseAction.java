@@ -36,7 +36,7 @@ public class BaseAction {
         varInit();
     }
 
-    protected int request = REQUEST_DEFAULT;
+    private int request = REQUEST_DEFAULT;
 
     public int getRequest() {
         return request;
