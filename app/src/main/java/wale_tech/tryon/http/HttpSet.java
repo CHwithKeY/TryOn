@@ -1,9 +1,5 @@
 package wale_tech.tryon.http;
 
-import android.content.Context;
-
-import wale_tech.tryon.sharedinfo.SharedAction;
-
 /**
  * Created by KeY on 2016/6/3.
  */
