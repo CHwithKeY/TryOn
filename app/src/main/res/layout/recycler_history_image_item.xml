@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rv_history_image_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/item_half_divider"
+    android:background="@drawable/dw_color_assist_square_empty_ll"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/rv_history_image_sdv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/item_half_divider"
+        fresco:actualImageScaleType="centerInside"
+        fresco:failureImage="@drawable/ic_public_none_image" />
+
+    <!--<ImageView-->
+    <!--android:id="@+id/rv_history_img"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_margin="@dimen/item_half_divider" />-->
+
+
+</LinearLayout>

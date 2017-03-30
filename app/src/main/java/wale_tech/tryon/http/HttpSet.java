@@ -1,9 +1,5 @@
 package wale_tech.tryon.http;
 
-import android.content.Context;
-
-import wale_tech.tryon.sharedinfo.SharedAction;
-
 /**
  * Created by KeY on 2016/6/3.
  */
@@ -22,7 +18,7 @@ public final class HttpSet {
     public final static String GZD_DEDICATED_IP = "10.10.5.119:8080";
     public final static String BS_DEDICATED_IP = "192.168.2.211:8080";
 
-    public static String NORMAL_URL = "http://183.62.156.108:427/TryOnService/";
+    public static String NORMAL_URL = "http://119.29.154.234:8080/TryOnService/";
     public static String DEDICATED_URL = "http://" + DEDICATED_IP + "/TryOnService/";
 
     public static String BASE_URL = "http://183.62.156.108:427/TryOnService/";
@@ -84,6 +80,7 @@ public final class HttpSet {
 
     // History
     public final static String URL_HISTORY = "HistoryAction.action";
+    public final static String URL_GET_HISTORY_IMAGE = "GetHistoryImageAction.action";
 
     // Coupon
     public final static String URL_COUPON = "GetUserCouponAction.action";
