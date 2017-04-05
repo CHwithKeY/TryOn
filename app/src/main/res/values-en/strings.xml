@@ -145,6 +145,7 @@
     <string name="setting_authorize_tv">Authorize Setting</string>
     <string name="setting_refresh_time_tv">Set Refresh Time</string>
     <string name="setting_get_refresh_time_tv">Check Refresh Time</string>
+    <string name="setting_set_dedicated_net_manual_tv">Set Dedicated Network Manually</string>
     <string name="setting_set_dedicated_net_tv">Set Dedicated Network</string>
     <string name="setting_check_net_tv">Check Network</string>
 
@@ -155,6 +156,9 @@
     <string name="setting_dialog_check_refresh_time_msg">Refresh time is : </string>
     <string name="setting_dialog_gzd_net">CUHK dedicated net</string>
     <string name="setting_dialog_bs_net">BaoShen dedicated net</string>
+    <string name="setting_dialog_other_net">Other net</string>
+    <string name="setting_dialog_set_dedicated_net_manually_title">Please enter the IP manually</string>
+    <string name="setting_snack_dedicated_net_cannot_null">The IP can not be null</string>
     <string name="setting_dialog_choose_dedicated_net_title">Choose Dedicated Net</string>
     <string name="setting_dialog_check_net_msg">Dedicated net is : </string>
 
@@ -256,8 +260,11 @@
     <!-- fragment_public_net_down_layout -->
     <string name="net_down_press_btn_refresh">Press the button to refresh</string>
 
-    <!-- dialog_edit_refresh_item_view -->
+    <!-- dialog_edit_refresh_time_view -->
     <string name="edit_refresh_set_refresh_time_et_hint">Enter the refresh time</string>
+
+    <!-- dialog_edit_dedicated_net_view -->
+    <string name="edit_setting_set_dedicated_net_et_hint">Enter the Dedicated IP and port like,192.168.1.1:8080</string>
 
     <!-- public_filter_call_item -->
     <string name="filter_call_filter_tv">Filter</string>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/dialog_ert_time_et"
+        style="@style/base_public_et_style"
+        android:gravity="center"
+        android:hint="@string/edit_setting_set_dedicated_net_et_hint"
+        android:inputType="text" />
+
+</LinearLayout>

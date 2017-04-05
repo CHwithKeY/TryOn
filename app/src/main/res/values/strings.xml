@@ -154,6 +154,7 @@
     <string name="setting_authorize_tv">设置权限</string>
     <string name="setting_refresh_time_tv">设置刷新时间</string>
     <string name="setting_get_refresh_time_tv">查看刷新时间</string>
+    <string name="setting_set_dedicated_net_manual_tv">手动输入专用网络</string>
     <string name="setting_set_dedicated_net_tv">设置专用网络</string>
     <string name="setting_check_net_tv">查看当前网络</string>
 
@@ -164,6 +165,9 @@
     <string name="setting_dialog_check_refresh_time_msg">刷新时间为：</string>
     <string name="setting_dialog_gzd_net">港中大专用网络</string>
     <string name="setting_dialog_bs_net">宝绅专用网络</string>
+    <string name="setting_dialog_other_net">其他网络</string>
+    <string name="setting_dialog_set_dedicated_net_manually_title">请手动输入IP</string>
+    <string name="setting_snack_dedicated_net_cannot_null">IP不能为空</string>
     <string name="setting_dialog_choose_dedicated_net_title">请选择专用网络</string>
     <string name="setting_dialog_check_net_msg">当前网络为：</string>
 
@@ -267,8 +271,11 @@
     <!-- fragment_public_net_down_layout -->
     <string name="net_down_press_btn_refresh">请点击刷新按钮进行刷新</string>
 
-    <!-- dialog_edit_refresh_item_view -->
+    <!-- dialog_edit_refresh_time_view -->
     <string name="edit_refresh_set_refresh_time_et_hint">请输入刷新时间</string>
+
+    <!-- dialog_edit_dedicated_net_view -->
+    <string name="edit_setting_set_dedicated_net_et_hint">请输入专用IP及端口号,如192.168.1.1:8080</string>
 
     <!-- public_filter_call_item -->
     <string name="filter_call_filter_tv">筛选</string>

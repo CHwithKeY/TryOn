@@ -64,6 +64,13 @@
         <include layout="@layout/divider_horizontal_gray_item" />
 
         <TextView
+            android:id="@+id/setting_set_dedicated_net_manual_tv"
+            style="@style/base_list_item_tv_style"
+            android:text="@string/setting_set_dedicated_net_manual_tv" />
+
+        <include layout="@layout/divider_horizontal_gray_item" />
+
+        <TextView
             android:id="@+id/setting_set_dedicated_net_tv"
             style="@style/base_list_item_tv_style"
             android:text="@string/setting_set_dedicated_net_tv" />
