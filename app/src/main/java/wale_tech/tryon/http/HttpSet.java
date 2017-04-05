@@ -22,7 +22,7 @@ public final class HttpSet {
     public static String NORMAL_URL = "http://" + NORMAL_IP + "/TryOnService/";
     public static String DEDICATED_URL = "http://" + DEDICATED_IP + "/TryOnService/";
 
-    public static String BASE_URL = "http://183.62.156.108:427/TryOnService/";
+    public static String BASE_URL = "http://" + NORMAL_IP + "/TryOnService/";
 
     public static void setBaseUrl(String baseUrl) {
         BASE_URL = baseUrl;
