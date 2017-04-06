@@ -76,9 +76,9 @@ public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements V
 
         Log.i("Result", "tag url is : " + url);
 
-        Intent zoom_int = new Intent(context, ZoomImage_Act.class);
-        zoom_int.putExtra("image_url", HttpSet.BASE_URL + url);
-        context.startActivity(zoom_int);
+//        Intent zoom_int = new Intent(context, ZoomImage_Act.class);
+//        zoom_int.putExtra("image_url", HttpSet.BASE_URL + url);
+//        context.startActivity(zoom_int);
     }
 
     private class HistoryImageViewHolder extends DataViewHolder {
