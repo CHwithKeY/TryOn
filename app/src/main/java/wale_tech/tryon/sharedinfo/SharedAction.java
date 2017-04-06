@@ -3,6 +3,8 @@ package wale_tech.tryon.sharedinfo;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import wale_tech.tryon.http.HttpSet;
+
 /**
  * Created by KeY on 2016/6/3.
  */
@@ -79,6 +81,16 @@ public final class SharedAction {
 
     public int getNet() {
         return sp.getInt(SharedSet.KEY_NET, 0);
+    }
+
+    public void setDedicatedIP(String dedicated_ip) {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(SharedSet.KEY_DEDICATED_IP, dedicated_ip);
+        editor.apply();
+    }
+
+    public String getDedicatedIP() {
+        return sp.getString(SharedSet.KEY_DEDICATED_IP, HttpSet.NORMAL_IP);
     }
 
     public void setNoticeEnter(boolean isNoticeEnter) {

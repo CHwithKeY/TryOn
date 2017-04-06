@@ -18,4 +18,6 @@ public final class SharedSet {
 
     public final static String KEY_NET = "net";
 
+    public final static String KEY_DEDICATED_IP = "dedicated_ip";
+
 }

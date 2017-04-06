@@ -42,7 +42,8 @@ public final class HttpTag {
     public final static String PATTERN_ADD_CART = "pattern_add_cart";
 
     // History_Act
-    public final static String HISTORY_GET_HISTORY = "history_get_history";
+    public final static String HISTORY_GET_RECORD = "history_get_record";
+    public final static String HISTORY_GET_IMAGE = "history_get_image";
 
     // Coupon_Act
     public final static String COUPON_COUPON = "coupon_coupon";

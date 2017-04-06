@@ -119,6 +119,23 @@ public final class HttpAction {
         });
     }
 
+    public void setDialog(String msg) {
+        dialog = new ProgressDialog(context);
+        dialog.setMessage(msg);
+
+        // 不允许用户点击 dialog 外部从而导致 dialog 消失
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+
+        // 不允许用户点击“返回键”从而导致 dialog 消失
+        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                return keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0;
+            }
+        });
+    }
+
     public void setHandler(HttpHandler handler) {
         this.handler = handler;
     }

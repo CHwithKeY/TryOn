@@ -48,11 +48,6 @@ class ClickListener extends BaseClickListener {
                 onGetCoupon();
                 break;
 
-            // ButtonBar
-//            case R.id.product_scan_imgbtn:
-//                onScan();
-//                break;
-
             case R.id.product_fav_imgbtn:
                 onFavouriteOperate(v);
                 break;

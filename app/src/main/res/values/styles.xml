@@ -112,6 +112,13 @@
         <item name="android:paddingLeft">@dimen/item_opf_divider</item>
     </style>
 
+    <style name="history_title_tv_style">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textSize">@dimen/text_normal_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <!-- activity_product_layout -->
     <style name="product_bar_imgbtn_style">
         <item name="android:layout_width">0dp</item>

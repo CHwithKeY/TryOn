@@ -40,7 +40,16 @@ public class LoadMoreTouchListener implements View.OnTouchListener {
                 int recyclerViewHeight = recyclerView.getHeight();
                 int screenHeight = new ScreenSize(recyclerView.getContext()).getHeight();
 
-                int itemHeight = recyclerViewHeight / (manager.findLastCompletelyVisibleItemPosition() - manager.findFirstCompletelyVisibleItemPosition());
+                int itemHeight;
+                try {
+                    itemHeight = recyclerViewHeight / (manager.findLastCompletelyVisibleItemPosition() - manager.findFirstCompletelyVisibleItemPosition());
+                } catch (ArithmeticException exception1) {
+                    try {
+                        itemHeight = recyclerViewHeight / (manager.findLastVisibleItemPosition() - manager.findFirstVisibleItemPosition());
+                    } catch (ArithmeticException exception2) {
+                        return false;
+                    }
+                }
                 int totalHeight = itemHeight * recyclerView.getChildCount();
 
                 if ((downY - upY > 200)
