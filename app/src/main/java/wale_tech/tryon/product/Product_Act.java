@@ -1,11 +1,14 @@
 package wale_tech.tryon.product;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -81,7 +84,11 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
             isHaveFav = false;
 
             if (path.equals(PATH_NFC) || path.equals(PATH_SCAN)) {
-                setupCouponImg();
+                // 根据 SkuCode 和 username 的关联情况，实现一个账户只能对一个新的Sku获取优惠券的限制
+                productAction.checkCouponOwn(sku_code);
+//                if (!productAction.isGetCoupon()) {
+//                    createCouponDialog();
+//                }
             }
         } else {
             finish();
@@ -100,6 +107,12 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
     @Override
     public void onMultiHandleResponse(String tag, String result) throws JSONException {
         switch (tag) {
+            case HttpTag.COUPON_CHECK_COUPON:
+                if (!productAction.handleCouponCheckResponse(result)) {
+                    createCouponDialog();
+                }
+                break;
+
             case HttpTag.COUPON_AWARD_COUPON:
                 productAction.handleCouponAwardResponse(result);
                 break;
@@ -170,11 +183,30 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
         }
     }
 
-    private void setupCouponImg() {
-        final ImageView coupon_img = (ImageView) findViewById(R.id.product_coupon_img);
-        coupon_img.setVisibility(View.VISIBLE);
-        Log.i("Result", "setup img");
-        coupon_img.setOnClickListener(clickListener);
+//    private void setupCouponImg() {
+//        final ImageView coupon_img = (ImageView) findViewById(R.id.product_coupon_img);
+//        coupon_img.setVisibility(View.VISIBLE);
+//        Log.i("Result", "setup img");
+//        coupon_img.setOnClickListener(clickListener);
+//    }
+
+    private void createCouponDialog() {
+        final View view = View.inflate(this, R.layout.dialog_get_coupon_view, null);
+        AlertDialog.Builder builder;
+
+        builder = new AlertDialog.Builder(this);
+        builder.setView(view);
+        builder.setPositiveButton("点击领取", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                productAction.onGetCoupon(shoe.getSkuCode());
+            }
+        });
+
+//        Button button = (Button) view.findViewById(R.id.dialog_gc_get_btn);
+//        button.setOnClickListener(clickListener);
+
+        builder.show();
     }
 
     private void setupImageViewPager(ArrayList<String> imageList) {

@@ -44,9 +44,9 @@ class ClickListener extends BaseClickListener {
         }
 
         switch (v.getId()) {
-            case R.id.product_coupon_img:
-                onGetCoupon();
-                break;
+//            case R.id.product_coupon_img:
+//                onGetCoupon();
+//                break;
 
             case R.id.product_fav_imgbtn:
                 onFavouriteOperate(v);
@@ -62,10 +62,10 @@ class ClickListener extends BaseClickListener {
         }
     }
 
-    private void onGetCoupon() {
-        Log.i("Result", "onGetCoupon");
-        productAction.onGetCoupon();
-    }
+//    void onGetCoupon() {
+//        Log.i("Result", "onGetCoupon");
+//        productAction.onGetCoupon();
+//    }
 
     private void onFavouriteOperate(View view) {
 //        if (!new BaseAction(context).checkLoginStatus()) {

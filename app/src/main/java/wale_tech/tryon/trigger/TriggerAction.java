@@ -98,9 +98,9 @@ public class TriggerAction extends BaseAction {
         return ACTION_DONE;
     }
 
-    public void onGetCoupon() {
-        productAction.onGetCoupon();
-    }
+//    public void onGetCoupon() {
+//        productAction.onGetCoupon();
+//    }
 
     public ArrayList<ObjectShoe> handleListResponse(String result) throws JSONException {
         JSONArray array = new JSONArray(result);

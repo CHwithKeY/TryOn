@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/item_divider"
+        android:layout_marginTop="@dimen/item_double_divider"
+        android:text="恭喜你，获得一张优惠券！"
+        android:textSize="@dimen/text_large_size"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_product_coupon" />
+
+    <!--<Button-->
+    <!--android:id="@+id/dialog_gc_get_btn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_margin="@dimen/item_divider"-->
+    <!--android:background="@color/colorAssistLight"-->
+    <!--android:text="点 击 领 取"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="@dimen/text_large_size" />-->
+
+
+</LinearLayout>

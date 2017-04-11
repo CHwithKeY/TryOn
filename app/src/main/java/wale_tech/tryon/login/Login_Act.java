@@ -71,6 +71,8 @@ public class Login_Act extends Base_Act implements View.OnClickListener {
 
         loginAction = new LoginAction(this);
         registerAction = new RegisterAction(this);
+
+        showSnack(0, getString(R.string.base_toast_login_first));
     }
 
     @Override

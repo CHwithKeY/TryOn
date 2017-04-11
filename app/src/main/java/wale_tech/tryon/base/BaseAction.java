@@ -74,7 +74,7 @@ public class BaseAction {
             Intent login_int = new Intent(context, Login_Act.class);
             context.startActivity(login_int);
 //            toast.showToast(context.getString(R.string.base_toast_login_first));
-            snackBar.show(context.getString(R.string.base_toast_login_first));
+//            snackBar.show(context.getString(R.string.base_toast_login_first));
         }
 
         return sharedAction.getLoginStatus();

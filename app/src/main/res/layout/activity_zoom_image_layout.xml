@@ -4,13 +4,15 @@
     android:id="@+id/activity_zoom_image_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context="wale_tech.tryon.history.ZoomImage_Act">
 
-    <wale_tech.tryon.ImageScaleView
-        android:id="@+id/zoom_matimg"
+    <wale_tech.tryon.publicView.ZoomImageView
+        android:id="@+id/zoom_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="centerInside" />
+        android:layout_centerInParent="true"
+        android:scaleType="matrix" />
+
+    <include layout="@layout/public_back_item" />
 
 </RelativeLayout>

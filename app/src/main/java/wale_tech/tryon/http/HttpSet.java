@@ -82,9 +82,11 @@ public final class HttpSet {
     // History
     public final static String URL_HISTORY = "HistoryAction.action";
     public final static String URL_GET_HISTORY_IMAGE = "GetHistoryImageAction.action";
+    public final static String URL_BIND_HISTORY_IMAGE = "HistoryImageBindAction.action";
 
     // Coupon
     public final static String URL_COUPON = "GetUserCouponAction.action";
+    public final static String URL_COUPON_CHECK = "CheckUserCouponAction.action";
     public final static String URL_COUPON_AWARD = "GetCouponAwardAction.action";
 
     // Search & Result_Act
@@ -130,6 +132,8 @@ public final class HttpSet {
     public final static String KEY_GENDER = "gender";
     public final static String KEY_COLOR = "color";
     public final static String KEY_SIZE = "size";
+
+    public final static String KEY_IMAGE_PATH = "image_path";
 
     // Product Set
     public final static String KEY_EPC_CODE = "epc_code";

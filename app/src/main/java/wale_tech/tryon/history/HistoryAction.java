@@ -124,8 +124,8 @@ public class HistoryAction extends BaseAction {
         return shoeList;
     }
 
-    public ArrayList<ObjectHistoryImage> handleImageResponse(String result) throws JSONException {
-        ArrayList<ObjectHistoryImage> imageList = new ArrayList<>();
+    public ArrayList<String> handleImageResponse(String result) throws JSONException {
+        ArrayList<String> imageList = new ArrayList<>();
         JSONArray array = new JSONArray(result);
 
         if (array.length() == 0) {
@@ -134,11 +134,15 @@ public class HistoryAction extends BaseAction {
         }
 
         for (int i = 0; i < array.length(); i++) {
-            ObjectHistoryImage historyImage = ObjectUtil.wrapHistoryImage(array.getJSONObject(i));
-            imageList.add(historyImage);
+            imageList.add(array.getString(i));
         }
 
-        sharedAction.setLastId(Integer.parseInt(imageList.get(imageList.size() - 1).getLastId()));
+//        for (int i = 0; i < array.length(); i++) {
+//            ObjectHistoryImage historyImage = ObjectUtil.wrapHistoryImage(array.getJSONObject(i));
+//            imageList.add(historyImage);
+//        }
+//
+//        sharedAction.setLastId(Integer.parseInt(imageList.get(imageList.size() - 1).getLastId()));
 
         return imageList;
     }
