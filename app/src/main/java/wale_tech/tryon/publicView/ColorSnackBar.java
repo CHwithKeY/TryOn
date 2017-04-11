@@ -37,6 +37,10 @@ public class ColorSnackBar {
     public void show(String text) {
         CoordinatorLayout snack_col = (CoordinatorLayout) ((AppCompatActivity) context).findViewById(R.id.snack_col);
 
+        if (snack_col == null) {
+            Log.i("Result", "snack col null");
+        }
+
         if (snackbar != null) {
             snackbar = null;
             cos++;

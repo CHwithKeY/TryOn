@@ -43,9 +43,9 @@
                     android:id="@+id/user_username_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/image_user_avatar_badget"
+                    android:drawableEnd="@drawable/image_user_avatar_badget"
                     android:drawablePadding="@dimen/item_divider"
-                    android:drawableStart="@drawable/image_user_avatar_badget"
+                    android:drawableRight="@drawable/image_user_avatar_badget"
                     android:textSize="@dimen/text_large_size" />
 
                 <TextView

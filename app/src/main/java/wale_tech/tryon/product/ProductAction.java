@@ -37,12 +37,16 @@ public class ProductAction extends BaseAction {
 
     private FavAction favAction;
 
-    private boolean isGetCoupon;
+//    private boolean isGetCoupon;
+
+//    public boolean isGetCoupon() {
+//        return isGetCoupon;
+//    }
 
     public ProductAction(Context context) {
         super(context);
         favAction = new FavAction(context);
-        isGetCoupon = false;
+//        isGetCoupon = false;
     }
 
     public void getShoeDetails(String sku_code, String path) {
@@ -98,22 +102,40 @@ public class ProductAction extends BaseAction {
         action.interaction();
     }
 
-    public void onGetCoupon() {
+    public void checkCouponOwn(String sku_code) {
         if (!checkNet()) {
             return;
         }
 
-        if (!checkLoginStatus()) {
+        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE};
+        String[] value = {sharedAction.getUsername(), sku_code};
+
+        HttpAction action = new HttpAction(context);
+        action.setUrl(HttpSet.URL_COUPON_CHECK);
+        action.setTag(HttpTag.COUPON_CHECK_COUPON);
+        action.setMap(key, value);
+//        action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
+        action.setHandler(new HttpHandler(context));
+
+        action.interaction();
+    }
+
+    public void onGetCoupon(String sku_code) {
+        if (!checkNet()) {
             return;
         }
 
-        if (isGetCoupon) {
-            showSnack(context.getString(R.string.product_action_already_get_coupon));
-            return;
-        }
+//        if (!checkLoginStatus()) {
+//            return;
+//        }
 
-        String[] key = {HttpSet.KEY_USERNAME};
-        String[] value = {sharedAction.getUsername()};
+//        if (isGetCoupon) {
+//            showSnack(context.getString(R.string.product_action_already_get_coupon));
+//            return;
+//        }
+
+        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE};
+        String[] value = {sharedAction.getUsername(), sku_code};
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_COUPON_AWARD);
@@ -158,11 +180,16 @@ public class ProductAction extends BaseAction {
 //        showSnack(new JSONObject(result).getString(HttpResult.RESULT));
     }
 
+    public boolean handleCouponCheckResponse(String result) throws JSONException {
+        JSONObject obj = new JSONObject(result);
+        return obj.getBoolean(HttpResult.COUPON_CHECK);
+    }
+
     public void handleCouponAwardResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
         ObjectCoupon coupon = new ObjectCoupon();
 
-        isGetCoupon = true;
+//        isGetCoupon = true;
 
         for (int i = 0; i < obj.length(); i++) {
             coupon.value_set[i] = obj.getString(ObjectCoupon.key_set[i]);

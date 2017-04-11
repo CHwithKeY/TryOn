@@ -12,13 +12,12 @@
         android:id="@+id/public_back_imgbtn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:src="@drawable/image_public_back_item" />
+        android:background="@color/colorMain" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_centerInParent="true"
         android:src="@drawable/ic_toolbar_nav_back" />
 
 </RelativeLayout>

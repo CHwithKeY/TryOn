@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,6 @@ import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.publicAdapter.BaseRycAdapter;
 import wale_tech.tryon.publicClass.BitmapCache;
 import wale_tech.tryon.publicClass.Methods;
-import wale_tech.tryon.publicObject.ObjectHistoryImage;
 import wale_tech.tryon.publicSet.IntentSet;
 
 import static wale_tech.tryon.publicClass.Methods.cast;
@@ -29,7 +27,7 @@ import static wale_tech.tryon.publicClass.Methods.cast;
 
 public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements View.OnClickListener {
 
-    public HistoryImageRycAdapter(ArrayList<ObjectHistoryImage> dataList) {
+    public HistoryImageRycAdapter(ArrayList<String> dataList) {
         super(dataList);
     }
 
@@ -47,7 +45,7 @@ public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements V
     }
 
     @Override
-    public ArrayList<ObjectHistoryImage> getDataList() {
+    public ArrayList<String> getDataList() {
         return cast(super.getDataList());
     }
 
@@ -55,43 +53,44 @@ public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements V
     public void onBindDataViewHolder(DataViewHolder parent, int position) {
         HistoryImageViewHolder holder = (HistoryImageViewHolder) parent;
 
-        ObjectHistoryImage historyImage = getDataList().get(position);
+        String historyImage = getDataList().get(position);
 //        holder.imageView.setTag(historyImage.getImagePath());
 
 //        Glide.with(context).load(HttpSet.BASE_URL + historyImage.getImagePath()).placeholder(R.drawable.ic_public_none_image).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_public_none_image).into(holder.imageView);
 //        holder.imageView.setTag(R.id.image_tag, historyImage.getImagePath());
 //        holder.imageView.setOnClickListener(this);
 
-        holder.draweeView.setImageURI(HttpSet.DEDICATED_URL + historyImage.getImagePath());
-        holder.draweeView.setTag(R.id.image_tag, historyImage.getImagePath());
-        holder.draweeView.setOnClickListener(this);
-        //        Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage.getImagePath(), cache);
+//        Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage.getImagePath(), cache);
+
+        Log.i("Result", "every his is : " + historyImage);
+        Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage, cache);
+        holder.imageView.setTag(historyImage);
     }
 
     @Override
     public void onClick(View v) {
 //        String url = (String) v.getTag(R.id.image_tag);
 
-        String url = (String) v.getTag(R.id.image_tag);
+        String image_postfix = (String) v.getTag();
 
-        Log.i("Result", "tag url is : " + url);
+        Log.i("Result", "tag url is : " + image_postfix);
 
-//        Intent zoom_int = new Intent(context, ZoomImage_Act.class);
-//        zoom_int.putExtra("image_url", HttpSet.BASE_URL + url);
-//        context.startActivity(zoom_int);
+        Intent zoom_int = new Intent(context, ZoomImage_Act.class);
+        zoom_int.putExtra(IntentSet.KEY_IMAGE_PATH, HttpSet.BASE_URL + image_postfix);
+        context.startActivity(zoom_int);
     }
 
     private class HistoryImageViewHolder extends DataViewHolder {
 
-        private SimpleDraweeView draweeView;
-//        private ImageView imageView;
+        //        private SimpleDraweeView draweeView;
+        private ImageView imageView;
 
         public HistoryImageViewHolder(View itemView) {
             super(itemView);
 
-//            imageView = (ImageView) itemView.findViewById(R.id.rv_history_img);
+            imageView = (ImageView) itemView.findViewById(R.id.rv_history_img);
 
-            draweeView = (SimpleDraweeView) itemView.findViewById(R.id.rv_history_image_sdv);
+//            draweeView = (SimpleDraweeView) itemView.findViewById(R.id.rv_history_image_sdv);
         }
     }
 

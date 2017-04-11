@@ -171,9 +171,9 @@ public class History_Act extends Base_Act implements View.OnClickListener {
                 break;
 
             case R.id.history_image_tv:
-//                HistoryImage_Frag historyImage_frag = new HistoryImage_Frag();
-//                showFragment(historyImage_frag, "historyImage_frag");
-//                switchStatus(R.id.history_image_tv, R.id.history_record_tv);
+                HistoryImage_Frag historyImage_frag = new HistoryImage_Frag();
+                showFragment(historyImage_frag, "historyImage_frag");
+                switchStatus(R.id.history_image_tv, R.id.history_record_tv);
                 break;
 
             default:

@@ -11,21 +11,23 @@
         android:id="@+id/product_shoe_img_vp"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
-
-    <ImageView
-        android:id="@+id/product_coupon_img"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/item_double_divider"
-        android:scaleType="centerCrop"
-        android:src="@drawable/image_product_coupon"
-        android:visibility="invisible" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/product_coupon_img"-->
+        <!--android:layout_width="70dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginEnd="@dimen/item_divider"-->
+        <!--android:layout_marginRight="@dimen/item_divider"-->
+        <!--android:layout_marginTop="@dimen/item_half_divider"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/image_product_coupon"-->
+        <!--android:visibility="visible" />-->
 
     <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->

@@ -76,4 +76,6 @@ public final class HttpResult {
 
     public final static String COUPON_REMARK = "remark";
 
+    public final static String COUPON_CHECK = "couponCheck";
+
 }

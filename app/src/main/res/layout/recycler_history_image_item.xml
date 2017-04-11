@@ -9,19 +9,19 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/rv_history_image_sdv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="@dimen/item_half_divider"
-        fresco:actualImageScaleType="centerInside"
-        fresco:failureImage="@drawable/ic_public_none_image" />
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+    <!--android:id="@+id/rv_history_image_sdv"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_margin="@dimen/item_half_divider"-->
+    <!--fresco:actualImageScaleType="centerInside"-->
+    <!--fresco:failureImage="@drawable/ic_public_none_image" />-->
 
-    <!--<ImageView-->
-    <!--android:id="@+id/rv_history_img"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_margin="@dimen/item_half_divider" />-->
+    <ImageView
+        android:id="@+id/rv_history_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/item_half_divider" />
 
 
 </LinearLayout>
