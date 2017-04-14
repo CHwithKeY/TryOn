@@ -37,9 +37,7 @@ public class ColorSnackBar {
     public void show(String text) {
         CoordinatorLayout snack_col = (CoordinatorLayout) ((AppCompatActivity) context).findViewById(R.id.snack_col);
 
-        if (snack_col == null) {
-            Log.i("Result", "snack col null");
-        }
+        Log.i("Result", "snack context is : " + context);
 
         if (snackbar != null) {
             snackbar = null;
@@ -52,7 +50,7 @@ public class ColorSnackBar {
 
         try {
             snackbar = Snackbar.make(snack_col, text, Snackbar.LENGTH_SHORT);
-        } catch (NullPointerException exception) {
+        } catch (Exception exception) {
             Log.e(getClass().getName(), context.getString(R.string.error_snackbar_can_not_find_coordinatorLayout));
             return;
         }

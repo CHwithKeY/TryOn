@@ -43,4 +43,6 @@
         android:src="@drawable/ic_main_history"
         app:fabSize="mini" />
 
+    <include layout="@layout/public_snack_page" />
+
 </android.support.design.widget.CoordinatorLayout>

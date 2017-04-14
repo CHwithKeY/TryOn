@@ -50,6 +50,8 @@ public final class HttpAction {
 
     public HttpAction(Context context) {
         this.context = context;
+
+        Log.i("Result", "context is : " + context);
         snackBar = new ColorSnackBar(context);
 
         sharedAction = new SharedAction(context);

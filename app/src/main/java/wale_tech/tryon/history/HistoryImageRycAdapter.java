@@ -62,8 +62,8 @@ public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements V
 
 //        Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage.getImagePath(), cache);
 
-        Log.i("Result", "every his is : " + historyImage);
         Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage, cache);
+        holder.imageView.setOnClickListener(this);
         holder.imageView.setTag(historyImage);
     }
 

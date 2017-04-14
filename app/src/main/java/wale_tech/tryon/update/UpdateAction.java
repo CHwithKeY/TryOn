@@ -52,10 +52,11 @@ public class UpdateAction extends BaseAction {
         String[] key = {HttpSet.KEY_APP_VERSION};
         String[] value = {version};
 
+        Log.i("Result", "check update");
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_CHECK_VERSION);
         action.setTag(HttpTag.UPDATE_CHECK_VERSION);
-        if(isShowDialog) {
+        if (isShowDialog) {
             action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
         }
         action.setHandler(new HttpHandler(context));
