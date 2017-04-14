@@ -85,7 +85,7 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
 
             if (path.equals(PATH_NFC) || path.equals(PATH_SCAN)) {
                 // 根据 SkuCode 和 username 的关联情况，实现一个账户只能对一个新的Sku获取优惠券的限制
-                productAction.checkCouponOwn(sku_code);
+                productAction.checkCouponAward(sku_code);
 //                if (!productAction.isGetCoupon()) {
 //                    createCouponDialog();
 //                }
@@ -199,7 +199,7 @@ public class Product_Act extends Base_Act implements ViewPager.OnPageChangeListe
         builder.setPositiveButton("点击领取", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                productAction.onGetCoupon(shoe.getSkuCode());
+                productAction.getCouponAward(shoe.getSkuCode());
             }
         });
 

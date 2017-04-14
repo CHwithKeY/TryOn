@@ -87,7 +87,7 @@ public final class HttpSet {
     // Coupon
     public final static String URL_COUPON = "GetUserCouponAction.action";
     public final static String URL_COUPON_CHECK = "CheckUserCouponAction.action";
-    public final static String URL_COUPON_AWARD = "GetCouponAwardAction.action";
+    public final static String URL_COUPON_AWARD = "CouponAwardAction.action";
 
     // Search & Result_Act
     public final static String URL_RESULT_FILTER = "FilterAction.action";

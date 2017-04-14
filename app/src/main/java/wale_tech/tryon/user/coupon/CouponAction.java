@@ -30,6 +30,9 @@ public class CouponAction extends BaseAction {
     public final static int COUPON_USED = 1;
     public final static int COUPON_UNABLE = 2;
 
+    public final static int COUPON_AWARD_CHECK = 10;
+    public final static int COUPON_AWARD_GET = 11;
+
     public CouponAction(Context context) {
         super(context);
     }
@@ -37,6 +40,42 @@ public class CouponAction extends BaseAction {
     public CouponAction(Context context, Base_Frag base_frag) {
         super(context);
         this.base_frag = base_frag;
+    }
+
+    public void checkCouponAward(String sku_code) {
+        if (!checkNet()) {
+            return;
+        }
+
+        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE, HttpSet.KEY_OPERATION_CODE};
+        String[] value = {sharedAction.getUsername(), sku_code, "" + COUPON_AWARD_CHECK};
+
+        HttpAction action = new HttpAction(context);
+        action.setUrl(HttpSet.URL_COUPON_AWARD);
+        action.setTag(HttpTag.COUPON_CHECK_COUPON);
+        action.setMap(key, value);
+//        action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
+        action.setHandler(new HttpHandler(context));
+
+        action.interaction();
+    }
+
+    public void getCouponAward(String sku_code) {
+        if (!checkNet()) {
+            return;
+        }
+
+        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE, HttpSet.KEY_OPERATION_CODE};
+        String[] value = {sharedAction.getUsername(), sku_code, "" + COUPON_AWARD_GET};
+
+        HttpAction action = new HttpAction(context);
+        action.setUrl(HttpSet.URL_COUPON_AWARD);
+        action.setTag(HttpTag.COUPON_AWARD_COUPON);
+        action.setMap(key, value);
+        action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
+        action.setHandler(new HttpHandler(context));
+
+        action.interaction();
     }
 
     public void getCoupon(int get_coupon_type) {
