@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.util.ArrayList;
 
 import wale_tech.tryon.R;
@@ -89,7 +86,6 @@ public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements V
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.rv_history_img);
-
 //            draweeView = (SimpleDraweeView) itemView.findViewById(R.id.rv_history_image_sdv);
         }
     }

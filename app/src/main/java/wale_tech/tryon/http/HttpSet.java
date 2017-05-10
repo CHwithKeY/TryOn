@@ -83,7 +83,7 @@ public final class HttpSet {
     public final static String URL_HISTORY = "HistoryAction.action";
     public final static String URL_GET_HISTORY_IMAGE = "GetHistoryImageAction.action";
     public final static String URL_BIND_HISTORY_IMAGE = "HistoryImageBindAction.action";
-
+    public final static String URL_GET_HISTORY_BATCH_IMAGE = "GetHistoryBatchImageAction.action";
     // Coupon
     public final static String URL_COUPON = "GetUserCouponAction.action";
     public final static String URL_COUPON_CHECK = "CheckUserCouponAction.action";
@@ -134,6 +134,9 @@ public final class HttpSet {
     public final static String KEY_SIZE = "size";
 
     public final static String KEY_IMAGE_PATH = "image_path";
+
+    // History Set
+    public final static String KEY_BATCH_IMAGE_CODE = "batch_image_code";
 
     // Product Set
     public final static String KEY_EPC_CODE = "epc_code";

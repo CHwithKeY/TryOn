@@ -45,7 +45,7 @@ public final class HttpTag {
     public final static String HISTORY_GET_RECORD = "history_get_record";
     public final static String HISTORY_GET_IMAGE = "history_get_image";
     public final static String HISTORY_BIND_IMAGE = "history_bind_image";
-
+    public final static String HISTORY_GET_BATCH_IMAGE = "history_get_batch_image";
     // Coupon_Act
     public final static String COUPON_COUPON = "coupon_coupon";
     public final static String COUPON_CHECK_COUPON = "coupon_check_coupon";

@@ -1,8 +1,10 @@
 package wale_tech.tryon.history;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -18,6 +20,8 @@ public class History_Act extends Base_Act implements View.OnClickListener {
 
 //    private RecyclerView history_rv;
 //    private HistoryAction historyAction;
+
+    public static AppCompatActivity history_act;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class History_Act extends Base_Act implements View.OnClickListener {
 //        if (historyAction.getHistory(BaseAction.REQUEST_DEFAULT) == BaseAction.ACTION_NET_DOWN) {
 //            showNetDownPage(R.id.activity_history_layout);
 //        }
+        history_act = this;
 
         HistoryRecord_Frag historyRecord_frag = new HistoryRecord_Frag();
         showFragment(historyRecord_frag, "historyRecord_frag");
