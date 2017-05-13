@@ -8,8 +8,8 @@ android {
         applicationId "wale_tech.tryon"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 13
-        versionName "2.4"
+        versionCode 14
+        versionName "2.5"
     }
 
     sourceSets {

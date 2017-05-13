@@ -15,6 +15,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 
 import wale_tech.tryon.base.Base_Act;
+import wale_tech.tryon.history.HistoryImage_Act;
 import wale_tech.tryon.history.History_Act;
 import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.http.HttpTag;
@@ -42,7 +43,9 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
 
         setupScanImgBtn();
 
-        setupHistoryImgBtn();
+        setupHistoryRecordFab();
+
+        setupHistoryImageFab();
 
         setupUserFab();
 
@@ -74,9 +77,14 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
         scan_imgbtn.setOnClickListener(this);
     }
 
-    private void setupHistoryImgBtn() {
-        final FloatingActionButton history_fab = (FloatingActionButton) findViewById(R.id.main_history_fab);
-        history_fab.setOnClickListener(this);
+    private void setupHistoryRecordFab() {
+        final FloatingActionButton history_record_fab = (FloatingActionButton) findViewById(R.id.main_history_record_fab);
+        history_record_fab.setOnClickListener(this);
+    }
+
+    private void setupHistoryImageFab() {
+        final FloatingActionButton history_image_fab = (FloatingActionButton) findViewById(R.id.main_history_image_fab);
+        history_image_fab.setOnClickListener(this);
     }
 
     private void setupUserFab() {
@@ -97,8 +105,10 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
     private UpdateAction updateAction;
 
     private void checkUpdate() {
-        updateAction = new UpdateAction(this);
-        updateAction.checkVersion(false);
+        if (PermissionAction.checkAutoRequest(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, PermissionSet.WRITE_EXTERNAL_STORAGE)) {
+            updateAction = new UpdateAction(this);
+            updateAction.checkVersion(false);
+        }
     }
 
     @Override
@@ -171,8 +181,12 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
                 toScan();
                 break;
 
-            case R.id.main_history_fab:
-                toHistory();
+            case R.id.main_history_record_fab:
+                toHistoryRecord();
+                break;
+
+            case R.id.main_history_image_fab:
+                toHistoryImage();
                 break;
 
             case R.id.main_user_fab:
@@ -206,9 +220,15 @@ public class MainActivity extends Base_Act implements View.OnClickListener, Comp
         startActivity(login_int);
     }
 
-    private void toHistory() {
-        Intent history_int = new Intent(this, History_Act.class);
-        startActivity(history_int);
+    private void toHistoryRecord() {
+        Intent history_record_int = new Intent(this, History_Act.class);
+        startActivity(history_record_int);
+    }
+
+    private void toHistoryImage() {
+        Log.i("Result", "click history image");
+        Intent history_image_int = new Intent(this, HistoryImage_Act.class);
+        startActivity(history_image_int);
     }
 
     @Override

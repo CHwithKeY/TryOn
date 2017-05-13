@@ -93,7 +93,7 @@ public class HistoryBatchImage_Act extends Base_Act {
 
     private void handleDefaultList(ArrayList<String> imageList) {
         if (imageList.size() == 0) {
-            showEmptyPage(R.id.fragment_history_image_layout);
+            showEmptyPage(R.id.activity_history_batch_image_layout);
         }
         setupRecyclerView(imageList);
     }

@@ -71,7 +71,8 @@
 
         <activity android:name=".user.cart.orderPart.Order_Success_Act" />
         <activity android:name=".history.ZoomImage_Act" />
-        <activity android:name=".history.HistoryBatchImage_Act"></activity>
+        <activity android:name=".history.HistoryBatchImage_Act" />
+        <activity android:name=".history.HistoryImage_Act" />
     </application>
 
 </manifest>

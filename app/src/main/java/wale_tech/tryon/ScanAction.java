@@ -74,21 +74,24 @@ public class ScanAction extends BaseAction {
         }
 
         if (scan_result.startsWith("capture")) {
-//            String image_postfix = scan_result.replace("-", "/");
-//            Log.i("Result", "image postfix is : " + image_postfix);
-//            String image_path = HttpSet.BASE_URL + image_postfix;
+            Intent capture_int = new Intent(context, HistoryBatchImage_Act.class);
+            capture_int.putExtra(IntentSet.KEY_BATCH_IMAGE_CODE, scan_result);
+            context.startActivity(capture_int);
 
-            String[] scan_result_arr = scan_result.split("-");
-            if (scan_result_arr.length >= 2) {
-                String batch_image_code = scan_result_arr[1];
+            bindHistoryImage(scan_result);
+            return;
 
-                Intent capture_int = new Intent(context, HistoryBatchImage_Act.class);
-                capture_int.putExtra(IntentSet.KEY_BATCH_IMAGE_CODE, batch_image_code);
-                context.startActivity(capture_int);
-
-                bindHistoryImage(batch_image_code);
-                return;
-            }
+//            String[] scan_result_arr = scan_result.split("-");
+//            if (scan_result_arr.length >= 2) {
+//                String batch_image_code = scan_result_arr[1];
+//
+//                Intent capture_int = new Intent(context, HistoryBatchImage_Act.class);
+//                capture_int.putExtra(IntentSet.KEY_BATCH_IMAGE_CODE, batch_image_code);
+//                context.startActivity(capture_int);
+//
+//                bindHistoryImage(batch_image_code);
+//                return;
+//            }
         }
 
         if (work_space.isEmpty()) {
