@@ -18,6 +18,7 @@ import wale_tech.tryon.login.Login_Act;
 import wale_tech.tryon.pattern.PatternAction;
 import wale_tech.tryon.publicObject.ObjectCoupon;
 import wale_tech.tryon.publicSet.IntentSet;
+import wale_tech.tryon.user.coupon.CouponAction;
 import wale_tech.tryon.user.favourite.FavAction;
 import wale_tech.tryon.R;
 import wale_tech.tryon.ScanAction;
@@ -36,6 +37,7 @@ import wale_tech.tryon.publicObject.ObjectShoeImage;
 public class ProductAction extends BaseAction {
 
     private FavAction favAction;
+    private CouponAction couponAction;
 
 //    private boolean isGetCoupon;
 
@@ -46,6 +48,7 @@ public class ProductAction extends BaseAction {
     public ProductAction(Context context) {
         super(context);
         favAction = new FavAction(context);
+        couponAction = new CouponAction(context);
 //        isGetCoupon = false;
     }
 
@@ -102,50 +105,50 @@ public class ProductAction extends BaseAction {
         action.interaction();
     }
 
-    public void checkCouponOwn(String sku_code) {
-        if (!checkNet()) {
-            return;
-        }
+    public void checkCouponAward(String sku_code) {
+        couponAction.checkCouponAward(sku_code);
+    }
 
-        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE};
-        String[] value = {sharedAction.getUsername(), sku_code};
+    public void getCouponAward(String sku_code) {
+        couponAction.getCouponAward(sku_code);
+    }
 
-        HttpAction action = new HttpAction(context);
-        action.setUrl(HttpSet.URL_COUPON_CHECK);
-        action.setTag(HttpTag.COUPON_CHECK_COUPON);
-        action.setMap(key, value);
+//
+//    public void checkCouponOwn(String sku_code) {
+//        if (!checkNet()) {
+//            return;
+//        }
+//
+//        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE};
+//        String[] value = {sharedAction.getUsername(), sku_code};
+//
+//        HttpAction action = new HttpAction(context);
+//        action.setUrl(HttpSet.URL_COUPON_AWARD);
+//        action.setTag(HttpTag.COUPON_CHECK_COUPON);
+//        action.setMap(key, value);
+////        action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
+//        action.setHandler(new HttpHandler(context));
+//
+//        action.interaction();
+//    }
+
+//    public void onGetCoupon(String sku_code) {
+//        if (!checkNet()) {
+//            return;
+//        }
+//
+//        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE};
+//        String[] value = {sharedAction.getUsername(), sku_code};
+//
+//        HttpAction action = new HttpAction(context);
+//        action.setUrl(HttpSet.URL_COUPON_AWARD);
+//        action.setTag(HttpTag.COUPON_AWARD_COUPON);
+//        action.setMap(key, value);
 //        action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
-        action.setHandler(new HttpHandler(context));
-
-        action.interaction();
-    }
-
-    public void onGetCoupon(String sku_code) {
-        if (!checkNet()) {
-            return;
-        }
-
-//        if (!checkLoginStatus()) {
-//            return;
-//        }
-
-//        if (isGetCoupon) {
-//            showSnack(context.getString(R.string.product_action_already_get_coupon));
-//            return;
-//        }
-
-        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_SKU_CODE};
-        String[] value = {sharedAction.getUsername(), sku_code};
-
-        HttpAction action = new HttpAction(context);
-        action.setUrl(HttpSet.URL_COUPON_AWARD);
-        action.setTag(HttpTag.COUPON_AWARD_COUPON);
-        action.setMap(key, value);
-        action.setDialog(context.getString(R.string.base_search_progress_title), context.getString(R.string.base_search_progress_msg));
-        action.setHandler(new HttpHandler(context));
-
-        action.interaction();
-    }
+//        action.setHandler(new HttpHandler(context));
+//
+//        action.interaction();
+//    }
 
     public ObjectShoe handleDetailsResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
@@ -182,7 +185,7 @@ public class ProductAction extends BaseAction {
 
     public boolean handleCouponCheckResponse(String result) throws JSONException {
         JSONObject obj = new JSONObject(result);
-        return obj.getBoolean(HttpResult.COUPON_CHECK);
+        return obj.getBoolean(HttpResult.RESULT);
     }
 
     public void handleCouponAwardResponse(String result) throws JSONException {

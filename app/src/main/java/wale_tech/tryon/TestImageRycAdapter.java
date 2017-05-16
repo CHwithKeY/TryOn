@@ -1,15 +1,19 @@
-package wale_tech.tryon.history;
+package wale_tech.tryon;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.io.File;
 import java.util.ArrayList;
 
-import wale_tech.tryon.R;
+import wale_tech.tryon.history.ZoomImage_Act;
 import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.publicAdapter.BaseRycAdapter;
 import wale_tech.tryon.publicClass.BitmapCache;
@@ -22,9 +26,9 @@ import static wale_tech.tryon.publicClass.Methods.cast;
  * Created by lenovo on 2017/2/21.
  */
 
-public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements View.OnClickListener {
+public abstract class TestImageRycAdapter extends BaseRycAdapter implements View.OnClickListener {
 
-    public HistoryImageRycAdapter(ArrayList<String> dataList) {
+    public TestImageRycAdapter(ArrayList<String> dataList) {
         super(dataList);
     }
 
@@ -50,18 +54,24 @@ public abstract class HistoryImageRycAdapter extends BaseRycAdapter implements V
     public void onBindDataViewHolder(DataViewHolder parent, int position) {
         HistoryImageViewHolder holder = (HistoryImageViewHolder) parent;
 
-        String historyImage = getDataList().get(position);
-//        holder.imageView.setTag(historyImage.getImagePath());
+        String path = getDataList().get(position);
+        path = Environment.getExternalStorageDirectory().getPath() + path;
 
-//        Glide.with(context).load(HttpSet.BASE_URL + historyImage.getImagePath()).placeholder(R.drawable.ic_public_none_image).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_public_none_image).into(holder.imageView);
-//        holder.imageView.setTag(R.id.image_tag, historyImage.getImagePath());
-//        holder.imageView.setOnClickListener(this);
+        holder.imageView.setImageBitmap(getDiskBitmap(path));
 
-//        Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage.getImagePath(), cache);
+    }
 
-        Methods.downloadImage(holder.imageView, HttpSet.BASE_URL + historyImage, cache);
-        holder.imageView.setOnClickListener(this);
-        holder.imageView.setTag(historyImage);
+    private Bitmap getDiskBitmap(String pathString) {
+        Bitmap bitmap = null;
+        try {
+            File file = new File(pathString);
+            if (file.exists()) {
+                bitmap = BitmapFactory.decodeFile(pathString);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return bitmap;
     }
 
     @Override

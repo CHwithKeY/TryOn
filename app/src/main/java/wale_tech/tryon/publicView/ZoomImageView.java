@@ -31,7 +31,7 @@ public class ZoomImageView extends android.support.v7.widget.AppCompatImageView 
     /**
      * 初始化时的缩放比例，如果图片宽或高大于屏幕，此值将小于0
      */
-    private float initScale = 1.0f;
+    private float initScale = 2.0f;
     private boolean once = true;
 
     /**

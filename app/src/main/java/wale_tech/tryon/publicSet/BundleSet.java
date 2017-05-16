@@ -16,4 +16,6 @@ public final class BundleSet {
     public final static String KEY_TRIGGER_PATH = "key_trigger_path";
     public final static String KEY_TRIGGER_WORK_SPACE = "key_trigger_work_space";
 
+    public final static String KEY_DATE_TIME = "key_date_time";
+
 }

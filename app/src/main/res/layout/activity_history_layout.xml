@@ -6,48 +6,47 @@
     android:layout_height="match_parent"
     tools:context="wale_tech.tryon.history.History_Act">
 
-    <LinearLayout
-        android:id="@+id/history_title_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/item_double_divider"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/history_record_tv"
-            style="@style/history_title_tv_style"
-            android:background="@drawable/dw_color_assist_eclipse_entire_tv"
-            android:text="试鞋记录"
-            android:textColor="@android:color/white" />
-
-        <View
-            android:layout_width="5dp"
-            android:layout_height="5dp"
-            android:layout_margin="@dimen/item_divider"
-            android:background="@color/colorMain" />
-
-        <TextView
-            android:id="@+id/history_image_tv"
-            style="@style/history_title_tv_style"
-            android:background="@drawable/dw_color_assist_eclipse_empty_tv"
-            android:text="试鞋图片"
-            android:textColor="@color/colorAssist" />
-
-    </LinearLayout>
-
-    <!--<android.support.v7.widget.RecyclerView-->
-    <!--android:id="@+id/history_rv"-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/history_title_ll"-->
     <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_below="@id/history_title_ll"-->
-    <!--tools:listitem="@layout/recycler_shoe_history_item" />-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/item_double_divider"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="horizontal">-->
 
-    <RelativeLayout
-        android:id="@+id/history_child_rl"
+    <!--<TextView-->
+    <!--android:id="@+id/history_record_tv"-->
+    <!--style="@style/history_title_tv_style"-->
+    <!--android:background="@drawable/dw_color_assist_eclipse_entire_tv"-->
+    <!--android:text="试鞋记录"-->
+    <!--android:textColor="@android:color/white" />-->
+
+    <!--<View-->
+    <!--android:layout_width="5dp"-->
+    <!--android:layout_height="5dp"-->
+    <!--android:layout_margin="@dimen/item_divider"-->
+    <!--android:background="@color/colorMain" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/history_image_tv"-->
+    <!--style="@style/history_title_tv_style"-->
+    <!--android:background="@drawable/dw_color_assist_eclipse_empty_tv"-->
+    <!--android:text="试鞋图片"-->
+    <!--android:textColor="@color/colorAssist" />-->
+
+    <!--</LinearLayout>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/history_record_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/history_title_ll" />
+        tools:listitem="@layout/recycler_shoe_history_item" />
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/history_child_rl"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_below="@id/history_title_ll" />-->
 
     <include layout="@layout/public_back_item" />
 

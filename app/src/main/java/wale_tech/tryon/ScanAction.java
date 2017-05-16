@@ -1,6 +1,5 @@
 package wale_tech.tryon;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,17 +8,14 @@ import android.util.Log;
 import com.zbar.lib.CaptureActivity;
 
 import wale_tech.tryon.base.BaseAction;
-import wale_tech.tryon.history.ZoomImage_Act;
+import wale_tech.tryon.history.HistoryBatchImage_Act;
 import wale_tech.tryon.http.HttpAction;
 import wale_tech.tryon.http.HttpHandler;
 import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.http.HttpTag;
-import wale_tech.tryon.publicClass.Methods;
 import wale_tech.tryon.publicSet.IntentSet;
-import wale_tech.tryon.publicSet.PermissionSet;
 import wale_tech.tryon.trigger.TriggerList_Act;
 import wale_tech.tryon.trigger.TriggerSet;
-import wale_tech.tryon.user.setting.PermissionAction;
 
 /**
  * Created by KeY on 2016/10/27.
@@ -78,15 +74,24 @@ public class ScanAction extends BaseAction {
         }
 
         if (scan_result.startsWith("capture")) {
-            String image_postfix = scan_result.replace("-", "/");
-            Log.i("Result", "image postfix is : " + image_postfix);
-            String image_path = HttpSet.BASE_URL + image_postfix;
-            Intent capture_int = new Intent(context, ZoomImage_Act.class);
-            capture_int.putExtra(IntentSet.KEY_IMAGE_PATH, image_path);
+            Intent capture_int = new Intent(context, HistoryBatchImage_Act.class);
+            capture_int.putExtra(IntentSet.KEY_BATCH_IMAGE_CODE, scan_result);
             context.startActivity(capture_int);
 
-            bindHistoryImage(image_postfix);
+            bindHistoryImage(scan_result);
             return;
+
+//            String[] scan_result_arr = scan_result.split("-");
+//            if (scan_result_arr.length >= 2) {
+//                String batch_image_code = scan_result_arr[1];
+//
+//                Intent capture_int = new Intent(context, HistoryBatchImage_Act.class);
+//                capture_int.putExtra(IntentSet.KEY_BATCH_IMAGE_CODE, batch_image_code);
+//                context.startActivity(capture_int);
+//
+//                bindHistoryImage(batch_image_code);
+//                return;
+//            }
         }
 
         if (work_space.isEmpty()) {
@@ -101,13 +106,13 @@ public class ScanAction extends BaseAction {
         context.startActivity(trigger_int);
     }
 
-    private void bindHistoryImage(String image_postfix) {
+    private void bindHistoryImage(String batch_image_code) {
         if (!checkNet()) {
             return;
         }
 
-        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_IMAGE_PATH};
-        String[] value = {sharedAction.getUsername(), image_postfix};
+        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_BATCH_IMAGE_CODE};
+        String[] value = {sharedAction.getUsername(), batch_image_code};
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_BIND_HISTORY_IMAGE);

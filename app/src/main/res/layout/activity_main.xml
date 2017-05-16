@@ -35,12 +35,23 @@
         app:fabSize="mini" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/main_history_fab"
+        android:id="@+id/main_history_record_fab"
         style="@style/main_fab_style"
         android:layout_marginBottom="@dimen/item_double_divider"
         android:layout_marginLeft="75dp"
         android:layout_marginRight="75dp"
-        android:src="@drawable/ic_main_history"
+        android:src="@drawable/ic_main_history_record"
         app:fabSize="mini" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/main_history_image_fab"
+        style="@style/main_fab_style"
+        android:layout_marginBottom="@dimen/item_double_divider"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
+        android:src="@drawable/ic_main_history_image"
+        app:fabSize="mini" />
+
+    <include layout="@layout/public_snack_page" />
 
 </android.support.design.widget.CoordinatorLayout>

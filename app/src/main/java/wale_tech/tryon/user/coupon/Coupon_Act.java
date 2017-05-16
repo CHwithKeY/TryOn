@@ -68,12 +68,12 @@ public class Coupon_Act extends Base_Act {
     }
 
     private void setupTabLayout(ViewPager viewPager) {
-        final TabLayout lockinfo_tab = (TabLayout) findViewById(R.id.coupon_info_tab);
-        lockinfo_tab.setupWithViewPager(viewPager);
+        final TabLayout coupon_info_tab = (TabLayout) findViewById(R.id.coupon_info_tab);
+        coupon_info_tab.setupWithViewPager(viewPager);
         // 设置tab的文字，在被选中后和没被选中的时候，分别显示的颜色
-        lockinfo_tab.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAssist));
-        lockinfo_tab.setTabTextColors(getResources().getColor(R.color.colorMain), getResources().getColor(R.color.colorAssist));
-        lockinfo_tab.setSelectedTabIndicatorHeight(7);
+        coupon_info_tab.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAssist));
+        coupon_info_tab.setTabTextColors(getResources().getColor(R.color.colorMain), getResources().getColor(R.color.colorAssist));
+        coupon_info_tab.setSelectedTabIndicatorHeight(7);
     }
 
     @Override

@@ -46,13 +46,39 @@ public abstract class Base_Frag extends Fragment {
         transaction.commit();
     }
 
+    public void removeEmptyPage() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        try {
+            if (fragmentManager.findFragmentByTag("emptyPage_Frag") != null) {
+                transaction.remove(fragmentManager.findFragmentByTag("emptyPage_Frag"));
+            }
+        } catch (Exception exception) {
+            Log.e(getClass().getName(), "空数据 EmptyPage_Frag 导入的父布局的id错误或不存在");
+        }
+        transaction.commit();
+    }
+
     public void showNetDownPage(int parent_resId) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         try {
             transaction.add(parent_resId, new NetDown_Frag(), "netDown_Frag");
         } catch (Exception exception) {
-            Log.e(getClass().getName(), "空数据 EmptyPage_Frag 导入的父布局的id错误或不存在");
+            Log.e(getClass().getName(), "空数据 NetDownPage_Frag 导入的父布局的id错误或不存在");
+        }
+        transaction.commit();
+    }
+
+    public void removeNetDownPage() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        try {
+            if (fragmentManager.findFragmentByTag("netDown_Frag") != null) {
+                transaction.remove(fragmentManager.findFragmentByTag("netDown_Frag"));
+            }
+        } catch (Exception exception) {
+            Log.e(getClass().getName(), "空数据 NetDownPage_Frag 导入的父布局的id错误或不存在");
         }
         transaction.commit();
     }

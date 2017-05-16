@@ -43,7 +43,7 @@ public class NfcHelper {
             split_result = result.substring(sub_str.length(), result.length());
             Log.i("Result", "split is :" + split_result);
 
-            if (!split_result.startsWith("ws") && !split_result.startsWith("sku")) {
+            if (!split_result.startsWith("ws") && !split_result.startsWith("sku") && !split_result.startsWith("capture")) {
                 onToastErrorMsg(context);
                 return "";
             }

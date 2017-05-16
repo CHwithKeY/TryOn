@@ -2,7 +2,6 @@ package wale_tech.tryon.history;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,9 +16,7 @@ import wale_tech.tryon.http.HttpAction;
 import wale_tech.tryon.http.HttpHandler;
 import wale_tech.tryon.http.HttpSet;
 import wale_tech.tryon.http.HttpTag;
-import wale_tech.tryon.publicObject.ObjectHistoryImage;
 import wale_tech.tryon.publicObject.ObjectShoe;
-import wale_tech.tryon.publicObject.ObjectUtil;
 
 /**
  * Created by KeY on 2016/11/2.
@@ -71,7 +68,7 @@ public class HistoryAction extends BaseAction {
         return ACTION_DONE;
     }
 
-    public int getHistoryImage(int request) {
+    public int getHistoryImage(int request, String date_time) {
         if (!checkNet()) {
             return ACTION_NET_DOWN;
         }
@@ -83,8 +80,8 @@ public class HistoryAction extends BaseAction {
 
         checkRequest(request);
 
-        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_LAST_ID};
-        String[] value = {sharedAction.getUsername(), "" + sharedAction.getLastId()};
+        String[] key = {HttpSet.KEY_USERNAME, /*HttpSet.KEY_LAST_ID*/ HttpSet.KEY_DATE_TIME};
+        String[] value = {sharedAction.getUsername(), /*"" + sharedAction.getLastId()*/ date_time};
 
         HttpAction action = new HttpAction(context);
         action.setUrl(HttpSet.URL_GET_HISTORY_IMAGE);
@@ -94,6 +91,31 @@ public class HistoryAction extends BaseAction {
         } else {
             action.setHandler(new HttpHandler(context, fragment));
         }
+        action.setMap(key, value);
+        action.setDialog(context.getString(R.string.base_search_progress_msg));
+        action.interaction();
+        return ACTION_DONE;
+    }
+
+    public int getHistoryBatchImage(int request, String batch_image_code) {
+        if (!checkNet()) {
+            return ACTION_NET_DOWN;
+        }
+
+        if (!checkLoginStatus()) {
+            ((AppCompatActivity) context).finish();
+            return ACTION_LACK;
+        }
+
+        checkRequest(request);
+
+        String[] key = {HttpSet.KEY_USERNAME, HttpSet.KEY_BATCH_IMAGE_CODE};
+        String[] value = {sharedAction.getUsername(), batch_image_code};
+
+        HttpAction action = new HttpAction(context);
+        action.setUrl(HttpSet.URL_GET_HISTORY_BATCH_IMAGE);
+        action.setTag(HttpTag.HISTORY_GET_BATCH_IMAGE);
+        action.setHandler(new HttpHandler(context));
         action.setMap(key, value);
         action.setDialog(context.getString(R.string.base_search_progress_msg));
         action.interaction();

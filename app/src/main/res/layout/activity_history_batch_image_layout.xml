@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_history_batch_image_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wale_tech.tryon.history.HistoryBatchImage_Act">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="当前批次图片"
+        android:textSize="@dimen/text_large_size" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/history_batch_image_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        tools:listitem="@layout/recycler_history_image_item" />
+
+    <include layout="@layout/public_back_item" />
+
+    <include layout="@layout/public_snack_page" />
+
+</RelativeLayout>

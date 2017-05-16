@@ -13,6 +13,7 @@ public final class IntentSet {
 
     public final static String KEY_SEARCH_WORD = "key_search_word";
     public final static String KEY_IMAGE_PATH = "key_image_path";
+    public final static String KEY_BATCH_IMAGE_CODE = "key_batch_image_code";
 
     public final static String KEY_ORDER_NUM = "key_order_num";
 
