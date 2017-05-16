@@ -29,15 +29,16 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".login.Login_Act" />
+        <activity android:name=".user.User_Act" />
+        <activity android:name=".Test_Act">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.Login_Act" />
-        <activity android:name=".user.User_Act" />
-        <activity android:name=".Test_Act" />
         <activity android:name=".user.favourite.Favourite_Act" />
         <activity android:name=".user.coupon.Coupon_Act" />
         <activity android:name=".history.History_Act" />

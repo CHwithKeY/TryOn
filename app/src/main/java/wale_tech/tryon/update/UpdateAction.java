@@ -165,7 +165,7 @@ public class UpdateAction extends BaseAction {
             File sdcard_dir = Environment.getExternalStorageDirectory();
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 
-            String file_path = sdcard_dir.getPath() + "/WaleSmart";
+            String file_path = sdcard_dir.getPath() + "/TryOn";
             File app_dir = new File(file_path);
 
             if (!app_dir.exists()) {
